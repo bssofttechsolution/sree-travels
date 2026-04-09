@@ -66,7 +66,7 @@ export default function HomePage() {
       </section>
 
       {/* STATS */}
-      <section className="section-spacing" style={{ background: 'var(--dark)' }}>
+      <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(30,58,138,0.08) 50%, var(--dark) 100%)' }}>
         <div className="container-main">
           <div className="stats-grid">
             <div className="stat-card">
@@ -90,9 +90,9 @@ export default function HomePage() {
       </section>
 
       {/* TRUST SIGNALS BAR */}
-      <section style={{ background: 'var(--darker)', borderTop: '1px solid var(--card-border)', borderBottom: '1px solid var(--card-border)', padding: '1.5rem 0' }}>
+      <section style={{ background: 'linear-gradient(90deg, var(--darker), rgba(15,23,42,0.95), var(--darker))', borderTop: '1px solid rgba(245,158,11,0.1)', borderBottom: '1px solid rgba(245,158,11,0.1)', padding: '1.75rem 0' }}>
         <div className="container-main">
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem', alignItems: 'center', opacity: 0.8 }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2.5rem', alignItems: 'center' }}>
             {[
               '✅ 100% Verified Drivers',
               '📡 GPS Tracked Fleet',
@@ -101,7 +101,7 @@ export default function HomePage() {
               '⭐ 4.8★ Rated on Google',
               '🏆 Since 2015',
             ].map((badge, i) => (
-              <span key={i} style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600, whiteSpace: 'nowrap' }}>{badge}</span>
+              <span key={i} style={{ fontSize: '0.88rem', color: '#cbd5e1', fontWeight: 600, whiteSpace: 'nowrap', letterSpacing: '0.01em' }}>{badge}</span>
             ))}
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function HomePage() {
       </section>
 
       {/* CITIES WE SERVE */}
-      <section className="section-spacing" style={{ background: 'var(--dark)' }}>
+      <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(49,46,129,0.06) 50%, var(--dark) 100%)' }}>
         <div className="container-main">
           <h2 style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
             <span className="gold-text">Cities We Serve</span> in Jharkhand
@@ -184,7 +184,7 @@ export default function HomePage() {
       </section>
 
       {/* OUR FLEET */}
-      <section className="section-spacing" style={{ background: 'var(--dark)' }}>
+      <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(120,53,15,0.06) 50%, var(--dark) 100%)' }}>
         <div className="container-main">
           <h2 style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
             <span className="gold-text">Our Fleet</span> — Choose Your Ride
@@ -236,7 +236,7 @@ export default function HomePage() {
       </section>
 
       {/* HOW TO BOOK */}
-      <section className="section-spacing" style={{ background: 'var(--dark)' }}>
+      <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(6,78,59,0.06) 50%, var(--dark) 100%)' }}>
         <div className="container-main">
           <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <span className="gold-text">Book Your Cab</span> in 3 Easy Steps
@@ -279,7 +279,7 @@ export default function HomePage() {
       </section>
 
       {/* SEO CONTENT BLOCK */}
-      <section className="section-spacing" style={{ background: 'var(--dark)' }}>
+      <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(30,41,59,0.4) 50%, var(--dark) 100%)' }}>
         <div className="container-main">
           <div className="content-block">
             <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
