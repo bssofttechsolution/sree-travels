@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     'cab booking jamshedpur phone number', 'sree travels whatsapp', 'sree travels address',
     'taxi booking number jamshedpur', 'cab service contact jharkhand',
   ],
-  alternates: { canonical: 'https://sreetravel.com/contact' },
+  alternates: { canonical: 'https://www.sreetravel.com/contact' },
   openGraph: {
     title: 'Contact Sree Travels | ☎ +919204714249',
     description: 'Call, WhatsApp, or visit us. 24/7 cab booking across Jharkhand.',
-    url: 'https://sreetravel.com/contact',
+    url: 'https://www.sreetravel.com/contact',
     images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: 'Contact Sree Travels' }],
   },
 };
@@ -139,9 +139,9 @@ export default function ContactPage() {
             "@context": "https://schema.org",
             "@type": "ContactPage",
             "name": "Contact Sree Travels",
-            "url": "https://sreetravel.com/contact",
+            "url": "https://www.sreetravel.com/contact",
             "mainEntity": {
-              "@type": "TaxiService",
+              "@type": "LocalBusiness",
               "name": "Sree Travels",
               "telephone": "+919204714249",
               "email": "info@sreetravel.com",

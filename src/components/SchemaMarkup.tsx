@@ -7,15 +7,15 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
   const generateSchema = () => {
     const schemas: Record<string, unknown>[] = [];
 
-    // TaxiService schema (always present)
+    // LocalBusiness/TaxiService schema (always present)
     schemas.push({
       "@context": "https://schema.org",
-      "@type": "TaxiService",
+      "@type": "LocalBusiness",
       "name": "Sree Travels",
       "telephone": "+919204714249",
       "email": "info@sreetravel.com",
-      "url": "https://sreetravel.com",
-      "logo": "https://sreetravel.com/logo.webp",
+      "url": "https://www.sreetravel.com",
+      "logo": "https://www.sreetravel.com/logo.webp",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Dimna Road, Mango",
@@ -44,9 +44,9 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       "@context": "https://schema.org",
       "@type": "AggregateRating",
       "itemReviewed": {
-        "@type": "TaxiService",
+        "@type": "LocalBusiness",
         "name": "Sree Travels",
-        "url": "https://sreetravel.com",
+        "url": "https://www.sreetravel.com",
       },
       "ratingValue": "4.8",
       "reviewCount": data.reviewCount || "2847",
@@ -63,7 +63,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
           "@type": "ListItem",
           "position": index + 1,
           "name": item.name,
-          "item": item.url ? `https://sreetravel.com${item.url}` : undefined,
+          "item": item.url ? `https://www.sreetravel.com${item.url}` : undefined,
         })),
       });
     }
@@ -92,10 +92,10 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         "name": `${data.from} to ${data.to} Cab Service`,
         "description": `Book cab from ${data.from} to ${data.to}. Distance: ${data.distance}km. Starting fare: ₹${data.fare}`,
         "provider": {
-          "@type": "TaxiService",
+          "@type": "LocalBusiness",
           "name": "Sree Travels",
           "telephone": "+919204714249",
-          "url": "https://sreetravel.com",
+          "url": "https://www.sreetravel.com",
         },
       });
     }
@@ -108,7 +108,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         "name": `${data.serviceName} - Sree Travels`,
         "description": data.serviceDescription || `${data.serviceName} service in ${data.areaServed}`,
         "provider": {
-          "@type": "TaxiService",
+          "@type": "LocalBusiness",
           "name": "Sree Travels",
           "telephone": "+919204714249",
         },
