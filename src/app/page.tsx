@@ -38,25 +38,24 @@ export default function HomePage() {
       <section className="hero-section">
         <HeroSlider />
         <div className="container-main" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ maxWidth: '700px', marginBottom: '2rem' }}>
-            <div style={{ display: 'inline-block', padding: '0.35rem 0.85rem', background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.3)', borderRadius: '8px', fontSize: '0.8rem', color: '#f59e0b', fontWeight: 600, marginBottom: '1rem' }}>
+          <div style={{ maxWidth: '700px', marginBottom: '1.75rem' }}>
+            <div style={{ display: 'inline-block', padding: '0.3rem 0.75rem', background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.3)', borderRadius: '8px', fontSize: '0.75rem', color: '#f59e0b', fontWeight: 600, marginBottom: '0.85rem' }}>
               🏆 Jharkhand&apos;s Most Trusted Cab Service — Since 2015
             </div>
-            <h1 style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', fontWeight: 900, lineHeight: 1.15, marginBottom: '1rem' }}>
+            <h1 style={{ fontSize: 'clamp(1.6rem, 5vw, 3rem)', fontWeight: 900, lineHeight: 1.15, marginBottom: '0.85rem' }}>
               <span className="gold-text">Book Your Cab</span> in Jharkhand<br />
-              <span style={{ fontSize: 'clamp(1rem, 2.5vw, 1.5rem)', color: '#94a3b8', fontWeight: 600 }}>
+              <span style={{ fontSize: 'clamp(0.85rem, 2.5vw, 1.5rem)', color: '#94a3b8', fontWeight: 600 }}>
                 15 Cities • 100+ Cabs • 24/7 Service
               </span>
             </h1>
-            <p style={{ color: '#94a3b8', fontSize: '1rem', maxWidth: '550px', marginBottom: '1.5rem' }}>
-              Reliable AC cabs with professional drivers for local travel, outstation trips, airport transfers, and corporate needs. 
-              Serving Jamshedpur, Ranchi, Dhanbad, Bokaro & more.
+            <p style={{ color: '#94a3b8', fontSize: 'clamp(0.85rem, 2.5vw, 1rem)', maxWidth: '550px', marginBottom: '1.25rem', lineHeight: 1.6 }}>
+              Reliable AC cabs with professional drivers for local travel, outstation trips, airport transfers, and corporate needs.
             </p>
             <div className="hero-btn-group">
-              <a href="tel:+919204714249" className="btn-primary" style={{ fontSize: '1rem', padding: '0.85rem 1.75rem', display: 'flex' }}>
-                📞 Call Now: +91 92047 14249
+              <a href="tel:+919204714249" className="btn-primary">
+                📞 Call: +91 92047 14249
               </a>
-              <a href="https://wa.me/919204714249?text=Hi%20Sree%20Travels%2C%20I%20want%20to%20book%20a%20cab" target="_blank" rel="noopener noreferrer" className="btn-whatsapp pulse-animation" style={{ fontSize: '1rem', padding: '0.85rem 1.75rem', display: 'flex' }}>
+              <a href="https://wa.me/919204714249?text=Hi%20Sree%20Travels%2C%20I%20want%20to%20book%20a%20cab" target="_blank" rel="noopener noreferrer" className="btn-whatsapp pulse-animation">
                 💬 Book on WhatsApp
               </a>
             </div>
@@ -90,18 +89,18 @@ export default function HomePage() {
       </section>
 
       {/* TRUST SIGNALS BAR */}
-      <section style={{ background: 'linear-gradient(90deg, var(--darker), rgba(15,23,42,0.95), var(--darker))', borderTop: '1px solid rgba(245,158,11,0.1)', borderBottom: '1px solid rgba(245,158,11,0.1)', padding: '1.75rem 0' }}>
+      <section style={{ background: 'linear-gradient(90deg, var(--darker), rgba(15,23,42,0.95), var(--darker))', borderTop: '1px solid rgba(245,158,11,0.1)', borderBottom: '1px solid rgba(245,158,11,0.1)', padding: '1.25rem 0' }}>
         <div className="container-main">
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2.5rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem 2rem', alignItems: 'center' }}>
             {[
-              '✅ 100% Verified Drivers',
-              '📡 GPS Tracked Fleet',
+              '✅ Verified Drivers',
+              '📡 GPS Tracked',
               '💰 No Hidden Charges',
-              '🔒 Safe & Secure Rides',
-              '⭐ 4.8★ Rated on Google',
+              '🔒 Safe Rides',
+              '⭐ 4.8★ Google',
               '🏆 Since 2015',
             ].map((badge, i) => (
-              <span key={i} style={{ fontSize: '0.88rem', color: '#cbd5e1', fontWeight: 600, whiteSpace: 'nowrap', letterSpacing: '0.01em' }}>{badge}</span>
+              <span key={i} style={{ fontSize: 'clamp(0.72rem, 2vw, 0.88rem)', color: '#cbd5e1', fontWeight: 600, whiteSpace: 'nowrap', letterSpacing: '0.01em' }}>{badge}</span>
             ))}
           </div>
         </div>
@@ -110,10 +109,10 @@ export default function HomePage() {
       {/* OUR SERVICES */}
       <section className="section-spacing">
         <div className="container-main">
-          <h2 style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+          <h2 style={{ textAlign: 'center', marginBottom: '0.4rem' }}>
             <span className="gold-text">Our Cab Services</span> Across Jharkhand
           </h2>
-          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '2rem', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
+          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '1.5rem', maxWidth: '550px', marginLeft: 'auto', marginRight: 'auto', fontSize: 'clamp(0.82rem, 2.5vw, 0.95rem)' }}>
             From local taxi rides to outstation trips – we cover every travel need in 15+ cities
           </p>
           <div className="services-grid">
@@ -132,19 +131,19 @@ export default function HomePage() {
       {/* CITIES WE SERVE */}
       <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(49,46,129,0.06) 50%, var(--dark) 100%)' }}>
         <div className="container-main">
-          <h2 style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+          <h2 style={{ textAlign: 'center', marginBottom: '0.4rem' }}>
             <span className="gold-text">Cities We Serve</span> in Jharkhand
           </h2>
-          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '2rem' }}>
+          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: 'clamp(0.82rem, 2.5vw, 0.95rem)' }}>
             Comprehensive cab service coverage across all major Jharkhand cities
           </p>
           <div className="services-grid">
             {jharkhandCities.map(city => (
               <a key={city.slug} href={`/cab-service-${city.slug}`} className="service-card">
                 <div className="icon">🏙️</div>
-                <h3>Cab Service in {city.name}</h3>
+                <h3>Cab in {city.name}</h3>
                 <div className="price">From ₹{city.localFare.hatchback_4hr}</div>
-                <p>{city.localities.slice(0, 4).join(', ')}...</p>
+                <p>{city.localities.slice(0, 3).join(', ')}...</p>
               </a>
             ))}
           </div>
@@ -154,10 +153,10 @@ export default function HomePage() {
       {/* POPULAR ROUTES */}
       <section className="section-spacing">
         <div className="container-main">
-          <h2 style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+          <h2 style={{ textAlign: 'center', marginBottom: '0.4rem' }}>
             <span className="gold-text">Popular Outstation Routes</span> from Jamshedpur
           </h2>
-          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '2rem' }}>
+          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: 'clamp(0.82rem, 2.5vw, 0.95rem)' }}>
             Book AC cab for outstation trips at affordable rates – all inclusive pricing
           </p>
           <div className="routes-grid">
@@ -177,7 +176,7 @@ export default function HomePage() {
               </a>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+          <div style={{ textAlign: 'center', marginTop: '1.25rem' }}>
             <a href="/cab-service-jamshedpur" className="btn-outline">View All Routes →</a>
           </div>
         </div>
@@ -186,10 +185,10 @@ export default function HomePage() {
       {/* OUR FLEET */}
       <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(120,53,15,0.06) 50%, var(--dark) 100%)' }}>
         <div className="container-main">
-          <h2 style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+          <h2 style={{ textAlign: 'center', marginBottom: '0.4rem' }}>
             <span className="gold-text">Our Fleet</span> — Choose Your Ride
           </h2>
-          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '2rem' }}>
+          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: 'clamp(0.82rem, 2.5vw, 0.95rem)' }}>
             Well-maintained AC vehicles for every budget and group size
           </p>
           <div className="fleet-grid">
@@ -208,10 +207,10 @@ export default function HomePage() {
       {/* WHY CHOOSE US */}
       <section className="section-spacing">
         <div className="container-main">
-          <h2 style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+          <h2 style={{ textAlign: 'center', marginBottom: '0.4rem' }}>
             <span className="gold-text">Why Choose</span> Sree Travels?
           </h2>
-          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '2rem' }}>
+          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: 'clamp(0.82rem, 2.5vw, 0.95rem)' }}>
             Jharkhand&apos;s most trusted cab service — here&apos;s why 50,000+ customers trust us
           </p>
           <div className="services-grid">
@@ -226,9 +225,9 @@ export default function HomePage() {
               { icon: '💳', title: 'All Payments', desc: 'UPI, Google Pay, PhonePe, Cash, Card — pay however you like' },
             ].map((item, i) => (
               <div key={i} className="glass-card" style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{item.icon}</div>
-                <h3 style={{ fontSize: '1rem', marginBottom: '0.35rem' }}>{item.title}</h3>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>{item.desc}</p>
+                <div style={{ fontSize: '1.75rem', marginBottom: '0.4rem' }}>{item.icon}</div>
+                <h3 style={{ fontSize: 'clamp(0.88rem, 2.5vw, 1rem)', marginBottom: '0.3rem' }}>{item.title}</h3>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.75rem, 2vw, 0.85rem)', lineHeight: 1.5 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -238,22 +237,22 @@ export default function HomePage() {
       {/* HOW TO BOOK */}
       <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(6,78,59,0.06) 50%, var(--dark) 100%)' }}>
         <div className="container-main">
-          <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
             <span className="gold-text">Book Your Cab</span> in 3 Easy Steps
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', maxWidth: '900px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', maxWidth: '900px', margin: '0 auto' }}>
             {[
               { step: '1', icon: '📞', title: 'Call or WhatsApp', desc: 'Contact us at +91 92047 14249 via call or WhatsApp. Tell us your travel plan.' },
-              { step: '2', icon: '📝', title: 'Share Details', desc: 'Share pickup location, destination, date, and preferred cab type. Get instant fare quote.' },
-              { step: '3', icon: '✅', title: 'Ride Confirmed', desc: 'Get confirmed booking with driver name, phone number, and vehicle details on WhatsApp.' },
+              { step: '2', icon: '📝', title: 'Share Details', desc: 'Share pickup, destination, date & cab type. Get instant fare quote.' },
+              { step: '3', icon: '✅', title: 'Ride Confirmed', desc: 'Get confirmed booking with driver name, phone & vehicle details on WhatsApp.' },
             ].map((item, i) => (
-              <div key={i} className="glass-card" style={{ textAlign: 'center', position: 'relative' }}>
-                <div style={{ position: 'absolute', top: '-15px', left: '50%', transform: 'translateX(-50%)', width: '32px', height: '32px', background: 'var(--gradient-gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: '#000', fontSize: '0.9rem' }}>
+              <div key={i} className="glass-card" style={{ textAlign: 'center', position: 'relative', paddingTop: '2rem' }}>
+                <div style={{ position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)', width: '30px', height: '30px', background: 'var(--gradient-gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: '#000', fontSize: '0.85rem' }}>
                   {item.step}
                 </div>
-                <div style={{ fontSize: '2.5rem', marginTop: '0.5rem', marginBottom: '0.5rem' }}>{item.icon}</div>
-                <h3 style={{ fontSize: '1.05rem', marginBottom: '0.35rem' }}>{item.title}</h3>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>{item.desc}</p>
+                <div style={{ fontSize: '2rem', marginBottom: '0.4rem' }}>{item.icon}</div>
+                <h3 style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1.05rem)', marginBottom: '0.3rem' }}>{item.title}</h3>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.75rem, 2vw, 0.85rem)', lineHeight: 1.5 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -263,7 +262,7 @@ export default function HomePage() {
       {/* REVIEWS */}
       <section className="section-spacing">
         <div className="container-main">
-          <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
             <span className="gold-text">What Our Customers</span> Say
           </h2>
           <div className="reviews-grid">
@@ -282,17 +281,17 @@ export default function HomePage() {
       <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(30,41,59,0.4) 50%, var(--dark) 100%)' }}>
         <div className="container-main">
           <div className="content-block">
-            <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+            <h2 style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
               <span className="gold-text">About Sree Travels</span> — Jharkhand&apos;s Most Trusted Cab Service
             </h2>
-            <div style={{ maxWidth: '900px', margin: '0 auto', color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '0.95rem' }}>
-              <p style={{ marginBottom: '1rem' }}>
+            <div style={{ maxWidth: '900px', margin: '0 auto', color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 'clamp(0.85rem, 2.5vw, 0.95rem)' }}>
+              <p style={{ marginBottom: '0.85rem' }}>
                 <strong>Sree Travels</strong> is Jharkhand&apos;s premier cab service, operating since 2015 from our headquarters in Jamshedpur. We provide reliable, affordable, and safe taxi services across <strong>15+ cities in Jharkhand</strong> including Jamshedpur, Ranchi, Dhanbad, Bokaro Steel City, Deoghar, Hazaribagh, Giridih, Dumka, Chaibasa, and Adityapur.
               </p>
-              <p style={{ marginBottom: '1rem' }}>
+              <p style={{ marginBottom: '0.85rem' }}>
                 Whether you need a <strong>one way cab from Jamshedpur to Ranchi</strong>, a <strong>round trip taxi from Dhanbad to Kolkata</strong>, an <strong>airport transfer in Ranchi</strong>, or a <strong>local taxi for hourly rental</strong>, Sree Travels has you covered. Our fleet includes Swift Dzire, Honda City Sedan, Toyota Innova, Innova Crysta, Maruti Ertiga, and Tempo Travellers — all AC, GPS-tracked, and regularly maintained.
               </p>
-              <p style={{ marginBottom: '1rem' }}>
+              <p style={{ marginBottom: '0.85rem' }}>
                 What sets us apart from competitors is our commitment to <strong>transparent pricing with zero hidden charges</strong>. Every fare includes toll, fuel, and driver allowance. Our drivers are <strong>100% police-verified</strong> with 5+ years of driving experience. We accept all payment methods — Cash, UPI, Google Pay, PhonePe, and Card.
               </p>
               <p>
@@ -302,9 +301,9 @@ export default function HomePage() {
           </div>
 
           {/* PAYMENT & BOOKING OPTIONS */}
-          <div style={{ marginTop: '3rem', textAlign: 'center' }}>
-            <h3 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Accepted <span className="gold-text">Payment Methods</span></h3>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem' }}>
+          <div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
+            <h3 style={{ marginBottom: '1.25rem', color: 'var(--text-primary)', fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>Accepted <span className="gold-text">Payment Methods</span></h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.5rem' }}>
               {['Cash', 'Google Pay', 'PhonePe', 'Paytm', 'UPI', 'Credit Card', 'Debit Card', 'Net Banking'].map((method, i) => (
                 <span key={i} className="area-tag">💳 {method}</span>
               ))}

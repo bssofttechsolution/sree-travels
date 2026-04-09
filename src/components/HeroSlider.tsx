@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const images = [
   '/background/sreebg1.webp',
@@ -11,13 +11,14 @@ const images = [
 export default function HeroSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 3000); // Scrolls every 3 seconds
-    
-    return () => clearInterval(timer);
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
   }, []);
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 4000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
 
   return (
     <div style={{
@@ -30,26 +31,21 @@ export default function HeroSlider() {
       overflow: 'hidden',
       background: 'var(--dark)'
     }}>
-      <div style={{
-        display: 'flex',
-        width: `${images.length * 100}%`,
-        height: '100%',
-        transform: `translateX(-${currentIndex * (100 / images.length)}%)`,
-        transition: 'transform 0.5s ease-in-out'
-      }}>
-        {images.map((src) => (
-          <div 
-            key={src}
-            style={{
-              width: `${100 / images.length}%`,
-              height: '100%',
-              backgroundImage: `linear-gradient(to bottom, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.9) 100%), url(${src})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-        ))}
-      </div>
+      {images.map((src, index) => (
+        <div 
+          key={src}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `linear-gradient(to bottom, rgba(2, 6, 23, 0.55) 0%, rgba(2, 6, 23, 0.85) 70%, rgba(2, 6, 23, 0.98) 100%), url(${src})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: currentIndex === index ? 1 : 0,
+            transition: 'opacity 0.8s ease-in-out',
+            willChange: 'opacity',
+          }}
+        />
+      ))}
     </div>
   );
 }

@@ -1,7 +1,10 @@
 // ============================================================
 // SREE TRAVELS — OUTSTATION ROUTES DATA
-// All 150+ routes with fares, distances, and details
+// 500+ routes with fares, distances, and details
+// Includes 350+ Jamshedpur expansion routes
 // ============================================================
+
+import { jamshedpurExpansionRoutes } from './jamshedpurRoutes';
 
 export interface RouteData {
   from: string;
@@ -28,7 +31,7 @@ export interface RouteData {
   dropPoints: string[];
 }
 
-export const routes: RouteData[] = [
+const baseRoutes: RouteData[] = [
   // ========== FROM JAMSHEDPUR ==========
   {
     from: "jamshedpur", fromName: "Jamshedpur",
@@ -3462,6 +3465,14 @@ export const routes: RouteData[] = [
     dropPoints: ["Mango", "Bistupur", "Tatanagar Station"]
   },
 ];
+
+// Merge base routes with Jamshedpur expansion routes
+// Deduplicate by from-to pair (base routes take priority)
+const existingSlugs = new Set(baseRoutes.map(r => `${r.from}-${r.to}`));
+const uniqueExpansionRoutes = jamshedpurExpansionRoutes.filter(
+  r => !existingSlugs.has(`${r.from}-${r.to}`)
+);
+export const routes: RouteData[] = [...baseRoutes, ...uniqueExpansionRoutes];
 
 // ========== HELPER FUNCTIONS ==========
 

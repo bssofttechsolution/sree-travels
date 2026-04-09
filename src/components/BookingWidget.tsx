@@ -43,16 +43,16 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
 
   return (
     <div className="booking-widget">
-      <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-        <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#f8fafc', marginBottom: '0.2rem' }}>
+      <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
+        <h2 style={{ fontSize: 'clamp(1.2rem, 4vw, 1.6rem)', fontWeight: 800, color: '#f8fafc', marginBottom: '0.15rem' }}>
           Book Your Cab <span className="gold-text">Now</span>
         </h2>
-        <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+        <p style={{ fontSize: 'clamp(0.75rem, 2vw, 0.85rem)', color: 'var(--text-secondary)' }}>
           Instant confirmation • 24/7 Service • Verified Cabs
         </p>
       </div>
 
-      <div className="booking-form-modern" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
+      <div className="booking-form-modern">
         <div className="form-group-modern">
           <label>Trip Type</label>
           <select value={activeTab} onChange={e => setActiveTab(e.target.value)}>
@@ -122,15 +122,16 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
             placeholder="10-digit mobile number"
             value={phone}
             onChange={e => setPhone(e.target.value)}
+            inputMode="numeric"
           />
         </div>
       </div>
 
-      <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-        <button className="btn-modern-whatsapp pulse-animation" onClick={handleBookWhatsApp} style={{ flex: 1, justifyContent: 'center', minWidth: '200px' }}>
+      <div style={{ marginTop: '1.25rem', display: 'flex', gap: '0.75rem', flexDirection: 'column' }}>
+        <button className="btn-modern-whatsapp pulse-animation" onClick={handleBookWhatsApp} style={{ justifyContent: 'center', width: '100%' }}>
           <span>💬 Book on WhatsApp</span>
         </button>
-        <a href="tel:+919204714249" className="btn-modern-primary" style={{ flex: 1, justifyContent: 'center', minWidth: '200px', textDecoration: 'none' }}>
+        <a href="tel:+919204714249" className="btn-modern-primary" style={{ justifyContent: 'center', width: '100%', textDecoration: 'none' }}>
           <span>📞 Call +91 92047 14249</span>
         </a>
       </div>
