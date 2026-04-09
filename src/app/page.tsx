@@ -52,11 +52,11 @@ export default function HomePage() {
               Reliable AC cabs with professional drivers for local travel, outstation trips, airport transfers, and corporate needs. 
               Serving Jamshedpur, Ranchi, Dhanbad, Bokaro & more.
             </p>
-            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <a href="tel:+919204714249" className="btn-primary" style={{ fontSize: '1rem', padding: '0.85rem 1.75rem' }}>
+            <div className="hero-btn-group">
+              <a href="tel:+919204714249" className="btn-primary" style={{ fontSize: '1rem', padding: '0.85rem 1.75rem', display: 'flex' }}>
                 📞 Call Now: +91 92047 14249
               </a>
-              <a href="https://wa.me/919204714249?text=Hi%20Sree%20Travels%2C%20I%20want%20to%20book%20a%20cab" target="_blank" rel="noopener noreferrer" className="btn-whatsapp pulse-animation" style={{ fontSize: '1rem', padding: '0.85rem 1.75rem' }}>
+              <a href="https://wa.me/919204714249?text=Hi%20Sree%20Travels%2C%20I%20want%20to%20book%20a%20cab" target="_blank" rel="noopener noreferrer" className="btn-whatsapp pulse-animation" style={{ fontSize: '1rem', padding: '0.85rem 1.75rem', display: 'flex' }}>
                 💬 Book on WhatsApp
               </a>
             </div>
