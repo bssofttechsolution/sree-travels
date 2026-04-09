@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://sreetravel.com/sitemap.xml',
+    sitemap: 'https://www.sreetravel.com/sitemap.xml',
   };
 }

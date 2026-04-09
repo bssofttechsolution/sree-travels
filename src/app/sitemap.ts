@@ -6,7 +6,7 @@ import { routes } from '@/lib/routes';
 import { localRoutes } from '@/lib/localRoutes';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://sreetravel.com';
+  const baseUrl = 'https://www.sreetravel.com';
   const now = new Date().toISOString();
 
   const urls: MetadataRoute.Sitemap = [];

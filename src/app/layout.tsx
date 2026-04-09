@@ -39,11 +39,11 @@ export const metadata: Metadata = {
     // Comparison
     "ola alternative jamshedpur", "uber alternative ranchi",
   ],
-  metadataBase: new URL("https://sreetravel.com"),
+  metadataBase: new URL("https://www.sreetravel.com"),
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://sreetravel.com",
+    url: "https://www.sreetravel.com",
     siteName: "Sree Travels",
     title: "Sree Travels | Best Cab Service in Jharkhand | ☎ +919204714249",
     description: "Book reliable AC cab service in Jharkhand — Jamshedpur, Ranchi, Dhanbad, Bokaro & 15+ cities. Police-verified drivers, fixed pricing, 24/7 availability. 50,000+ happy customers. Call +919204714249.",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://sreetravel.com",
+    canonical: "https://www.sreetravel.com",
   },
   other: {
     'geo.region': 'IN-JH',
@@ -131,12 +131,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": ["TaxiService", "LocalBusiness"],
-              "@id": "https://sreetravel.com/#organization",
+              "@id": "https://www.sreetravel.com/#organization",
               name: "Sree Travels",
               alternateName: "Sree Cab Service",
-              url: "https://sreetravel.com",
-              logo: "https://sreetravel.com/logo.webp",
-              image: "https://sreetravel.com/background/IMG-20250403-WA0019.jpg",
+              url: "https://www.sreetravel.com",
+              logo: "https://www.sreetravel.com/logo.webp",
+              image: "https://www.sreetravel.com/background/IMG-20250403-WA0019.jpg",
               telephone: "+919204714249",
               email: "info@sreetravel.com",
               foundingDate: "2015",
@@ -211,10 +211,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Sree Travels",
-              url: "https://sreetravel.com",
+              url: "https://www.sreetravel.com",
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://sreetravel.com/?q={search_term_string}",
+                target: "https://www.sreetravel.com/?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             }),
