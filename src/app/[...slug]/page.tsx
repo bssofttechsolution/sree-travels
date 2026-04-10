@@ -292,7 +292,7 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
 
   return (
     <div className="page-content">
-      <SchemaMarkup type="city" data={{ areaServed: `${city.name}, Jharkhand`, faqs }} />
+      <SchemaMarkup type="city" data={{ areaServed: `${city.name}, Jharkhand`, faqs, reviews: city.reviews, breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Jharkhand', url: '/' }, { name: `Cab Service ${city.name}`, url: `/cab-service-${city.slug}` }] }} />
 
       <section className="hero-section">
         <HeroSlider />
@@ -554,7 +554,7 @@ function ServiceInCityPage({ citySlug, serviceSlug }: { citySlug: string; servic
 
   return (
     <div className="page-content">
-      <SchemaMarkup type="service" data={{ areaServed: `${city.name}, Jharkhand`, faqs }} />
+      <SchemaMarkup type="service" data={{ areaServed: `${city.name}, Jharkhand`, faqs, reviews: city.reviews, serviceName: service.name, serviceDescription: service.description, price: String(service.startingPrice), priceUnit: service.priceUnit, breadcrumbs: [{ name: 'Home', url: '/' }, { name: `Cab ${city.name}`, url: `/cab-service-${city.slug}` }, { name: service.name, url: `/${city.slug}/${service.slug}` }] }} />
       <section className="hero-section">
         <HeroSlider />
         <div className="container-main" style={{ position: 'relative', zIndex: 1 }}>
@@ -677,7 +677,7 @@ function FleetInCityPage({ citySlug, fleetSlug }: { citySlug: string; fleetSlug:
 
   return (
     <div className="page-content">
-      <SchemaMarkup type="fleet" data={{ areaServed: `${city.name}, Jharkhand`, faqs }} />
+      <SchemaMarkup type="fleet" data={{ areaServed: `${city.name}, Jharkhand`, faqs, reviews: city.reviews, vehicleName: vehicle.shortName, vehicleDescription: vehicle.description, vehicleImage: vehicle.image, price: String(vehicle.perKmRate), seatingCapacity: vehicle.seatingCapacity, breadcrumbs: [{ name: 'Home', url: '/' }, { name: `Cab ${city.name}`, url: `/cab-service-${city.slug}` }, { name: vehicle.shortName, url: `/${city.slug}/${vehicle.slug}` }] }} />
       <section className="hero-section">
         <HeroSlider />
         <div className="container-main" style={{ position: 'relative', zIndex: 1 }}>
@@ -797,7 +797,7 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
 
   return (
     <div className="page-content">
-      <SchemaMarkup type="route" data={{ from: route.fromName, to: route.toName, distance: route.distanceKm, fare: route.fares.hatchback, areaServed: `${route.fromName} to ${route.toName}`, faqs }} />
+      <SchemaMarkup type="route" data={{ from: route.fromName, to: route.toName, distance: route.distanceKm, fare: route.fares.hatchback, areaServed: `${route.fromName} to ${route.toName}`, faqs, breadcrumbs: [{ name: 'Home', url: '/' }, { name: `Cab ${route.fromName}`, url: `/cab-service-${route.from}` }, { name: `${route.fromName} to ${route.toName}`, url: `/${route.from}-to-${route.to}-cab` }] }} />
 
       <section className="hero-section">
         <HeroSlider />

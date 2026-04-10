@@ -15,32 +15,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
   urls.push({
     url: baseUrl,
     lastModified: now,
-    changeFrequency: 'weekly',
+    changeFrequency: 'daily',
     priority: 1,
   });
 
   // Static Pages
-  urls.push({
-    url: `${baseUrl}/about`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.8,
+  ['about', 'contact', 'faq', 'fare-chart', 'blog'].forEach(page => {
+    urls.push({
+      url: `${baseUrl}/${page}`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    });
   });
 
-  urls.push({
-    url: `${baseUrl}/contact`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  });
-
-  // City Hub Pages
+  // City Hub Pages (highest priority after homepage)
   jharkhandCities.forEach(city => {
     urls.push({
       url: `${baseUrl}/cab-service-${city.slug}`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.95,
     });
   });
 
@@ -50,8 +45,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       urls.push({
         url: `${baseUrl}/${city.slug}/${service.slug}`,
         lastModified: now,
-        changeFrequency: 'monthly',
-        priority: 0.8,
+        changeFrequency: 'weekly',
+        priority: 0.85,
       });
     });
   });
@@ -62,19 +57,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       urls.push({
         url: `${baseUrl}/${city.slug}/${vehicle.slug}`,
         lastModified: now,
-        changeFrequency: 'monthly',
-        priority: 0.7,
+        changeFrequency: 'weekly',
+        priority: 0.8,
       });
     });
   });
 
-  // Route Pages
+  // Route Pages (high priority — transactional intent)
   routes.forEach(route => {
     urls.push({
       url: `${baseUrl}/${route.from}-to-${route.to}-cab`,
       lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      changeFrequency: 'weekly',
+      priority: 0.9,
     });
   });
 
@@ -84,7 +79,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/local-taxi-${route.city}/${route.slug}`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.7,
     });
   });
 

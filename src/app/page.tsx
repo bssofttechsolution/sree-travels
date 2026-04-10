@@ -3,6 +3,7 @@ import BookingWidget from '@/components/BookingWidget';
 import CtaBanner from '@/components/CtaBanner';
 import HeroSlider from '@/components/HeroSlider';
 import BlogSection from '@/components/BlogSection';
+import FaqSection from '@/components/FaqSection';
 import { jharkhandCities } from '@/lib/cities';
 import { services } from '@/lib/services';
 import { fleet } from '@/lib/fleet';
@@ -316,6 +317,64 @@ export default function HomePage() {
                 <span key={i} className="area-tag">💳 {method}</span>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* HOMEPAGE FAQ — TRIGGERS RICH SNIPPET */}
+      <section className="section-spacing">
+        <div className="container-main">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: [
+                  { '@type': 'Question', name: 'What is the cab fare from Jamshedpur to Ranchi?', acceptedAnswer: { '@type': 'Answer', text: 'Jamshedpur to Ranchi cab fare starts at ₹1,799 (Hatchback), ₹2,299 (Sedan), ₹2,999 (SUV), ₹3,499 (Innova Crysta). Distance: 130 km, Duration: 3 hrs. All-inclusive of toll, fuel, driver. Call +919204714249.' } },
+                  { '@type': 'Question', name: 'Which is the best cab service in Jharkhand?', acceptedAnswer: { '@type': 'Answer', text: 'Sree Travels is rated the best cab service in Jharkhand with 4.8★ Google rating, 50,000+ happy customers, and 100+ verified cabs across 15+ cities. Police-verified drivers, GPS tracking, transparent pricing. Available 24/7. Call +919204714249.' } },
+                  { '@type': 'Question', name: 'How to book a cab in Jamshedpur?', acceptedAnswer: { '@type': 'Answer', text: 'Book a cab in Jamshedpur by calling +91 92047 14249 or sending a WhatsApp message. Share pickup, destination, date and cab type. Get instant confirmation with driver details in 30 seconds. No app download needed.' } },
+                  { '@type': 'Question', name: 'Is Sree Travels available 24/7?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, Sree Travels operates 24 hours a day, 7 days a week, 365 days a year across 15+ Jharkhand cities. Whether you need a cab at 3 AM for an airport transfer or a late-night ride, we are always available.' } },
+                  { '@type': 'Question', name: 'Do you provide one way cab in Jharkhand?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! Sree Travels provides one-way cab service across Jharkhand. Pay only for one direction — no return fare. Starting at ₹11/km (Hatchback). Available for Jamshedpur, Ranchi, Dhanbad, Bokaro and all 15+ cities.' } },
+                  { '@type': 'Question', name: 'What types of cabs are available?', acceptedAnswer: { '@type': 'Answer', text: 'We offer 7 vehicle types: Swift Dzire (₹12/km), Sedan (₹14/km), Ertiga (₹14/km), Innova (₹15/km), Innova Crysta (₹18/km), Tempo Traveller (₹22/km), and Luxury cabs (₹25/km). All are AC, GPS-tracked, and well-maintained.' } },
+                ],
+              }),
+            }}
+          />
+          <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+            <span className="gold-text">Frequently Asked</span> Questions
+          </h2>
+          <FaqSection faqs={[
+            { question: 'What is the cab fare from Jamshedpur to Ranchi?', answer: 'Jamshedpur to Ranchi cab fare starts at ₹1,799 (Hatchback), ₹2,299 (Sedan), ₹2,999 (SUV), ₹3,499 (Innova Crysta). Distance: 130 km, Duration: 3 hrs. All-inclusive of toll, fuel, driver. Call +919204714249.' },
+            { question: 'Which is the best cab service in Jharkhand?', answer: 'Sree Travels is rated the best cab service in Jharkhand with 4.8★ Google rating, 50,000+ happy customers, and 100+ verified cabs across 15+ cities. Police-verified drivers, GPS tracking, transparent pricing. Available 24/7. Call +919204714249.' },
+            { question: 'How to book a cab in Jamshedpur?', answer: 'Book a cab in Jamshedpur by calling +91 92047 14249 or sending a WhatsApp message. Share pickup, destination, date and cab type. Get instant confirmation with driver details in 30 seconds. No app download needed.' },
+            { question: 'Is Sree Travels available 24/7?', answer: 'Yes, Sree Travels operates 24 hours a day, 7 days a week, 365 days a year across 15+ Jharkhand cities. Whether you need a cab at 3 AM for an airport transfer or a late-night ride, we are always available.' },
+            { question: 'Do you provide one way cab in Jharkhand?', answer: 'Yes! Sree Travels provides one-way cab service across Jharkhand. Pay only for one direction — no return fare. Starting at ₹11/km (Hatchback). Available for Jamshedpur, Ranchi, Dhanbad, Bokaro and all 15+ cities.' },
+            { question: 'What types of cabs are available?', answer: 'We offer 7 vehicle types: Swift Dzire (₹12/km), Sedan (₹14/km), Ertiga (₹14/km), Innova (₹15/km), Innova Crysta (₹18/km), Tempo Traveller (₹22/km), and Luxury cabs (₹25/km). All are AC, GPS-tracked, and well-maintained.' },
+          ]} />
+          <div style={{ textAlign: 'center', marginTop: '1.25rem' }}>
+            <a href="/faq" className="btn-outline">View All 30+ FAQs →</a>
+          </div>
+        </div>
+      </section>
+
+      {/* INTERNAL LINKS — SEO JUICE */}
+      <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(30,58,138,0.06) 50%, var(--dark) 100%)' }}>
+        <div className="container-main">
+          <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+            <span className="gold-text">Quick Links</span> — Explore Our Services
+          </h2>
+          <div className="internal-links-grid">
+            <a href="/fare-chart" className="internal-link">📊 Fare Chart 2025</a>
+            <a href="/faq" className="internal-link">❓ FAQ</a>
+            <a href="/about" className="internal-link">ℹ️ About Us</a>
+            <a href="/contact" className="internal-link">📞 Contact</a>
+            {jharkhandCities.slice(0, 8).map(city => (
+              <a key={city.slug} href={`/cab-service-${city.slug}`} className="internal-link">🏙️ Cab in {city.name}</a>
+            ))}
+            {services.filter(s => s.slug !== 'pilgrimage-cab').slice(0, 6).map(s => (
+              <a key={s.slug} href={`/jamshedpur/${s.slug}`} className="internal-link">{s.icon} {s.shortName}</a>
+            ))}
           </div>
         </div>
       </section>

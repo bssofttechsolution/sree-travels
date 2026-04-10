@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'cab service company jamshedpur', 'sree travels history', 'sree travels reviews',
     'trusted cab service jharkhand', 'cab service since 2015',
   ],
-  alternates: { canonical: 'https://sreetravel.com/about' },
+  alternates: { canonical: 'https://www.sreetravel.com/about' },
   openGraph: {
     title: 'About Sree Travels | Jharkhand\'s #1 Cab Service',
     description: 'Since 2015, serving 50,000+ happy customers across 15+ cities.',

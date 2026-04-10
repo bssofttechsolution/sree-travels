@@ -6,8 +6,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: ['/api/', '/_next/', '/fonts/'],
       },
     ],
-    sitemap: 'https://www.sreetravel.com/sitemap.xml',
+    sitemap: [
+      'https://www.sreetravel.com/sitemap.xml',
+    ],
+    host: 'https://www.sreetravel.com',
   };
 }

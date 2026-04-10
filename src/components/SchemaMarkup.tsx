@@ -7,15 +7,17 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
   const generateSchema = () => {
     const schemas: Record<string, unknown>[] = [];
 
-    // LocalBusiness/TaxiService schema (always present)
+    // TaxiService + LocalBusiness schema (always present)
     schemas.push({
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "TaxiService"],
       "name": "Sree Travels",
       "telephone": "+919204714249",
       "email": "info@sreetravel.com",
       "url": "https://www.sreetravel.com",
       "logo": "https://www.sreetravel.com/logo.webp",
+      "image": "https://www.sreetravel.com/background/IMG-20250403-WA0019.jpg",
+      "description": `Sree Travels — Jharkhand's most trusted cab service since 2015. Book reliable AC cabs in ${data.areaServed || 'Jharkhand'} with police-verified drivers, GPS tracking, and transparent pricing. Available 24/7.`,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Dimna Road, Mango",
@@ -29,29 +31,39 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         "latitude": 22.8046,
         "longitude": 86.2029,
       },
-      "areaServed": data.areaServed || "Jharkhand",
+      "areaServed": data.areaServed || "Jharkhand, India",
       "priceRange": data.priceRange || "₹999 - ₹25,000",
+      "currenciesAccepted": "INR",
+      "paymentAccepted": "Cash, UPI, Google Pay, PhonePe, Paytm, Credit Card, Debit Card",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         "opens": "00:00",
         "closes": "23:59",
       },
-    });
-
-    // AggregateRating
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "AggregateRating",
-      "itemReviewed": {
-        "@type": "LocalBusiness",
-        "name": "Sree Travels",
-        "url": "https://www.sreetravel.com",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": data.reviewCount || "2847",
+        "bestRating": "5",
+        "worstRating": "1",
       },
-      "ratingValue": "4.8",
-      "reviewCount": data.reviewCount || "2847",
-      "bestRating": "5",
-      "worstRating": "1",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cab Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "One Way Cab" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Round Trip Cab" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Outstation Cab" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Airport Transfer" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local Taxi" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Car Rental" } },
+        ],
+      },
+      "sameAs": [
+        "https://www.facebook.com/sreetravels",
+        "https://www.instagram.com/sreetravels",
+      ],
     });
 
     // BreadcrumbList schema
@@ -68,7 +80,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       });
     }
 
-    // FAQ Schema if FAQs provided
+    // FAQ Schema
     if (data.faqs && Array.isArray(data.faqs)) {
       schemas.push({
         "@context": "https://schema.org",
@@ -84,18 +96,46 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       });
     }
 
+    // Individual Review schema (triggers star ratings in SERP)
+    if (data.reviews && Array.isArray(data.reviews)) {
+      (data.reviews as { name: string; text: string; rating: number }[]).slice(0, 3).forEach(review => {
+        schemas.push({
+          "@context": "https://schema.org",
+          "@type": "Review",
+          "itemReviewed": {
+            "@type": "LocalBusiness",
+            "name": "Sree Travels",
+            "url": "https://www.sreetravel.com",
+          },
+          "author": { "@type": "Person", "name": review.name },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": String(review.rating),
+            "bestRating": "5",
+          },
+          "reviewBody": review.text,
+        });
+      });
+    }
+
     // Route-specific schema
     if (type === 'route' && data.from && data.to) {
       schemas.push({
         "@context": "https://schema.org",
         "@type": "Trip",
         "name": `${data.from} to ${data.to} Cab Service`,
-        "description": `Book cab from ${data.from} to ${data.to}. Distance: ${data.distance}km. Starting fare: ₹${data.fare}`,
+        "description": `Book cab from ${data.from} to ${data.to}. Distance: ${data.distance}km. Starting fare: ₹${data.fare}. AC cab, police-verified driver. Call +919204714249.`,
         "provider": {
           "@type": "LocalBusiness",
           "name": "Sree Travels",
           "telephone": "+919204714249",
           "url": "https://www.sreetravel.com",
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": String(data.fare),
+          "priceCurrency": "INR",
+          "offerCount": "5",
         },
       });
     }
@@ -105,36 +145,56 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       schemas.push({
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": `${data.serviceName} - Sree Travels`,
-        "description": data.serviceDescription || `${data.serviceName} service in ${data.areaServed}`,
+        "name": `${data.serviceName} in ${data.areaServed} - Sree Travels`,
+        "description": data.serviceDescription || `Book ${data.serviceName} in ${data.areaServed}. AC cab, verified driver, transparent pricing. Call +919204714249.`,
         "provider": {
           "@type": "LocalBusiness",
           "name": "Sree Travels",
           "telephone": "+919204714249",
+          "url": "https://www.sreetravel.com",
         },
         "areaServed": data.areaServed,
+        "serviceType": "Taxi Service",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "INR",
           "price": data.price || "999",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": data.price || "999",
+            "priceCurrency": "INR",
+            "unitText": data.priceUnit || "onwards",
+          },
+          "availability": "https://schema.org/InStock",
         },
       });
     }
 
-    // Fleet/Product schema
+    // Fleet/Product schema  
     if (type === 'fleet' && data.vehicleName) {
       schemas.push({
         "@context": "https://schema.org",
         "@type": "Product",
-        "name": `${data.vehicleName} Cab Rental - Sree Travels`,
-        "description": data.vehicleDescription || `Hire ${data.vehicleName} in ${data.areaServed}`,
+        "name": `${data.vehicleName} Cab Rental in ${data.areaServed} - Sree Travels`,
+        "description": data.vehicleDescription || `Hire ${data.vehicleName} in ${data.areaServed}. ${data.seatingCapacity || 4} seater, AC, GPS tracked. ₹${data.price || 12}/km. Call +919204714249.`,
         "brand": { "@type": "Brand", "name": "Sree Travels" },
+        "image": data.vehicleImage ? `https://www.sreetravel.com${data.vehicleImage}` : undefined,
         "offers": {
           "@type": "Offer",
           "priceCurrency": "INR",
           "price": data.price || "12",
           "unitText": "per km",
           "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Sree Travels",
+          },
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "500",
+          "bestRating": "5",
         },
       });
     }

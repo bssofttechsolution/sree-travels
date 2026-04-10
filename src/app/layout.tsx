@@ -87,9 +87,7 @@ export const metadata: Metadata = {
     'language': 'English',
     'distribution': 'global',
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  verification: {},
   category: 'travel',
   icons: {
     icon: [
@@ -121,9 +119,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
           rel="stylesheet"
         />
+        <link rel="alternate" hrefLang="en-IN" href="https://www.sreetravel.com" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.sreetravel.com" />
         {/* TaxiService + LocalBusiness Schema */}
         <script
           type="application/ld+json"
@@ -220,6 +220,38 @@ export default function RootLayout({
             }),
           }}
         />
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": "https://www.sreetravel.com/#organization",
+              name: "Sree Travels",
+              url: "https://www.sreetravel.com",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://www.sreetravel.com/logo.webp",
+                width: 200,
+                height: 200,
+              },
+              foundingDate: "2015",
+              founder: { "@type": "Person", name: "Sree Travels Team" },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+919204714249",
+                contactType: "customer service",
+                areaServed: "IN",
+                availableLanguage: ["Hindi", "English"],
+              },
+              sameAs: [
+                "https://www.facebook.com/sreetravels",
+                "https://www.instagram.com/sreetravels",
+              ],
+            }),
+          }}
+        />
       </head>
       <body id="top">
         <Header />
@@ -281,6 +313,8 @@ export default function RootLayout({
                   <li><a href="/jamshedpur/wedding-cab">Wedding Cab</a></li>
                   <li><a href="/jamshedpur/corporate-cab">Corporate Cab</a></li>
                   <li><a href="/jamshedpur/pilgrimage-cab">Pilgrimage Cab</a></li>
+                  <li><a href="/fare-chart">📊 Fare Chart</a></li>
+                  <li><a href="/faq">❓ FAQ</a></li>
                 </ul>
               </div>
               <div className="footer-section">
