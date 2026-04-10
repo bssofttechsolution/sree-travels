@@ -583,6 +583,44 @@ export const jharkhandCities: CityData[] = [
       { name: "Babita Devi", text: "Booked cab from Pakur to Deoghar for temple visit. Comfortable ride.", rating: 5 },
       { name: "Nirmal Hembrom", text: "Sree Travels is the best cab option in Pakur. Clean cars, good drivers.", rating: 5 }
     ]
+  },
+  {
+    slug: "kolkata",
+    name: "Kolkata",
+    aka: ["Calcutta", "City of Joy", "KOL"],
+    district: "Kolkata",
+    population: "14.8 million",
+    pincode: "700001",
+    latitude: 22.5726,
+    longitude: 88.3639,
+    airportCode: "CCU",
+    nearestAirport: { name: "Netaji Subhas Chandra Bose International Airport", code: "CCU", distance: 17 },
+    railwayStation: "Howrah Junction",
+    tier: 1,
+    localities: [
+      "Howrah", "Sealdah", "Park Street", "Salt Lake", "Rajarhat",
+      "Newtown", "Gariahat", "Jadavpur", "Behala", "Esplanade",
+      "Dum Dum", "Barrackpore", "Tollygunge", "Ballygunge", "Alipore",
+      "Lake Town", "Kankurgachi", "Garia", "Kasba", "Ultadanga"
+    ],
+    localFare: {
+      hatchback_4hr: 1099,
+      sedan_4hr: 1399,
+      suv_4hr: 1799,
+      hatchback_8hr: 1899,
+      sedan_8hr: 2399,
+      suv_8hr: 3199
+    },
+    touristPlaces: [
+      "Victoria Memorial", "Howrah Bridge", "Indian Museum",
+      "Dakshineswar Kali Temple", "Science City", "Eco Park Newtown"
+    ],
+    seoDescription: "Kolkata, the City of Joy and capital of West Bengal, is a major gateway for travel to Jharkhand. Located on the banks of the Hooghly River, it is connected to Jamshedpur, Ranchi, Dhanbad, and all Jharkhand cities via excellent highways. Sree Travels provides premium outstation cab services from Kolkata to all major Jharkhand cities and beyond with GPS-tracked fleet, AC cabs, and 24/7 availability. Book Kolkata to Jamshedpur cab, Kolkata to Ranchi cab at best fares.",
+    reviews: [
+      { name: "Subir Das", text: "Booked Sree Travels from Kolkata to Jamshedpur. Excellent service, car was on time at Howrah. Very comfortable journey.", rating: 5 },
+      { name: "Meena Kumari", text: "Used their Kolkata to Ranchi cab service. Driver was experienced, AC car, very smooth ride. Will book again.", rating: 5 },
+      { name: "Rakesh Gupta", text: "Sree Travels is best for Kolkata to Jharkhand travel. Affordable, reliable, clean cars. Highly recommended!", rating: 5 }
+    ]
   }
 ];
 

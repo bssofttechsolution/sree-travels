@@ -1,10 +1,12 @@
 // ============================================================
 // SREE TRAVELS — OUTSTATION ROUTES DATA
-// 500+ routes with fares, distances, and details
-// Includes 350+ Jamshedpur expansion routes
+// 900+ routes with fares, distances, and details
+// Includes 350+ Jamshedpur, 80+ Kolkata, 320+ city expansion routes
 // ============================================================
 
 import { jamshedpurExpansionRoutes } from './jamshedpurRoutes';
+import { kolkataExpansionRoutes } from './kolkataRoutes';
+import { cityExpansionRoutes } from './expansionRoutes';
 
 export interface RouteData {
   from: string;
@@ -3466,13 +3468,29 @@ const baseRoutes: RouteData[] = [
   },
 ];
 
-// Merge base routes with Jamshedpur expansion routes
-// Deduplicate by from-to pair (base routes take priority)
+// Merge base routes with ALL expansion routes
+// Deduplicate by from-to pair (earlier routes take priority)
 const existingSlugs = new Set(baseRoutes.map(r => `${r.from}-${r.to}`));
-const uniqueExpansionRoutes = jamshedpurExpansionRoutes.filter(
+const uniqueJsrRoutes = jamshedpurExpansionRoutes.filter(
   r => !existingSlugs.has(`${r.from}-${r.to}`)
 );
-export const routes: RouteData[] = [...baseRoutes, ...uniqueExpansionRoutes];
+for (const r of uniqueJsrRoutes) existingSlugs.add(`${r.from}-${r.to}`);
+
+const uniqueKolRoutes = kolkataExpansionRoutes.filter(
+  r => !existingSlugs.has(`${r.from}-${r.to}`)
+);
+for (const r of uniqueKolRoutes) existingSlugs.add(`${r.from}-${r.to}`);
+
+const uniqueCityRoutes = cityExpansionRoutes.filter(
+  r => !existingSlugs.has(`${r.from}-${r.to}`)
+);
+
+export const routes: RouteData[] = [
+  ...baseRoutes,
+  ...uniqueJsrRoutes,
+  ...uniqueKolRoutes,
+  ...uniqueCityRoutes,
+];
 
 // ========== HELPER FUNCTIONS ==========
 
