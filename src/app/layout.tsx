@@ -2,6 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import "./globals.css";
 import Header from "@/components/Header";
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Sree Travels | Best Cab Service in Jharkhand | Book Online ☎ +919204714249",
@@ -111,7 +120,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
         <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
@@ -121,12 +130,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#f59e0b" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
         <link rel="alternate" hrefLang="en-IN" href="https://www.sreetravel.com" />
         <link rel="alternate" hrefLang="x-default" href="https://www.sreetravel.com" />
         {/* TaxiService + LocalBusiness Schema */}
@@ -258,7 +261,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body id="top">
+      <body id="top" className={inter.className}>
         <Header />
 
         {/* Main Content */}

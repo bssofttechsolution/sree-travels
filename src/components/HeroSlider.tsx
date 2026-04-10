@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react';
 
+import Image from 'next/image';
+
 const images = [
   '/background/sreebg1.webp',
   '/background/sreebg2.webp',
@@ -37,14 +39,29 @@ export default function HeroSlider() {
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: `linear-gradient(to bottom, rgba(2, 6, 23, 0.55) 0%, rgba(2, 6, 23, 0.85) 70%, rgba(2, 6, 23, 0.98) 100%), url(${src})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
             opacity: currentIndex === index ? 1 : 0,
             transition: 'opacity 0.8s ease-in-out',
             willChange: 'opacity',
           }}
-        />
+        >
+          <Image
+            src={src}
+            alt="Sree Travels Cabs"
+            fill
+            quality={85}
+            priority={index === 0}
+            sizes="100vw"
+            style={{ objectFit: 'cover', objectPosition: 'center', zIndex: 0 }}
+          />
+          <div 
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: 'linear-gradient(to bottom, rgba(2, 6, 23, 0.55) 0%, rgba(2, 6, 23, 0.85) 70%, rgba(2, 6, 23, 0.98) 100%)',
+              zIndex: 1
+            }} 
+          />
+        </div>
       ))}
     </div>
   );
