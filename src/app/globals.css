@@ -937,6 +937,13 @@ img {
   color: #64748b;
 }
 
+.form-group-modern input[type="date"]::-webkit-calendar-picker-indicator,
+.form-group-modern input[type="time"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(30%) sepia(100%) saturate(7000%) hue-rotate(345deg) brightness(110%) contrast(110%);
+  opacity: 1;
+}
+
 /* ============================================================
    FARE TABLE
    ============================================================ */

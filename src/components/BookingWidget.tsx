@@ -17,6 +17,8 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [cabType, setCabType] = useState('sedan');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const tabs = [
     { id: 'one-way', label: '🚗 One Way' },
@@ -41,6 +43,95 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
     window.open(`https://wa.me/919204714249?text=${encoded}`, '_blank');
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const tripTypeMap: Record<string, string> = {
+      'one-way': 'Oneway',
+      'round-trip': 'Round Trip',
+      'local': 'Local',
+      'airport': 'Airport'
+    };
+    
+    // IMPORTANT: Google Forms requires EXACT string matches for dropdown/radio fields.
+    const cabTypeMap: Record<string, string> = {
+      'hatchback': 'Hatchback',
+      'sedan': 'sedan',
+      'suv': 'Suv',
+      'innova': 'innova',
+      'crysta': 'innova crysta',
+      'tempo': 'Tampo traveler'
+    };
+    
+    // Create a dynamic hidden iframe and form to bypass opaque fetch restrictions
+    const iframeName = 'hidden_iframe_' + Date.now();
+    const iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    const formElement = document.createElement('form');
+    formElement.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfd0RKuh_I3FDWvmr37UGWOqZmjgkgNroiF3AOpJ2jY9Q3ohw/formResponse';
+    formElement.method = 'POST';
+    formElement.target = iframeName;
+
+    const appendInput = (name: string, value: string) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = name;
+      input.value = value;
+      formElement.appendChild(input);
+    };
+
+    appendInput('entry.542348811', tripTypeMap[activeTab] || 'Oneway');
+    appendInput('entry.868158706', cabTypeMap[cabType] || 'sedan');
+    appendInput('entry.1124196172', from);
+    appendInput('entry.764915580', to);
+    appendInput('entry.2020361825', date);
+    appendInput('entry.175765874', time);
+    appendInput('entry.318570201', name);
+    appendInput('entry.377226372', phone);
+
+    document.body.appendChild(formElement);
+    
+    iframe.onload = () => {
+      setSubmitSuccess(true);
+      setIsSubmitting(false);
+      
+      // Reset form variables optionally, then restore form after 3 seconds
+      setName('');
+      setPhone('');
+      setFrom('');
+      setTo('');
+      setTimeout(() => setSubmitSuccess(false), 3000);
+
+      setTimeout(() => {
+        if (document.body.contains(formElement)) document.body.removeChild(formElement);
+        if (document.body.contains(iframe)) document.body.removeChild(iframe);
+      }, 500);
+    };
+
+    formElement.submit();
+
+    // Fallback if cross-origin iframe onload gets blocked by browser policies
+    setTimeout(() => {
+      if (document.body.contains(iframe)) {
+        setSubmitSuccess(true);
+        setIsSubmitting(false);
+        
+        setName('');
+        setPhone('');
+        setFrom('');
+        setTo('');
+        setTimeout(() => setSubmitSuccess(false), 3000);
+
+        if (document.body.contains(formElement)) document.body.removeChild(formElement);
+        if (document.body.contains(iframe)) document.body.removeChild(iframe);
+      }
+    }, 4000);
+  };
+
   return (
     <div className="booking-widget">
       <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
@@ -52,89 +143,107 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
         </p>
       </div>
 
-      <div className="booking-form-modern">
-        <div className="form-group-modern">
-          <label>Trip Type</label>
-          <select value={activeTab} onChange={e => setActiveTab(e.target.value)}>
-            {tabs.map(tab => (
-              <option key={tab.id} value={tab.id}>{tab.label}</option>
-            ))}
-          </select>
+      {submitSuccess ? (
+        <div style={{ textAlign: 'center', padding: '2rem 1rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '1rem', border: '1px solid rgba(16, 185, 129, 0.2)', marginTop: '2rem' }}>
+          <div style={{ fontSize: '4rem', marginBottom: '1rem', animation: 'pulse 2s infinite' }}>🎉</div>
+          <h3 style={{ fontSize: '1.25rem', color: '#10b981', marginBottom: '0.5rem', fontWeight: 'bold' }}>Submission Successful!</h3>
+          <p style={{ color: '#f8fafc', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+            Thank you for choosing Sree Travels! We have received your booking request and our team will contact you shortly to confirm the details.
+          </p>
         </div>
-        <div className="form-group-modern">
-          <label>Cab Type</label>
-          <select value={cabType} onChange={e => setCabType(e.target.value)}>
-            <option value="hatchback">Hatchback (4 seater)</option>
-            <option value="sedan">Sedan (4 seater)</option>
-            <option value="suv">SUV / Ertiga (6 seater)</option>
-            <option value="innova">Innova (6-7 seater)</option>
-            <option value="crysta">Innova Crysta (7 seater)</option>
-            <option value="tempo">Tempo Traveller (12 seater)</option>
-          </select>
-        </div>
-        <div className="form-group-modern">
-          <label>Pickup Location</label>
-          <input
-            type="text"
-            placeholder={`e.g. Airport, or ${cityName || 'City'}`}
-            value={from}
-            onChange={e => setFrom(e.target.value)}
-          />
-        </div>
-        <div className="form-group-modern">
-          <label>Drop Location</label>
-          <input
-            type="text"
-            placeholder="e.g. Hotel, or Destination"
-            value={to}
-            onChange={e => setTo(e.target.value)}
-          />
-        </div>
-        <div className="form-group-modern">
-          <label>Pickup Date</label>
-          <input
-            type="date"
-            value={date}
-            onChange={e => setDate(e.target.value)}
-          />
-        </div>
-        <div className="form-group-modern">
-          <label>Pickup Time</label>
-          <input
-            type="time"
-            value={time}
-            onChange={e => setTime(e.target.value)}
-          />
-        </div>
-        <div className="form-group-modern">
-          <label>Your Name</label>
-          <input
-            type="text"
-            placeholder="Enter your full name"
-            value={name}
-            onChange={e => setName(e.target.value)}
-          />
-        </div>
-        <div className="form-group-modern">
-          <label>Phone Number</label>
-          <input
-            type="tel"
-            placeholder="10-digit mobile number"
-            value={phone}
-            onChange={e => setPhone(e.target.value)}
-            inputMode="numeric"
-          />
-        </div>
-      </div>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <div className="booking-form-modern">
+            <div className="form-group-modern">
+              <label>Trip Type</label>
+              <select value={activeTab} onChange={e => setActiveTab(e.target.value)}>
+                {tabs.map(tab => (
+                  <option key={tab.id} value={tab.id}>{tab.label}</option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group-modern">
+              <label>Cab Type</label>
+              <select value={cabType} onChange={e => setCabType(e.target.value)}>
+                <option value="hatchback">Hatchback (4 seater)</option>
+                <option value="sedan">Sedan (4 seater)</option>
+                <option value="suv">SUV / Ertiga (6 seater)</option>
+                <option value="innova">Innova (6-7 seater)</option>
+                <option value="crysta">Innova Crysta (7 seater)</option>
+                <option value="tempo">Tempo Traveller (12 seater)</option>
+              </select>
+            </div>
+            <div className="form-group-modern">
+              <label>Pickup Location</label>
+              <input
+                type="text"
+                required
+                placeholder={`e.g. Airport, or ${cityName || 'City'}`}
+                value={from}
+                onChange={e => setFrom(e.target.value)}
+              />
+            </div>
+            <div className="form-group-modern">
+              <label>Drop Location</label>
+              <input
+                type="text"
+                required
+                placeholder="e.g. Hotel, or Destination"
+                value={to}
+                onChange={e => setTo(e.target.value)}
+              />
+            </div>
+            <div className="form-group-modern">
+              <label>Pickup Date</label>
+              <input
+                type="date"
+                required
+                value={date}
+                onChange={e => setDate(e.target.value)}
+              />
+            </div>
+            <div className="form-group-modern">
+              <label>Pickup Time</label>
+              <input
+                type="time"
+                required
+                value={time}
+                onChange={e => setTime(e.target.value)}
+              />
+            </div>
+            <div className="form-group-modern">
+              <label>Your Name</label>
+              <input
+                type="text"
+                required
+                placeholder="Enter your full name"
+                value={name}
+                onChange={e => setName(e.target.value)}
+              />
+            </div>
+            <div className="form-group-modern">
+              <label>Phone Number</label>
+              <input
+                type="tel"
+                required
+                placeholder="10-digit mobile number"
+                value={phone}
+                onChange={e => setPhone(e.target.value)}
+                inputMode="numeric"
+              />
+            </div>
+          </div>
 
-      <div style={{ marginTop: '1.25rem', display: 'flex', gap: '0.75rem', flexDirection: 'column' }}>
-        <button className="btn-modern-whatsapp pulse-animation" onClick={handleBookWhatsApp} style={{ justifyContent: 'center', width: '100%' }}>
-          <span>💬 Book on WhatsApp</span>
-        </button>
-        <a href="tel:+919204714249" className="btn-modern-primary" style={{ justifyContent: 'center', width: '100%', textDecoration: 'none' }}>
-          <span>📞 Call +91 92047 14249</span>
-        </a>
-      </div>
+          <div style={{ marginTop: '1.25rem', display: 'flex', gap: '0.75rem', flexDirection: 'column' }}>
+            <button type="submit" disabled={isSubmitting} className="btn-modern-primary" style={{ justifyContent: 'center', width: '100%', cursor: 'pointer', border: 'none' }}>
+              <span>{isSubmitting ? 'Submitting...' : '📝 Submit Booking Request'}</span>
+            </button>
+            <button type="button" className="btn-modern-whatsapp pulse-animation" onClick={handleBookWhatsApp} style={{ justifyContent: 'center', width: '100%', cursor: 'pointer', border: 'none' }}>
+              <span>💬 Book on WhatsApp</span>
+            </button>
+          </div>
+        </form>
+      )}
     </div>
   );
 }

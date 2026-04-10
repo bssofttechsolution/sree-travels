@@ -7,6 +7,7 @@ import { jharkhandCities } from '@/lib/cities';
 import { services } from '@/lib/services';
 import { fleet } from '@/lib/fleet';
 import { routes } from '@/lib/routes';
+import FareCalculator from '@/components/FareCalculator';
 
 export const metadata: Metadata = {
   title: 'Sree Travels | Best Cab Service in Jharkhand | Book Online ☎ +919204714249',
@@ -201,6 +202,13 @@ export default function HomePage() {
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FARE CALCULATOR */}
+      <section className="section-spacing" style={{ paddingTop: 0 }}>
+        <div className="container-main">
+          <FareCalculator />
         </div>
       </section>
 

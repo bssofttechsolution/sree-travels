@@ -12,6 +12,7 @@ import CtaBanner from '@/components/CtaBanner';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import HeroSlider from '@/components/HeroSlider';
 import BlogSection from '@/components/BlogSection';
+import FareCalculator from '@/components/FareCalculator';
 
 // ============================================================
 // ROUTE MATCHING
@@ -378,6 +379,10 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
           </div>
         </div>
 
+        <div className="content-block" style={{ marginTop: '2.5rem' }}>
+          <FareCalculator />
+        </div>
+
         {/* Local Routes */}
         {cityLocalRoutes.length > 0 && (
           <div className="content-block" style={{ marginTop: '2.5rem' }}>
@@ -611,6 +616,10 @@ function ServiceInCityPage({ citySlug, serviceSlug }: { citySlug: string; servic
           <div className="area-tags" style={{ marginTop: '0.75rem' }}>{city.localities.map(a => <span key={a} className="area-tag">{a}</span>)}</div>
         </div>
 
+        <div className="content-block" style={{ marginTop: '2.5rem' }}>
+          <FareCalculator />
+        </div>
+
         <div className="content-block">
           <h2>Other Services in {city.name}</h2>
           <div className="internal-links-grid" style={{ marginTop: '0.75rem' }}>
@@ -741,6 +750,10 @@ function FleetInCityPage({ citySlug, fleetSlug }: { citySlug: string; fleetSlug:
           </div>
         </div>
 
+        <div className="content-block" style={{ marginTop: '2.5rem' }}>
+          <FareCalculator />
+        </div>
+
         <div className="content-block">
           <h2>Reviews — {vehicle.shortName} {city.name}</h2>
           <div className="reviews-grid" style={{ marginTop: '1rem' }}>
@@ -828,6 +841,10 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
             </table>
           </div>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>* 10% off on round trip. State taxes extra.</p>
+        </div>
+
+        <div className="content-block" style={{ marginTop: '2.5rem' }}>
+          <FareCalculator />
         </div>
 
         {/* Route Details */}
