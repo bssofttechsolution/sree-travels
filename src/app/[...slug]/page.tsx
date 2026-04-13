@@ -340,12 +340,80 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
         {/* About */}
         <section className="section-spacing">
           <div className="content-block">
-            <h2>About Our Cab Service in {city.name}</h2>
+            <h2>About Our Cab Service in {isJSR ? 'Jamshedpur (Tata/Tatanagar)' : city.name}</h2>
             <p>{city.seoDescription}</p>
             <p>Whether you need a quick local ride from {city.localities[0]} to {city.localities[1]}, an outstation trip, or airport transfer — Sree Travels has you covered with {city.tier === 1 ? '50+' : city.tier === 2 ? '30+' : '15+'} verified cabs, 24/7 availability, GPS-tracked fleet, and sanitized AC cabs.</p>
             {city.aka.length > 0 && <p>{city.name} ({city.aka.join(', ')}), {city.district} district. Population: {city.population}. Railway: {city.railwayStation}. Nearest Airport: {city.nearestAirport.name} ({city.nearestAirport.code}), {city.nearestAirport.distance}km away.</p>}
           </div>
         </section>
+
+        {/* How to Book Guide */}
+        <section className="section-spacing">
+          <div className="content-block">
+            <h2>How to Book a Cab in {isJSR ? 'Jamshedpur/Tata' : city.name}</h2>
+            <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+              <p style={{ marginBottom: '0.75rem' }}>Booking a cab in {isJSR ? 'Jamshedpur (Tata/Tatanagar)' : city.name} with Sree Travels is quick and easy. Here&apos;s how:</p>
+              <ol style={{ paddingLeft: '1.5rem', marginBottom: '0.75rem' }}>
+                <li style={{ marginBottom: '0.5rem' }}><strong>Step 1:</strong> Call us at <a href="tel:+919204714249" style={{ color: 'var(--primary)' }}>+91 92047 14249</a> or send a WhatsApp message with your pickup location, destination, date/time, and preferred cab type.</li>
+                <li style={{ marginBottom: '0.5rem' }}><strong>Step 2:</strong> We instantly confirm your booking and share driver details (name, photo, vehicle number, GPS tracking link).</li>
+                <li style={{ marginBottom: '0.5rem' }}><strong>Step 3:</strong> Your driver arrives 10 minutes early at your pickup point. Track live on GPS.</li>
+                <li style={{ marginBottom: '0.5rem' }}><strong>Step 4:</strong> Enjoy your ride! Pay via Cash, UPI, Google Pay, PhonePe, or Card after the trip.</li>
+              </ol>
+              <p>No app download needed. No surge pricing. No hidden charges. Just reliable {isJSR ? 'cab service in Tata/Jamshedpur' : `cab service in ${city.name}`} from Jharkhand&apos;s most trusted travel company.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Areas We Cover In Detail */}
+        <section className="section-spacing">
+          <div className="content-block">
+            <h2>Areas We Cover in {isJSR ? 'Jamshedpur/Tata (Tatanagar)' : city.name}</h2>
+            <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+              <p style={{ marginBottom: '0.75rem' }}>Our {isJSR ? 'cab service covers every area of Jamshedpur and Tata Nagar' : `cab service covers all areas of ${city.name}`}. Here are some of the key localities we serve:</p>
+              <ul style={{ paddingLeft: '1.5rem', columns: '2', columnGap: '2rem' }}>
+                {city.localities.map(area => (
+                  <li key={area} style={{ marginBottom: '0.4rem' }}><strong>{area}</strong> — Pickup & drop service available 24/7</li>
+                ))}
+              </ul>
+              {isJSR && <p style={{ marginTop: '0.75rem' }}>We also cover extended areas like <strong>Adityapur Industrial Area</strong>, <strong>Gamharia</strong>, <strong>Chandil</strong>, <strong>Seraikela</strong>, and <strong>Ghatshila</strong>. Whether you need a cab from <strong>Tatanagar Railway Station</strong>, <strong>XLRI Campus</strong>, <strong>NIT Jamshedpur</strong>, <strong>Tata Motors Gate</strong>, or <strong>Jubilee Park</strong> — Sree Travels is just a call away.</p>}
+            </div>
+          </div>
+        </section>
+
+        {/* Nearby Airports & Stations */}
+        <section className="section-spacing">
+          <div className="content-block">
+            <h2>{isJSR ? 'Tatanagar Railway Station & Airport Cab Service' : `${city.railwayStation} & Airport Transfer`}</h2>
+            <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+              {isJSR ? (
+                <>
+                  <p style={{ marginBottom: '0.75rem' }}><strong>Tatanagar Junction Railway Station</strong> is the main railway station serving Jamshedpur/Tata. Sree Travels provides 24/7 cab service from Tatanagar station to any destination — local areas like Bistupur, Mango, Sakchi, Adityapur, or outstation routes to Ranchi, Kolkata, Dhanbad, and more. Our drivers are stationed near the station round the clock for instant pickup.</p>
+                  <p style={{ marginBottom: '0.75rem' }}><strong>Birsa Munda Airport (Ranchi)</strong> is the nearest airport, {city.nearestAirport.distance}km from Jamshedpur. Book a <strong>Ranchi Airport to Jamshedpur cab</strong> or <strong>Jamshedpur to Ranchi Airport taxi</strong> starting at ₹2,499. Flight tracking included — no extra charge for delays.</p>
+                  <p><strong>Sonari Airport</strong> (IXW) is a smaller airport near Jamshedpur with limited flights. We provide cab service to/from Sonari Airstrip as well.</p>
+                </>
+              ) : (
+                <>
+                  <p style={{ marginBottom: '0.75rem' }}><strong>{city.railwayStation}</strong> is the main railway station in {city.name}. Book instant pickup/drop cab service available 24/7.</p>
+                  <p><strong>{city.nearestAirport.name}</strong> ({city.nearestAirport.code}) is {city.nearestAirport.distance}km away. We provide reliable airport transfer service with flight tracking.</p>
+                </>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Corporate & Industrial */}
+        {isJSR && (
+          <section className="section-spacing">
+            <div className="content-block">
+              <h2>Corporate Cab Service in Jamshedpur/Tata</h2>
+              <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+                <p style={{ marginBottom: '0.75rem' }}>Jamshedpur (Tata Nagar) is home to major industrial establishments including <strong>Tata Steel</strong>, <strong>Tata Motors</strong>, <strong>Tinplate Company</strong>, <strong>Tata Cummins</strong>, and the <strong>Adityapur Industrial Area</strong> — one of Asia&apos;s largest industrial estates. Sree Travels provides dedicated corporate cab service for executives, employees, and visiting clients.</p>
+                <p style={{ marginBottom: '0.75rem' }}>We serve top educational institutions including <strong>XLRI Jamshedpur</strong> (India&apos;s premier B-school), <strong>NIT Jamshedpur</strong>, <strong>Loyola School</strong>, and <strong>JUSCO</strong>. Monthly corporate packages with GST billing, dedicated driver allotment, and centralized billing are available for all companies in Jamshedpur/Tata.</p>
+                <p>Contact us for corporate tie-up rates: <a href="tel:+919204714249" style={{ color: 'var(--primary)' }}>+91 92047 14249</a></p>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Services */}
         <div className="content-block">
@@ -906,6 +974,31 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
             <li>Multiple cab types — Hatchback, Sedan, SUV, Innova Crysta, Tempo Traveller</li>
             <li>Book via WhatsApp in 30 seconds — no app required</li>
           </ul>
+        </div>
+
+        {/* Travel Guide */}
+        <div className="content-block">
+          <h2>{fromName} to {toName} Travel Guide</h2>
+          <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+            <p style={{ marginBottom: '0.75rem' }}>Planning to travel from <strong>{fromName} to {toName}</strong>? Here&apos;s everything you need to know about this {route.distanceKm}km journey. The route via <strong>{route.nh}</strong> takes approximately <strong>{route.durationHrs} hours</strong> and passes through {route.via.join(', ')}. Road condition is {route.roadCondition.toLowerCase()}, making it a comfortable cab ride.</p>
+            <p style={{ marginBottom: '0.75rem' }}>Sree Travels is the most trusted {isFromJSR ? 'Jamshedpur/Tata' : route.fromName} to {isToJSR ? 'Jamshedpur/Tata' : route.toName} <strong>cab service</strong> with experienced drivers who travel this route daily. We offer both <strong>one way and round trip</strong> options. Book via WhatsApp at +91 92047 14249 for instant confirmation.</p>
+            <h3 style={{ marginTop: '1rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>Bus vs Train vs Cab — {route.fromName} to {route.toName}</h3>
+            <div className="fare-table-container" style={{ marginTop: '0.5rem' }}>
+              <table className="fare-table">
+                <thead><tr><th>Feature</th><th style={{ color: 'var(--primary)' }}>Cab (Sree Travels) ✅</th><th>Bus</th><th>Train</th></tr></thead>
+                <tbody>
+                  <tr><td>Door-to-door</td><td style={{ color: '#22c55e' }}>✅ Pickup from your location</td><td>❌ Bus stand only</td><td>❌ Station only</td></tr>
+                  <tr><td>Travel Time</td><td style={{ color: '#22c55e' }}>~{route.durationHrs} hrs (direct)</td><td>~{Math.round(Number(route.durationHrs) * 1.5)} hrs</td><td>Varies by schedule</td></tr>
+                  <tr><td>Comfort</td><td style={{ color: '#22c55e' }}>AC, reclining seats</td><td>Basic</td><td>Class dependent</td></tr>
+                  <tr><td>Luggage</td><td style={{ color: '#22c55e' }}>Unlimited boot space</td><td>Limited</td><td>Limited</td></tr>
+                  <tr><td>Flexibility</td><td style={{ color: '#22c55e' }}>Depart anytime 24/7</td><td>Fixed schedule</td><td>Fixed schedule</td></tr>
+                  <tr><td>Family Friendly</td><td style={{ color: '#22c55e' }}>Private cab</td><td>Crowded</td><td>Shared</td></tr>
+                  <tr><td>Stops</td><td style={{ color: '#22c55e' }}>Stop anywhere en route</td><td>Fixed stops</td><td>Fixed stations</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style={{ marginTop: '0.75rem' }}>For the <strong>{route.fromName} to {route.toName}</strong> route, a cab is the most comfortable and convenient option, especially for families, groups, elderly passengers, and those with luggage. With Sree Travels, your fare of ₹{route.fares.hatchback.toLocaleString()} includes toll, fuel, and driver allowance — no hidden charges.</p>
+          </div>
         </div>
 
         {/* Travel Tips */}

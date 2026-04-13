@@ -11,22 +11,34 @@ import { routes } from '@/lib/routes';
 import FareCalculator from '@/components/FareCalculator';
 
 export const metadata: Metadata = {
-  title: 'Sree Travels | Best Cab Service in Jharkhand | Jamshedpur/Tata, Ranchi',
-  description: 'Book the best car rental & cab service in Jharkhand ✅ Jamshedpur (Tata/Tatanagar) ✅ Ranchi ✅ Dhanbad ✅ Bokaro. AC cabs, verified drivers, GPS tracking. Call +919204714249.',
+  title: 'Sree Travels | Best Cab Service in Jamshedpur (Tata) & Ranchi | Taxi Booking Jharkhand',
+  description: 'Book the best cab service in Jamshedpur (Tata/Tatanagar) & Ranchi, Jharkhand ✅ AC cabs from ₹999 ✅ Tata to Ranchi cab ₹2,499 ✅ Police-verified drivers ✅ GPS tracked ✅ 24/7 service. One way, outstation, airport & local taxi. Call +919204714249.',
   keywords: [
-    'sree travels', 'cab service jharkhand', 'best cab service jamshedpur tata',
-    'taxi tatanagar', 'car rental tata jamshedpur', 'cab ranchi', 'outstation cab jharkhand',
-    'one way cab jamshedpur', 'airport taxi ranchi', 'car rental jharkhand',
-    'jamshedpur to ranchi cab', 'tata to ranchi cab', 'tatanagar to ranchi taxi',
+    'sree travels', 'sree travels jamshedpur', 'sree travels tata',
+    'cab service in jamshedpur', 'cab service in tata', 'tata cab service', 'tatanagar taxi',
+    'best cab service jamshedpur tata', 'best cab service in jamshedpur',
+    'taxi tatanagar', 'car rental tata jamshedpur', 'car rental jamshedpur',
+    'cab ranchi', 'cab service ranchi', 'taxi ranchi',
+    'outstation cab jharkhand', 'outstation cab jamshedpur', 'outstation cab tata',
+    'one way cab jamshedpur', 'one way cab tata',
+    'airport taxi ranchi', 'airport cab ranchi',
+    'car rental jharkhand', 'cab service jharkhand',
+    'jamshedpur to ranchi cab', 'tata to ranchi cab', 'tatanagar to ranchi cab',
+    'ranchi to jamshedpur cab', 'ranchi to tata cab',
+    'jamshedpur to kolkata cab', 'tata to kolkata cab',
     'cab booking online jharkhand', 'taxi near me jamshedpur',
     'book cab online jharkhand', '24/7 cab service tata tatanagar',
+    'cab dhanbad', 'cab bokaro', 'cab hazaribagh',
+    'jamshedpur to dhanbad cab', 'jamshedpur to bokaro cab',
+    'best taxi service in tata', 'cheapest cab in jamshedpur',
+    'tata to dhanbad cab', 'tata to bokaro cab', 'tata to kolkata cab',
   ],
   alternates: { canonical: 'https://www.sreetravel.com' },
   openGraph: {
-    title: 'Sree Travels | Best Cab Service in Jharkhand',
-    description: 'Book reliable AC cabs in Jharkhand — 15+ cities, 100+ cabs, 24/7 service. ☎ +919204714249',
+    title: 'Sree Travels | Best Cab Service in Jamshedpur (Tata) & Ranchi, Jharkhand',
+    description: 'Book reliable AC cabs in Jamshedpur/Tata & Ranchi — 15+ cities, 100+ cabs, 24/7. Tata to Ranchi ₹2,499. ☎ +919204714249',
     url: 'https://www.sreetravel.com',
-    images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: 'Sree Travels Jharkhand' }],
+    images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: 'Sree Travels Best Cab Service Jamshedpur Tata Ranchi Jharkhand' }],
   },
 };
 
@@ -45,13 +57,13 @@ export default function HomePage() {
               🏆 Jharkhand&apos;s Most Trusted Cab Service — Since 2015
             </div>
             <h1 style={{ fontSize: 'clamp(1.6rem, 5vw, 3rem)', fontWeight: 900, lineHeight: 1.15, marginBottom: '0.85rem' }}>
-              <span className="gold-text">Book Your Cab</span> in Jharkhand<br />
+              <span className="gold-text">Best Cab Service in Jamshedpur (Tata)</span> & Ranchi<br />
               <span style={{ fontSize: 'clamp(0.85rem, 2.5vw, 1.5rem)', color: '#94a3b8', fontWeight: 600 }}>
-                15 Cities • 100+ Cabs • 24/7 Service
+                15 Cities • 100+ Cabs • 24/7 Taxi Service • ₹11/km
               </span>
             </h1>
             <p style={{ color: '#94a3b8', fontSize: 'clamp(0.85rem, 2.5vw, 1rem)', maxWidth: '550px', marginBottom: '1.25rem', lineHeight: 1.6 }}>
-              Reliable AC cabs with professional drivers for local travel, outstation trips, airport transfers, and corporate needs.
+              Book reliable AC cabs in Jamshedpur/Tata (Tatanagar), Ranchi, Dhanbad, Bokaro & Hazaribagh with professional police-verified drivers. One way cab, outstation trips, airport transfers & local taxi.
             </p>
             <div className="hero-btn-group">
               <a href="tel:+919204714249" className="btn-primary">
@@ -291,20 +303,41 @@ export default function HomePage() {
         <div className="container-main">
           <div className="content-block">
             <h2 style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
-              <span className="gold-text">About Sree Travels</span> — Jharkhand&apos;s Most Trusted Cab Service
+              <span className="gold-text">About Sree Travels</span> — Best Cab Service in Jamshedpur (Tata) & Ranchi
             </h2>
             <div style={{ maxWidth: '900px', margin: '0 auto', color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 'clamp(0.85rem, 2.5vw, 0.95rem)' }}>
               <p style={{ marginBottom: '0.85rem' }}>
-                <strong>Sree Travels</strong> is Jharkhand&apos;s premier cab service, operating since 2015 from our headquarters in Jamshedpur (Tata). We provide reliable, affordable, and safe taxi services across <strong>15+ cities in Jharkhand</strong> including Jamshedpur (Tata/Tatanagar), Ranchi, Dhanbad, Bokaro Steel City, Deoghar, Hazaribagh, Giridih, Dumka, Chaibasa, and Adityapur.
+                <strong>Sree Travels</strong> is the <strong>best cab service in Jamshedpur (Tata)</strong> and <strong>Ranchi</strong>, operating since 2015 from our headquarters on Dimna Road, Mango, Jamshedpur (Tatanagar). We are the <strong>#1 rated taxi service in Tata Nagar</strong> with 50,000+ satisfied customers, 100+ verified cabs, and 4.8★ Google rating. Whether you call it Jamshedpur, Tata, Tatanagar, or Steel City — Sree Travels is the name locals trust for reliable, affordable, and safe <strong>cab service in Tata/Jamshedpur</strong>.
               </p>
               <p style={{ marginBottom: '0.85rem' }}>
-                Whether you need a <strong>one way cab from Tata/Jamshedpur to Ranchi</strong>, a <strong>round trip taxi from Dhanbad to Kolkata</strong>, an <strong>airport transfer in Ranchi</strong>, or a <strong>local taxi for hourly rental in Tatanagar</strong>, Sree Travels has you covered. Our fleet includes Swift Dzire, Honda City Sedan, Toyota Innova, Innova Crysta, Maruti Ertiga, and Tempo Travellers — all AC, GPS-tracked, and regularly maintained.
+                Our fleet of AC cabs serves Jamshedpur (Tata), Ranchi, Dhanbad, Bokaro Steel City, Hazaribagh, Deoghar, Giridih, Dumka, Chaibasa, Adityapur (Gamharia), and 5+ more cities across Jharkhand. Whether you need a <strong>one way cab from Tata to Ranchi</strong> (₹2,499), a <strong>Jamshedpur to Kolkata cab</strong> (₹3,999), or a <strong>local taxi in Tatanagar</strong> from ₹999, Sree Travels has the perfect cab for you. Our fleet includes Swift Dzire, Honda City Sedan, Toyota Innova, Innova Crysta, Maruti Ertiga, and Tempo Travellers — all AC, GPS-tracked, and regularly maintained.
               </p>
               <p style={{ marginBottom: '0.85rem' }}>
-                What sets us apart from competitors is our commitment to <strong>transparent pricing with zero hidden charges</strong>. Every fare includes toll, fuel, and driver allowance. Our drivers are <strong>100% police-verified</strong> with 5+ years of driving experience. We accept all payment methods — Cash, UPI, Google Pay, PhonePe, and Card.
+                What makes Sree Travels the <strong>best taxi service in Jamshedpur/Tata</strong> compared to other <strong>cab services in Jamshedpur</strong>? Our commitment to <strong>transparent pricing with zero hidden charges</strong>. Every fare includes toll, fuel, and driver allowance. Our drivers are <strong>100% police-verified</strong> with 5+ years of driving experience. We accept all payment methods — Cash, UPI, Google Pay, PhonePe, Paytm, and Card.
               </p>
+              <h3 style={{ marginBottom: '0.6rem', marginTop: '1.2rem', color: 'var(--text-primary)' }}>Cab Service from Tatanagar Railway Station</h3>
+              <p style={{ marginBottom: '0.85rem' }}>
+                Need a <strong>cab from Tatanagar station</strong>? Sree Travels provides instant pickup from <strong>Tatanagar Junction railway station</strong> to any destination in Jamshedpur, Adityapur, Gamharia, or outstation routes to Ranchi, Kolkata, Dhanbad, and beyond. Our drivers are stationed near the station 24/7 for quick pickup. Book your <strong>Tatanagar station taxi</strong> via WhatsApp at +91 92047 14249 for instant confirmation.
+              </p>
+              <h3 style={{ marginBottom: '0.6rem', marginTop: '1.2rem', color: 'var(--text-primary)' }}>Ranchi Airport Cab Service</h3>
+              <p style={{ marginBottom: '0.85rem' }}>
+                Flying into or out of Ranchi? Sree Travels is the most reliable <strong>Ranchi airport cab service</strong>. We provide <strong>Birsa Munda Airport taxi</strong> for both pickup and drop at fixed fares. Our drivers track your flight status — no extra charge for delays. Book <strong>airport cab from Ranchi</strong> to Jamshedpur (Tata), Dhanbad, Bokaro, or any Jharkhand city. Airport to Ranchi city from ₹499, Airport to Jamshedpur from ₹2,499.
+              </p>
+              <h3 style={{ marginBottom: '0.6rem', marginTop: '1.2rem', color: 'var(--text-primary)' }}>Popular Routes from Jamshedpur/Tata</h3>
+              <p style={{ marginBottom: '0.85rem' }}>
+                Our most booked outstation routes include <strong>Jamshedpur to Ranchi cab</strong> (130km, 3hrs, ₹2,499), <strong>Tata to Kolkata cab</strong> (260km, 5-6hrs, ₹3,999), <strong>Jamshedpur to Dhanbad cab</strong> (80km, 2hrs, ₹1,999), <strong>Tata to Bokaro cab</strong> (120km, 3hrs, ₹2,399), and <strong>Jamshedpur to Puri cab</strong> (520km, 10hrs, ₹7,999). Every fare includes toll, fuel, and driver allowance with zero hidden charges. Book one way or round trip from Tata/Jamshedpur.
+              </p>
+              <h3 style={{ marginBottom: '0.6rem', marginTop: '1.2rem', color: 'var(--text-primary)' }}>Local Taxi in Jamshedpur/Tata</h3>
+              <p style={{ marginBottom: '0.85rem' }}>
+                For local travel within Jamshedpur (Tata), we offer 4hr/40km and 8hr/80km <strong>local taxi packages</strong> starting at just ₹999. Perfect for shopping in Bistupur, hospital visits, meetings at XLRI or NIT Jamshedpur, and exploring tourist places like Jubilee Park, Dimna Lake, and Dalma Wildlife Sanctuary. Our <strong>local cab service in Tata/Jamshedpur</strong> covers Mango, Bistupur, Sakchi, Jugsalai, Adityapur, Gamharia, Telco, Kadma, Golmuri, Sonari, Baridih, and all areas.
+              </p>
+              <h3 style={{ marginBottom: '0.6rem', marginTop: '1.2rem', color: 'var(--text-primary)' }}>Cab Service in Ranchi</h3>
+              <p style={{ marginBottom: '0.85rem' }}>
+                Sree Travels is also the <strong>best cab service in Ranchi</strong>. We provide reliable <strong>car rental in Ranchi</strong> for local travel, outstation trips, corporate travel, and Birsa Munda Airport transfers. Our Ranchi fleet covers Doranda, Kanke, Lalpur, Harmu, Dhurwa, Morabadi, Bariatu, Hinoo, Kokar, Ratu Road, Booty More, Argora, Namkum, Hatia, and all major localities. Book <strong>Ranchi to Jamshedpur cab</strong>, <strong>Ranchi to Kolkata cab</strong>, <strong>Ranchi to Patna cab</strong>, and 50+ outstation routes from Ranchi.
+              </p>
+              <h3 style={{ marginBottom: '0.6rem', marginTop: '1.2rem', color: 'var(--text-primary)' }}>Why Sree Travels vs. Other Cab Services?</h3>
               <p>
-                With <strong>50,000+ satisfied customers</strong> and a <strong>4.8★ Google rating</strong>, Sree Travels is the natural choice for anyone looking for a <strong>reliable cab service in Jharkhand</strong>. Book instantly via WhatsApp at +91 92047 14249 — no app download required.
+                Unlike Ola and Uber which have <strong>limited availability in Jamshedpur/Tata</strong>, Sree Travels is a <strong>local cab service</strong> that guarantees availability 24/7, 365 days. We don&apos;t use surge pricing — our fares are fixed. Every driver is locally known, police-verified, and experienced with Jharkhand routes. With <strong>50,000+ satisfied customers</strong> and a <strong>4.8★ Google rating</strong>, Sree Travels is the natural choice for anyone looking for a <strong>reliable cab service in Jamshedpur, Tata, Ranchi</strong>, or anywhere in Jharkhand. Book instantly via WhatsApp at +91 92047 14249 — no app download required.
               </p>
             </div>
           </div>
