@@ -15,7 +15,7 @@ export default function CtaBanner({ title, subtitle, whatsappMessage = 'Hi Sree 
         <a href="tel:+919204714249" className="btn-dark">
           📞 Call +91 92047 14249
         </a>
-        <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-white">
+        <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-white" aria-label="Book a cab on WhatsApp now">
           💬 WhatsApp Now
         </a>
         <a href="mailto:info@sreetravel.com" className="btn-dark">

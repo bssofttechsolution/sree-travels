@@ -69,7 +69,7 @@ export default function HomePage() {
               <a href="tel:+919204714249" className="btn-primary">
                 📞 Call: +91 92047 14249
               </a>
-              <a href="https://wa.me/919204714249?text=Hi%20Sree%20Travels%2C%20I%20want%20to%20book%20a%20cab" target="_blank" rel="noopener noreferrer" className="btn-whatsapp pulse-animation">
+              <a href="https://wa.me/919204714249?text=Hi%20Sree%20Travels%2C%20I%20want%20to%20book%20a%20cab" target="_blank" rel="noopener noreferrer" className="btn-whatsapp pulse-animation" aria-label="Book a cab on WhatsApp">
                 💬 Book on WhatsApp
               </a>
             </div>

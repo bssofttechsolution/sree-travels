@@ -87,6 +87,7 @@ export default function ContactPage() {
           <h2>Find Us on <span className="gold-text">Map</span></h2>
           <div style={{ width: '100%', height: '400px', borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--card-border)', marginTop: '1rem' }}>
             <iframe
+              title="Sree Travels office location on Google Maps - Dimna Road, Mango, Jamshedpur"
               width="100%"
               height="100%"
               style={{ border: 0 }}

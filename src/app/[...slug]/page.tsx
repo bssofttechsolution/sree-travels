@@ -495,6 +495,7 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
           <h2>{city.name} Service Area Map</h2>
           <div style={{ width: '100%', height: '350px', borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--card-border)', marginTop: '1rem' }}>
             <iframe 
+              title={`Google Map showing cab service area in ${city.name}, Jharkhand`}
               width="100%" 
               height="100%" 
               style={{ border: 0 }}
@@ -1040,6 +1041,7 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
           <h2>{route.fromName} To {route.toName} Route Map</h2>
           <div style={{ width: '100%', height: '350px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--card-border)', marginTop: '1rem' }}>
             <iframe 
+              title={`Route map from ${route.fromName} to ${route.toName}`}
               width="100%" 
               height="100%" 
               style={{ border: 0 }}

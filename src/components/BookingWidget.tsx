@@ -155,16 +155,16 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
         <form onSubmit={handleSubmit}>
           <div className="booking-form-modern">
             <div className="form-group-modern">
-              <label>Trip Type</label>
-              <select value={activeTab} onChange={e => setActiveTab(e.target.value)}>
+              <label htmlFor="booking-trip-type">Trip Type</label>
+              <select id="booking-trip-type" value={activeTab} onChange={e => setActiveTab(e.target.value)}>
                 {tabs.map(tab => (
                   <option key={tab.id} value={tab.id}>{tab.label}</option>
                 ))}
               </select>
             </div>
             <div className="form-group-modern">
-              <label>Cab Type</label>
-              <select value={cabType} onChange={e => setCabType(e.target.value)}>
+              <label htmlFor="booking-cab-type">Cab Type</label>
+              <select id="booking-cab-type" value={cabType} onChange={e => setCabType(e.target.value)}>
                 <option value="hatchback">Hatchback (4 seater)</option>
                 <option value="sedan">Sedan (4 seater)</option>
                 <option value="suv">SUV / Ertiga (6 seater)</option>
@@ -174,8 +174,9 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
               </select>
             </div>
             <div className="form-group-modern">
-              <label>Pickup Location</label>
+              <label htmlFor="booking-pickup">Pickup Location</label>
               <input
+                id="booking-pickup"
                 type="text"
                 required
                 placeholder={`e.g. Airport, or ${cityName || 'City'}`}
@@ -184,8 +185,9 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
               />
             </div>
             <div className="form-group-modern">
-              <label>Drop Location</label>
+              <label htmlFor="booking-drop">Drop Location</label>
               <input
+                id="booking-drop"
                 type="text"
                 required
                 placeholder="e.g. Hotel, or Destination"
@@ -194,8 +196,9 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
               />
             </div>
             <div className="form-group-modern">
-              <label>Pickup Date</label>
+              <label htmlFor="booking-date">Pickup Date</label>
               <input
+                id="booking-date"
                 type="date"
                 required
                 value={date}
@@ -203,8 +206,9 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
               />
             </div>
             <div className="form-group-modern">
-              <label>Pickup Time</label>
+              <label htmlFor="booking-time">Pickup Time</label>
               <input
+                id="booking-time"
                 type="time"
                 required
                 value={time}
@@ -212,8 +216,9 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
               />
             </div>
             <div className="form-group-modern">
-              <label>Your Name</label>
+              <label htmlFor="booking-name">Your Name</label>
               <input
+                id="booking-name"
                 type="text"
                 required
                 placeholder="Enter your full name"
@@ -222,8 +227,9 @@ export default function BookingWidget({ defaultFrom = '', defaultTo = '', cityNa
               />
             </div>
             <div className="form-group-modern">
-              <label>Phone Number</label>
+              <label htmlFor="booking-phone">Phone Number</label>
               <input
+                id="booking-phone"
                 type="tel"
                 required
                 placeholder="10-digit mobile number"
