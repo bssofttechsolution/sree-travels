@@ -31,7 +31,8 @@ export default function HeroSlider() {
       height: '100%',
       zIndex: 0,
       overflow: 'hidden',
-      background: 'var(--dark)'
+      background: 'var(--dark)',
+      contain: 'strict',
     }}>
       {images.map((src, index) => (
         <div 
@@ -41,15 +42,17 @@ export default function HeroSlider() {
             inset: 0,
             opacity: currentIndex === index ? 1 : 0,
             transition: 'opacity 0.8s ease-in-out',
-            willChange: 'opacity',
+            willChange: index === currentIndex || index === (currentIndex + 1) % images.length ? 'opacity' : 'auto',
+            contain: 'strict',
           }}
         >
           <Image
             src={src}
-            alt="Sree Travels Cabs"
+            alt={`Sree Travels - Best Cab Service in Jamshedpur Tata Ranchi - Fleet ${index + 1}`}
             fill
-            quality={85}
+            quality={70}
             priority={index === 0}
+            loading={index === 0 ? 'eager' : 'lazy'}
             sizes="100vw"
             style={{ objectFit: 'cover', objectPosition: 'center', zIndex: 0 }}
           />
@@ -66,3 +69,4 @@ export default function HeroSlider() {
     </div>
   );
 }
+
