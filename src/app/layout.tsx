@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://www.sreetravel.com",
+    canonical: "/",
   },
   other: {
     'geo.region': 'IN-JH',

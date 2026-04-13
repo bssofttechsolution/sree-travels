@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     'cab booking online jharkhand', 'taxi near me jamshedpur',
     'book cab online jharkhand', '24/7 cab service jharkhand',
   ],
-  alternates: { canonical: 'https://sreetravel.com' },
+  alternates: { canonical: 'https://www.sreetravel.com' },
   openGraph: {
     title: 'Sree Travels | Best Cab Service in Jharkhand',
     description: 'Book reliable AC cabs in Jharkhand — 15+ cities, 100+ cabs, 24/7 service. ☎ +919204714249',
-    url: 'https://sreetravel.com',
+    url: 'https://www.sreetravel.com',
     images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: 'Sree Travels Jharkhand' }],
   },
 };

@@ -2,11 +2,12 @@ User-Agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://sreetravel.com/sitemap.xml
+Sitemap: https://www.sreetravel.com/sitemap.xml
 
 # Disallow admin and API routes
 Disallow: /api/
 Disallow: /_next/
+Disallow: /fonts/
 Disallow: /404
 
 # Allow all crawlers to access the site

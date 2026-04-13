@@ -143,11 +143,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           `one way cab ${city.name.toLowerCase()}`, `round trip cab ${city.name.toLowerCase()}`,
           `cheapest cab ${city.name.toLowerCase()}`, `sree travels ${city.name.toLowerCase()}`,
         ],
-        alternates: { canonical: `https://sreetravel.com/cab-service-${city.slug}` },
+        alternates: { canonical: `https://www.sreetravel.com/cab-service-${city.slug}` },
         openGraph: {
           title: `Best Cab Service in ${city.name} | Sree Travels`,
           description: `Book AC cab in ${city.name}. One way, round trip, outstation, airport & local. ₹${city.localFare.hatchback_4hr} onwards. ☎ +919204714249`,
-          url: `https://sreetravel.com/cab-service-${city.slug}`,
+          url: `https://www.sreetravel.com/cab-service-${city.slug}`,
           images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `Cab Service in ${city.name}` }],
         },
       };
@@ -166,11 +166,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           `cheap ${service.name.toLowerCase()} ${city.name.toLowerCase()}`,
           `best ${service.name.toLowerCase()} ${city.name.toLowerCase()}`,
         ],
-        alternates: { canonical: `https://sreetravel.com/${city.slug}/${service.slug}` },
+        alternates: { canonical: `https://www.sreetravel.com/${city.slug}/${service.slug}` },
         openGraph: {
           title: `${service.name} in ${city.name} | Sree Travels`,
           description: `₹${service.startingPrice} ${service.priceUnit}. Book now ☎ +919204714249`,
-          url: `https://sreetravel.com/${city.slug}/${service.slug}`,
+          url: `https://www.sreetravel.com/${city.slug}/${service.slug}`,
           images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `${service.name} in ${city.name}` }],
         },
       };
@@ -189,11 +189,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           `${vehicle.shortName.toLowerCase()} taxi ${city.name.toLowerCase()}`,
           `book ${vehicle.shortName.toLowerCase()} ${city.name.toLowerCase()}`,
         ],
-        alternates: { canonical: `https://sreetravel.com/${city.slug}/${vehicle.slug}` },
+        alternates: { canonical: `https://www.sreetravel.com/${city.slug}/${vehicle.slug}` },
         openGraph: {
           title: `${vehicle.name} in ${city.name} | Sree Travels`,
           description: `₹${vehicle.perKmRate}/km | ${vehicle.seatingCapacity} seater. Book now ☎ +919204714249`,
-          url: `https://sreetravel.com/${city.slug}/${vehicle.slug}`,
+          url: `https://www.sreetravel.com/${city.slug}/${vehicle.slug}`,
           images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `${vehicle.name} in ${city.name}` }],
         },
       };
@@ -215,11 +215,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           `outstation cab ${route.fromName.toLowerCase()}`,
           `${route.fromName.toLowerCase()} ${route.toName.toLowerCase()} cab booking`,
         ],
-        alternates: { canonical: `https://sreetravel.com/${route.from}-to-${route.to}-cab` },
+        alternates: { canonical: `https://www.sreetravel.com/${route.from}-to-${route.to}-cab` },
         openGraph: {
           title: `${route.fromName} to ${route.toName} Cab \u2014 \u20b9${route.fares.hatchback.toLocaleString()} Onwards`,
           description: `${route.distanceKm}km \u2022 ${route.durationHrs}hrs. AC cab with verified driver. Book now \u260e +919204714249`,
-          url: `https://sreetravel.com/${route.from}-to-${route.to}-cab`,
+          url: `https://www.sreetravel.com/${route.from}-to-${route.to}-cab`,
           images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `${route.fromName} to ${route.toName} Cab` }],
         },
       };
@@ -237,11 +237,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           `local taxi ${lr.cityName.toLowerCase()}`,
           `auto ${lr.fromArea.toLowerCase()} to ${lr.toArea.toLowerCase()}`,
         ],
-        alternates: { canonical: `https://sreetravel.com/local-taxi-${lr.city}/${lr.slug}` },
+        alternates: { canonical: `https://www.sreetravel.com/local-taxi-${lr.city}/${lr.slug}` },
         openGraph: {
           title: `Taxi ${lr.fromArea} to ${lr.toArea} \u2014 \u20b9${lr.startingFare}`,
           description: `${lr.distanceKm}km \u2022 ${lr.durationMin}min. Book now \u260e +919204714249`,
-          url: `https://sreetravel.com/local-taxi-${lr.city}/${lr.slug}`,
+          url: `https://www.sreetravel.com/local-taxi-${lr.city}/${lr.slug}`,
           images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `Taxi ${lr.fromArea} to ${lr.toArea}` }],
         },
       };
