@@ -62,11 +62,11 @@ export const jharkhandCities: CityData[] = [
       "Jubilee Park", "Dalma Wildlife Sanctuary", "Dimna Lake",
       "Tata Steel Zoo", "Jayanti Sarovar", "Bhubneshwari Temple"
     ],
-    seoDescription: "Jamshedpur, also known as Tata Nagar or Steel City, is the largest city in Jharkhand and the industrial capital of Eastern India. Located in East Singhbhum district, it is home to Tata Steel, XLRI, and NIT Jamshedpur. Sree Travels provides premium cab services across Jamshedpur with 50+ verified cabs available 24/7 for local, outstation, and airport transfer needs. Whether you need a cab from Mango to Bistupur, or an outstation trip to Kolkata, our GPS-tracked fleet ensures safe and comfortable travel.",
+    seoDescription: "Searching for the best cab service in Jamshedpur (Tata) or Tatanagar railway station? Sree Travels is the #1 rated car rental in Jamshedpur, offering premium AC cabs across Tata Nagar. Whether you need an outstation taxi booking online from Tata to Ranchi cab, local Tatanagar taxi service, or corporate car rental in Jamshedpur, our 50+ verified cabs are available 24/7. Get the lowest fares for Jamshedpur to Ranchi cab, Tata to Dhanbad taxi, and airport drop services from Jamshedpur. Call +919204714249 for instant cab booking in Tata.",
     reviews: [
-      { name: "Rajesh Kumar", text: "Best cab service in Jamshedpur! I regularly book Sree Travels for my office commute from Mango to Bistupur. Always punctual and clean cars.", rating: 5 },
-      { name: "Priya Singh", text: "Took Innova from Jamshedpur to Kolkata for a family trip. Driver was very professional, car was well-maintained. Highly recommended!", rating: 5 },
-      { name: "Amit Sharma", text: "Very reliable service for airport transfers. They picked me up from Sakchi at 4 AM for my Ranchi airport flight. No complaints at all.", rating: 5 }
+      { name: "Rajesh Kumar", text: "Best cab service in Tata! I regularly book Sree Travels for car rental in Jamshedpur. Always punctual from Tatanagar station.", rating: 5 },
+      { name: "Priya Singh", text: "Took an Innova for Tata to Ranchi cab service. Driver was very professional and the Jamshedpur/Tata to Ranchi road was covered very smoothly. Highly recommended!", rating: 5 },
+      { name: "Amit Sharma", text: "Very reliable Tatanagar taxi booking for airport transfers. The best car rental in Jamshedpur/Tata without a doubt.", rating: 5 }
     ]
   },
   {
@@ -100,11 +100,11 @@ export const jharkhandCities: CityData[] = [
       "Hundru Falls", "Dassam Falls", "Rock Garden", "Kanke Dam",
       "Tagore Hill", "Pahari Mandir", "Ranchi Lake"
     ],
-    seoDescription: "Ranchi, the capital city of Jharkhand, is known as the City of Waterfalls. It serves as the administrative and commercial hub of the state, with excellent connectivity via Birsa Munda Airport and Ranchi Junction railway station. Sree Travels provides comprehensive cab services across Ranchi with 40+ verified cabs for local travel, airport transfers, outstation trips, and corporate packages. From Doranda to Kanke, Lalpur to the airport — we cover every corner of Ranchi.",
+    seoDescription: "Looking for the best cab service in Ranchi or a reliable Ranchi to Jamshedpur/Tata cab? Sree Travels provides top-rated car rental in Ranchi with 40+ verified AC cabs. Whether you need a Ranchi to Tata cab for business, Birsa Munda airport taxi booking, or an outstation taxi from Ranchi to Dhanbad/Bokaro, we guarantee transparent pricing and punctual service. Book your one way cab from Ranchi to Tata or local Ranchi sightseeing taxi today online or via call.",
     reviews: [
-      { name: "Sanjay Verma", text: "Excellent cab service in Ranchi! I use Sree Travels for my daily office commute. Very punctual and affordable.", rating: 5 },
-      { name: "Neha Gupta", text: "Booked Innova Crysta for Ranchi to Patna trip. Comfortable ride, professional driver. Will definitely book again.", rating: 5 },
-      { name: "Vikram Jha", text: "Best airport transfer service in Ranchi. Always on time for my early morning flights from Birsa Munda Airport.", rating: 5 }
+      { name: "Sanjay Verma", text: "Excellent car rental in Ranchi! I use their Ranchi to Tata cab service weekly. Very punctual and affordable compared to others.", rating: 5 },
+      { name: "Neha Gupta", text: "Booked Innova Crysta for Ranchi to Jamshedpur (Tatanagar) trip. Best cab service in Ranchi — comfortable ride, professional driver.", rating: 5 },
+      { name: "Vikram Jha", text: "Top-notch airport transfer service and outstation taxi booking online in Ranchi. Always on time for early morning flights.", rating: 5 }
     ]
   },
   {

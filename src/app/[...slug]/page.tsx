@@ -132,35 +132,42 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   switch (matched.type) {
     case 'city-hub': {
       const city = getCityBySlug(matched.citySlug)!;
+      const isJSR = city.slug === 'jamshedpur';
+      const titleName = isJSR ? 'Jamshedpur (Tata)' : city.name;
+      const seoName = isJSR ? 'Jamshedpur, Tatanagar' : city.name;
       return {
-        title: `Best Cab Service in ${city.name} | Book Online ☎ +919204714249`,
-        description: `Book the best cab service in ${city.name}, Jharkhand ✅ One Way ✅ Round Trip ✅ Outstation ✅ Local Taxi ✅ Airport Transfer. AC cabs from ₹${city.localFare.hatchback_4hr}. GPS tracked, verified drivers. 24/7 service. Call +919204714249. Trusted since 2015.`,
+        title: `Cab Service in ${titleName} | Car Rental & Taxi Booking ☎ +919204714249`,
+        description: `Book the best cab service in ${seoName}, Jharkhand ✅ One Way ✅ Round Trip ✅ Outstation ✅ Local Taxi ✅ Airport Transfer. AC cabs from ₹${city.localFare.hatchback_4hr}. GPS tracked, verified drivers. 24/7 service. Call +919204714249. Trusted since 2015.`,
         keywords: [
           `cab service ${city.name.toLowerCase()}`, `taxi ${city.name.toLowerCase()}`, `taxi service ${city.name.toLowerCase()}`,
           `cab booking ${city.name.toLowerCase()}`, `car rental ${city.name.toLowerCase()}`, `best cab ${city.name.toLowerCase()}`,
           `outstation cab ${city.name.toLowerCase()}`, `airport taxi ${city.name.toLowerCase()}`, `local taxi ${city.name.toLowerCase()}`,
+          ...(isJSR ? ['cab service in tata', 'tatanagar taxi', 'car rental tata', 'tata cab service', 'tatanagar cab booking', 'tata taxi booking online'] : []),
           `24/7 cab ${city.name.toLowerCase()}`, `cab near me ${city.name.toLowerCase()}`, `taxi near me ${city.name.toLowerCase()}`,
           `one way cab ${city.name.toLowerCase()}`, `round trip cab ${city.name.toLowerCase()}`,
           `cheapest cab ${city.name.toLowerCase()}`, `sree travels ${city.name.toLowerCase()}`,
         ],
         alternates: { canonical: `https://www.sreetravel.com/cab-service-${city.slug}` },
         openGraph: {
-          title: `Best Cab Service in ${city.name} | Sree Travels`,
-          description: `Book AC cab in ${city.name}. One way, round trip, outstation, airport & local. ₹${city.localFare.hatchback_4hr} onwards. ☎ +919204714249`,
+          title: `Cab Service in ${titleName} | Sree Travels`,
+          description: `Book AC cab in ${seoName}. One way, round trip, outstation, airport & local. ₹${city.localFare.hatchback_4hr} onwards. ☎ +919204714249`,
           url: `https://www.sreetravel.com/cab-service-${city.slug}`,
-          images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `Cab Service in ${city.name}` }],
+          images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `Cab Service in ${titleName}` }],
         },
       };
     }
     case 'service-in-city': {
       const city = getCityBySlug(matched.citySlug)!;
       const service = getServiceBySlug(matched.serviceSlug)!;
+      const isJSR = city.slug === 'jamshedpur';
+      const titleName = isJSR ? 'Jamshedpur/Tata' : city.name;
       return {
-        title: `${service.name} in ${city.name} | ₹${service.startingPrice} Onwards | ☎ +919204714249`,
-        description: `Book ${service.name.toLowerCase()} in ${city.name}, Jharkhand ✅ AC cab ✅ Verified driver ✅ Fixed price ✅ GPS tracked. Starting ₹${service.startingPrice} ${service.priceUnit}. 24/7 availability. Call +919204714249. Sree Travels.`,
+        title: `${service.name} in ${titleName} | ₹${service.startingPrice} Onwards | ☎ +919204714249`,
+        description: `Book ${service.name.toLowerCase()} in ${isJSR ? 'Jamshedpur/Tatanagar' : city.name}, Jharkhand ✅ AC cab ✅ Verified driver ✅ Fixed price ✅ GPS tracked. Starting ₹${service.startingPrice} ${service.priceUnit}. 24/7 availability. Call +919204714249. Sree Travels.`,
         keywords: [
           `${service.name.toLowerCase()} ${city.name.toLowerCase()}`,
           `${service.name.toLowerCase()} in ${city.name.toLowerCase()}`,
+          ...(isJSR ? [`${service.name.toLowerCase()} tata`, `${service.name.toLowerCase()} tatanagar`] : []),
           `book ${service.name.toLowerCase()} ${city.name.toLowerCase()}`,
           `${service.slug.replace(/-/g, ' ')} ${city.name.toLowerCase()}`,
           `cheap ${service.name.toLowerCase()} ${city.name.toLowerCase()}`,
@@ -168,10 +175,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         ],
         alternates: { canonical: `https://www.sreetravel.com/${city.slug}/${service.slug}` },
         openGraph: {
-          title: `${service.name} in ${city.name} | Sree Travels`,
+          title: `${service.name} in ${titleName} | Sree Travels`,
           description: `₹${service.startingPrice} ${service.priceUnit}. Book now ☎ +919204714249`,
           url: `https://www.sreetravel.com/${city.slug}/${service.slug}`,
-          images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `${service.name} in ${city.name}` }],
+          images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `${service.name} in ${titleName}` }],
         },
       };
     }
@@ -200,12 +207,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
     case 'outstation-route': {
       const route = getRoute(matched.from, matched.to)!;
+      const isFromJSR = matched.from === 'jamshedpur';
+      const isToJSR = matched.to === 'jamshedpur';
+      
+      const fromName = isFromJSR ? 'Jamshedpur/Tata' : route.fromName;
+      const toName = isToJSR ? 'Jamshedpur/Tata' : route.toName;
+      const seoFromName = isFromJSR ? 'Jamshedpur (Tata)' : route.fromName;
+      const seoToName = isToJSR ? 'Jamshedpur (Tata)' : route.toName;
+
       return {
-        title: `${route.fromName} to ${route.toName} Cab | ₹${route.fares.hatchback.toLocaleString()} | ☎ +919204714249`,
-        description: `Book ${route.fromName} to ${route.toName} cab ✅ One Way ₹${route.fares.hatchback.toLocaleString()} ✅ AC cab ✅ ${route.distanceKm}km ✅ ${route.durationHrs}hrs ✅ Sedan ₹${route.fares.sedan.toLocaleString()} ✅ SUV ₹${route.fares.suv.toLocaleString()}. Toll included. Call +919204714249.`,
+        title: `${seoFromName} to ${seoToName} Cab | ₹${route.fares.hatchback.toLocaleString()} | ☎ +919204714249`,
+        description: `Book ${fromName} to ${toName} cab ✅ One Way ₹${route.fares.hatchback.toLocaleString()} ✅ AC cab ✅ ${route.distanceKm}km ✅ ${route.durationHrs}hrs ✅ Sedan ₹${route.fares.sedan.toLocaleString()} ✅ SUV ₹${route.fares.suv.toLocaleString()}. Toll included. Call +919204714249.`,
         keywords: [
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} cab`,
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} taxi`,
+          ...(isFromJSR ? [`tata to ${route.toName.toLowerCase()} cab`, `tatanagar to ${route.toName.toLowerCase()} cab`, `car rental tata to ${route.toName.toLowerCase()}`] : []),
+          ...(isToJSR ? [`${route.fromName.toLowerCase()} to tata cab`, `${route.fromName.toLowerCase()} to tatanagar taxi`] : []),
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} taxi fare`,
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} cab fare`,
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} distance`,
@@ -217,10 +234,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         ],
         alternates: { canonical: `https://www.sreetravel.com/${route.from}-to-${route.to}-cab` },
         openGraph: {
-          title: `${route.fromName} to ${route.toName} Cab \u2014 \u20b9${route.fares.hatchback.toLocaleString()} Onwards`,
+          title: `${fromName} to ${toName} Cab \u2014 \u20b9${route.fares.hatchback.toLocaleString()} Onwards`,
           description: `${route.distanceKm}km \u2022 ${route.durationHrs}hrs. AC cab with verified driver. Book now \u260e +919204714249`,
           url: `https://www.sreetravel.com/${route.from}-to-${route.to}-cab`,
-          images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `${route.fromName} to ${route.toName} Cab` }],
+          images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `${seoFromName} to ${seoToName} Cab` }],
         },
       };
     }
@@ -277,6 +294,8 @@ export default function DynamicPage({ params }: PageProps) {
 
 function CityHubPage({ citySlug }: { citySlug: string }) {
   const city = getCityBySlug(citySlug)!;
+  const isJSR = city.slug === 'jamshedpur';
+  const displayCityName = isJSR ? 'Jamshedpur / Tata' : city.name;
   const cityServices = getServicesForCity(city.tier);
   const cityFleet = getFleetForCity(city.tier);
   const cityRoutes = getRoutesByFrom(city.slug).slice(0, 6);
@@ -300,14 +319,14 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
           <Breadcrumb items={[
             { label: 'Home', href: '/' },
             { label: 'Jharkhand', href: '/' },
-            { label: `Cab Service ${city.name}` },
+            { label: `Cab Service ${displayCityName}` },
           ]} />
           <div style={{ marginBottom: '2rem' }}>
             <div style={{ display: 'inline-block', padding: '0.35rem 0.85rem', background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.3)', borderRadius: '8px', fontSize: '0.8rem', color: '#f59e0b', fontWeight: 600, marginBottom: '1rem' }}>
-              🏆 #1 Rated Cab Service in {city.name}
+              🏆 #1 Rated Cab Service in {displayCityName}
             </div>
             <h1 style={{ marginBottom: '1rem' }}>
-              <span className="gold-text">Cab Service in {city.name}</span><br />
+              <span className="gold-text">Cab Service in {isJSR ? 'Jamshedpur/Tata (Tatanagar)' : city.name}</span><br />
               <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.2rem)', color: '#94a3b8', fontWeight: 600 }}>
                 Book 24/7 | +91 92047 14249 | AC Cabs from ₹{city.localFare.hatchback_4hr}
               </span>
@@ -546,6 +565,8 @@ function ServiceInCityPage({ citySlug, serviceSlug }: { citySlug: string; servic
   const city = getCityBySlug(citySlug)!;
   const service = getServiceBySlug(serviceSlug)!;
   const cityRoutes = getRoutesByFrom(city.slug);
+  const isJSR = city.slug === 'jamshedpur';
+  const displayCityName = isJSR ? 'Jamshedpur/Tata (Tatanagar)' : city.name;
 
   const faqs = service.faqs.map(f => ({
     question: f.question.replace(/\{city\}/g, city.name),
@@ -560,11 +581,11 @@ function ServiceInCityPage({ citySlug, serviceSlug }: { citySlug: string; servic
         <div className="container-main" style={{ position: 'relative', zIndex: 1 }}>
           <Breadcrumb items={[
             { label: 'Home', href: '/' },
-            { label: `Cab ${city.name}`, href: `/cab-service-${city.slug}` },
+            { label: `Cab ${isJSR ? 'Jamshedpur/Tata' : city.name}`, href: `/cab-service-${city.slug}` },
             { label: `${service.name}` },
           ]} />
           <h1 style={{ marginBottom: '1rem' }}>
-            <span className="gold-text">{service.name} in {city.name}</span><br />
+            <span className="gold-text">{service.name} in {displayCityName}</span><br />
             <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.2rem)', color: '#94a3b8', fontWeight: 600 }}>+91 92047 14249 | ₹{service.startingPrice} {service.priceUnit}</span>
           </h1>
           <BookingWidget defaultFrom={city.name} cityName={city.name} />
@@ -663,17 +684,15 @@ function FleetInCityPage({ citySlug, fleetSlug }: { citySlug: string; fleetSlug:
   const city = getCityBySlug(citySlug)!;
   const vehicle = getFleetBySlug(fleetSlug)!;
   const cityRoutes = getRoutesByFrom(city.slug);
-
-  const fareKey = vehicle.slug === 'swift-dzire-cab' ? 'hatchback'
-    : vehicle.slug === 'sedan-cab' ? 'sedan'
-    : (vehicle.slug === 'innova-cab' || vehicle.slug === 'ertiga-cab') ? 'suv'
-    : (vehicle.slug === 'innova-crysta-cab' || vehicle.slug === 'luxury-cab') ? 'crysta'
-    : vehicle.slug === 'tempo-traveller' ? 'tempo' : 'sedan';
+  const isJSR = city.slug === 'jamshedpur';
+  const displayCityName = isJSR ? 'Jamshedpur/Tata (Tatanagar)' : city.name;
 
   const faqs = vehicle.faqs.map(f => ({
     question: f.question.replace(/\{city\}/g, city.name),
-    answer: f.answer.replace(/\{city\}/g, city.name),
+    answer: f.answer.replace(/\{city\}/g, city.name).replace(/\{price\}/g, String(vehicle.perKmRate)),
   }));
+
+  const fareKey = vehicle.slug === 'tempo-traveller' ? 'tempo' : vehicle.slug === 'innova-crysta' ? 'crysta' : vehicle.slug.includes('innova') || vehicle.slug.includes('ertiga') ? 'suv' : vehicle.slug.includes('dzire') ? 'sedan' : 'hatchback';
 
   return (
     <div className="page-content">
@@ -683,11 +702,11 @@ function FleetInCityPage({ citySlug, fleetSlug }: { citySlug: string; fleetSlug:
         <div className="container-main" style={{ position: 'relative', zIndex: 1 }}>
           <Breadcrumb items={[
             { label: 'Home', href: '/' },
-            { label: `Cab ${city.name}`, href: `/cab-service-${city.slug}` },
+            { label: `Cab ${isJSR ? 'Jamshedpur/Tata' : city.name}`, href: `/cab-service-${city.slug}` },
             { label: vehicle.shortName },
           ]} />
           <h1 style={{ marginBottom: '1rem' }}>
-            <span className="gold-text">{vehicle.name} in {city.name}</span><br />
+            <span className="gold-text">{vehicle.name} in {displayCityName}</span><br />
             <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.2rem)', color: '#94a3b8', fontWeight: 600 }}>Book Now +91 92047 14249 | ₹{vehicle.perKmRate}/km</span>
           </h1>
           <BookingWidget defaultFrom={city.name} cityName={city.name} />
@@ -784,11 +803,18 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
   const route = getRoute(from, to)!;
   const relatedRoutes = routes.filter(r => r.from === route.from && r.to !== route.to).slice(0, 4);
   const reverseRoute = getRoute(route.to, route.from);
+  
+  const isFromJSR = from === 'jamshedpur';
+  const isToJSR = to === 'jamshedpur';
+  const fromName = isFromJSR ? 'Jamshedpur/Tata (Tatanagar)' : route.fromName;
+  const toName = isToJSR ? 'Jamshedpur/Tata (Tatanagar)' : route.toName;
+  const shortFromName = isFromJSR ? 'Jamshedpur/Tata' : route.fromName;
+  const shortToName = isToJSR ? 'Jamshedpur/Tata' : route.toName;
 
   const faqs = [
-    { question: `How much is ${route.fromName} to ${route.toName} cab fare?`, answer: `Starts at ₹${route.fares.hatchback.toLocaleString()} (Hatchback), Sedan ₹${route.fares.sedan.toLocaleString()}, SUV ₹${route.fares.suv.toLocaleString()}, Crysta ₹${route.fares.crysta.toLocaleString()}. All inclusive of toll, fuel, driver.` },
-    { question: `How long does ${route.fromName} to ${route.toName} take?`, answer: `Approximately ${route.durationHrs} hours via ${route.nh}. Distance: ${route.distanceKm} km. Best time: ${route.bestTime}.` },
-    { question: `Which route does the cab take?`, answer: `${route.fromName} → ${route.via.join(' → ')} → ${route.toName}. Road condition: ${route.roadCondition}.` },
+    { question: `How much is ${shortFromName} to ${shortToName} cab fare?`, answer: `Starts at ₹${route.fares.hatchback.toLocaleString()} (Hatchback), Sedan ₹${route.fares.sedan.toLocaleString()}, SUV ₹${route.fares.suv.toLocaleString()}, Crysta ₹${route.fares.crysta.toLocaleString()}. All inclusive of toll, fuel, driver.` },
+    { question: `How long does ${shortFromName} to ${shortToName} take?`, answer: `Approximately ${route.durationHrs} hours via ${route.nh}. Distance: ${route.distanceKm} km. Best time: ${route.bestTime}.` },
+    { question: `Which route does the cab take?`, answer: `${shortFromName} → ${route.via.join(' → ')} → ${shortToName}. Road condition: ${route.roadCondition}.` },
     { question: `Are tolls included?`, answer: `Yes, tolls of ~₹${route.tolls} are included. State taxes extra if applicable.` },
     { question: `Can I book one way cab?`, answer: `Yes! One way from ₹${route.fares.hatchback.toLocaleString()}. No return fare. Call +919204714249.` },
     { question: `Best cab for this trip?`, answer: `${route.distanceKm > 300 ? 'Innova/Crysta for long comfort' : 'Swift Dzire or Sedan for affordable comfort'}. Tempo Traveller for groups.` },
@@ -804,11 +830,11 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
         <div className="container-main" style={{ position: 'relative', zIndex: 1 }}>
           <Breadcrumb items={[
             { label: 'Home', href: '/' },
-            { label: `Cab ${route.fromName}`, href: `/cab-service-${route.from}` },
-            { label: `${route.fromName} to ${route.toName}` },
+            { label: `Cab ${shortFromName}`, href: `/cab-service-${route.from}` },
+            { label: `${shortFromName} to ${shortToName}` },
           ]} />
           <h1 style={{ marginBottom: '1rem' }}>
-            <span className="gold-text">{route.fromName} to {route.toName} Cab Service</span><br />
+            <span className="gold-text">{fromName} to {toName} Cab Service</span><br />
             <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.2rem)', color: '#94a3b8', fontWeight: 600 }}>+91 92047 14249 | ₹{route.fares.hatchback.toLocaleString()} | {route.distanceKm} km</span>
           </h1>
           <BookingWidget defaultFrom={route.fromName} defaultTo={route.toName} />

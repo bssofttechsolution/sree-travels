@@ -11,15 +11,15 @@ import { routes } from '@/lib/routes';
 import FareCalculator from '@/components/FareCalculator';
 
 export const metadata: Metadata = {
-  title: 'Sree Travels | Best Cab Service in Jharkhand | Book Online ☎ +919204714249',
-  description: 'Book the best cab service in Jharkhand ✅ Jamshedpur ✅ Ranchi ✅ Dhanbad ✅ Bokaro — AC cabs from ₹999, verified drivers, GPS tracking. One way, round trip, outstation, airport & local taxi. 50,000+ happy customers. Call +919204714249. Since 2015.',
+  title: 'Sree Travels | Best Cab Service in Jharkhand | Jamshedpur/Tata, Ranchi',
+  description: 'Book the best car rental & cab service in Jharkhand ✅ Jamshedpur (Tata/Tatanagar) ✅ Ranchi ✅ Dhanbad ✅ Bokaro. AC cabs, verified drivers, GPS tracking. Call +919204714249.',
   keywords: [
-    'sree travels', 'cab service jharkhand', 'best cab service jamshedpur',
-    'taxi jamshedpur', 'cab ranchi', 'outstation cab jharkhand',
+    'sree travels', 'cab service jharkhand', 'best cab service jamshedpur tata',
+    'taxi tatanagar', 'car rental tata jamshedpur', 'cab ranchi', 'outstation cab jharkhand',
     'one way cab jamshedpur', 'airport taxi ranchi', 'car rental jharkhand',
-    'jamshedpur to ranchi cab', 'jamshedpur to kolkata cab',
+    'jamshedpur to ranchi cab', 'tata to ranchi cab', 'tatanagar to ranchi taxi',
     'cab booking online jharkhand', 'taxi near me jamshedpur',
-    'book cab online jharkhand', '24/7 cab service jharkhand',
+    'book cab online jharkhand', '24/7 cab service tata tatanagar',
   ],
   alternates: { canonical: 'https://www.sreetravel.com' },
   openGraph: {
@@ -295,10 +295,10 @@ export default function HomePage() {
             </h2>
             <div style={{ maxWidth: '900px', margin: '0 auto', color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 'clamp(0.85rem, 2.5vw, 0.95rem)' }}>
               <p style={{ marginBottom: '0.85rem' }}>
-                <strong>Sree Travels</strong> is Jharkhand&apos;s premier cab service, operating since 2015 from our headquarters in Jamshedpur. We provide reliable, affordable, and safe taxi services across <strong>15+ cities in Jharkhand</strong> including Jamshedpur, Ranchi, Dhanbad, Bokaro Steel City, Deoghar, Hazaribagh, Giridih, Dumka, Chaibasa, and Adityapur.
+                <strong>Sree Travels</strong> is Jharkhand&apos;s premier cab service, operating since 2015 from our headquarters in Jamshedpur (Tata). We provide reliable, affordable, and safe taxi services across <strong>15+ cities in Jharkhand</strong> including Jamshedpur (Tata/Tatanagar), Ranchi, Dhanbad, Bokaro Steel City, Deoghar, Hazaribagh, Giridih, Dumka, Chaibasa, and Adityapur.
               </p>
               <p style={{ marginBottom: '0.85rem' }}>
-                Whether you need a <strong>one way cab from Jamshedpur to Ranchi</strong>, a <strong>round trip taxi from Dhanbad to Kolkata</strong>, an <strong>airport transfer in Ranchi</strong>, or a <strong>local taxi for hourly rental</strong>, Sree Travels has you covered. Our fleet includes Swift Dzire, Honda City Sedan, Toyota Innova, Innova Crysta, Maruti Ertiga, and Tempo Travellers — all AC, GPS-tracked, and regularly maintained.
+                Whether you need a <strong>one way cab from Tata/Jamshedpur to Ranchi</strong>, a <strong>round trip taxi from Dhanbad to Kolkata</strong>, an <strong>airport transfer in Ranchi</strong>, or a <strong>local taxi for hourly rental in Tatanagar</strong>, Sree Travels has you covered. Our fleet includes Swift Dzire, Honda City Sedan, Toyota Innova, Innova Crysta, Maruti Ertiga, and Tempo Travellers — all AC, GPS-tracked, and regularly maintained.
               </p>
               <p style={{ marginBottom: '0.85rem' }}>
                 What sets us apart from competitors is our commitment to <strong>transparent pricing with zero hidden charges</strong>. Every fare includes toll, fuel, and driver allowance. Our drivers are <strong>100% police-verified</strong> with 5+ years of driving experience. We accept all payment methods — Cash, UPI, Google Pay, PhonePe, and Card.
@@ -331,11 +331,11 @@ export default function HomePage() {
                 '@context': 'https://schema.org',
                 '@type': 'FAQPage',
                 mainEntity: [
-                  { '@type': 'Question', name: 'What is the cab fare from Jamshedpur to Ranchi?', acceptedAnswer: { '@type': 'Answer', text: 'Jamshedpur to Ranchi cab fare starts at ₹1,799 (Hatchback), ₹2,299 (Sedan), ₹2,999 (SUV), ₹3,499 (Innova Crysta). Distance: 130 km, Duration: 3 hrs. All-inclusive of toll, fuel, driver. Call +919204714249.' } },
-                  { '@type': 'Question', name: 'Which is the best cab service in Jharkhand?', acceptedAnswer: { '@type': 'Answer', text: 'Sree Travels is rated the best cab service in Jharkhand with 4.8★ Google rating, 50,000+ happy customers, and 100+ verified cabs across 15+ cities. Police-verified drivers, GPS tracking, transparent pricing. Available 24/7. Call +919204714249.' } },
-                  { '@type': 'Question', name: 'How to book a cab in Jamshedpur?', acceptedAnswer: { '@type': 'Answer', text: 'Book a cab in Jamshedpur by calling +91 92047 14249 or sending a WhatsApp message. Share pickup, destination, date and cab type. Get instant confirmation with driver details in 30 seconds. No app download needed.' } },
+                  { '@type': 'Question', name: 'What is the cab fare from Jamshedpur (Tata) to Ranchi?', acceptedAnswer: { '@type': 'Answer', text: 'Jamshedpur (Tata) to Ranchi cab fare starts at ₹1,799 (Hatchback), ₹2,299 (Sedan), ₹2,999 (SUV), ₹3,499 (Innova Crysta). Distance: 130 km, Duration: 3 hrs. All-inclusive of toll, fuel, driver. Call +919204714249.' } },
+                  { '@type': 'Question', name: 'Which is the best cab service in Jharkhand?', acceptedAnswer: { '@type': 'Answer', text: 'Sree Travels is rated the best cab service in Jharkhand with 4.8★ Google rating, 50,000+ happy customers, and 100+ verified cabs across 15+ cities including Tata (Tatanagar) and Ranchi. Police-verified drivers, GPS tracking, transparent pricing. Available 24/7. Call +919204714249.' } },
+                  { '@type': 'Question', name: 'How to book a cab in Jamshedpur / Tata?', acceptedAnswer: { '@type': 'Answer', text: 'Book a cab in Jamshedpur or Tatanagar by calling +91 92047 14249 or sending a WhatsApp message. Share pickup, destination, date and cab type. Get instant confirmation with driver details in 30 seconds. No app download needed.' } },
                   { '@type': 'Question', name: 'Is Sree Travels available 24/7?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, Sree Travels operates 24 hours a day, 7 days a week, 365 days a year across 15+ Jharkhand cities. Whether you need a cab at 3 AM for an airport transfer or a late-night ride, we are always available.' } },
-                  { '@type': 'Question', name: 'Do you provide one way cab in Jharkhand?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! Sree Travels provides one-way cab service across Jharkhand. Pay only for one direction — no return fare. Starting at ₹11/km (Hatchback). Available for Jamshedpur, Ranchi, Dhanbad, Bokaro and all 15+ cities.' } },
+                  { '@type': 'Question', name: 'Do you provide one way cab in Jharkhand?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! Sree Travels provides one-way cab service across Jharkhand. Pay only for one direction — no return fare. Starting at ₹11/km (Hatchback). Available for Jamshedpur (Tata), Ranchi, Dhanbad, Bokaro and all 15+ cities.' } },
                   { '@type': 'Question', name: 'What types of cabs are available?', acceptedAnswer: { '@type': 'Answer', text: 'We offer 7 vehicle types: Swift Dzire (₹12/km), Sedan (₹14/km), Ertiga (₹14/km), Innova (₹15/km), Innova Crysta (₹18/km), Tempo Traveller (₹22/km), and Luxury cabs (₹25/km). All are AC, GPS-tracked, and well-maintained.' } },
                 ],
               }),
@@ -345,11 +345,11 @@ export default function HomePage() {
             <span className="gold-text">Frequently Asked</span> Questions
           </h2>
           <FaqSection faqs={[
-            { question: 'What is the cab fare from Jamshedpur to Ranchi?', answer: 'Jamshedpur to Ranchi cab fare starts at ₹1,799 (Hatchback), ₹2,299 (Sedan), ₹2,999 (SUV), ₹3,499 (Innova Crysta). Distance: 130 km, Duration: 3 hrs. All-inclusive of toll, fuel, driver. Call +919204714249.' },
+            { question: 'What is the cab fare from Jamshedpur (Tata) to Ranchi?', answer: 'Jamshedpur (Tata) to Ranchi cab fare starts at ₹1,799 (Hatchback), ₹2,299 (Sedan), ₹2,999 (SUV), ₹3,499 (Innova Crysta). Distance: 130 km, Duration: 3 hrs. All-inclusive of toll, fuel, driver. Call +919204714249.' },
             { question: 'Which is the best cab service in Jharkhand?', answer: 'Sree Travels is rated the best cab service in Jharkhand with 4.8★ Google rating, 50,000+ happy customers, and 100+ verified cabs across 15+ cities. Police-verified drivers, GPS tracking, transparent pricing. Available 24/7. Call +919204714249.' },
-            { question: 'How to book a cab in Jamshedpur?', answer: 'Book a cab in Jamshedpur by calling +91 92047 14249 or sending a WhatsApp message. Share pickup, destination, date and cab type. Get instant confirmation with driver details in 30 seconds. No app download needed.' },
+            { question: 'How to book a cab in Jamshedpur / Tata?', answer: 'Book a cab in Jamshedpur or Tatanagar by calling +91 92047 14249 or sending a WhatsApp message. Share pickup, destination, date and cab type. Get instant confirmation with driver details in 30 seconds. No app download needed.' },
             { question: 'Is Sree Travels available 24/7?', answer: 'Yes, Sree Travels operates 24 hours a day, 7 days a week, 365 days a year across 15+ Jharkhand cities. Whether you need a cab at 3 AM for an airport transfer or a late-night ride, we are always available.' },
-            { question: 'Do you provide one way cab in Jharkhand?', answer: 'Yes! Sree Travels provides one-way cab service across Jharkhand. Pay only for one direction — no return fare. Starting at ₹11/km (Hatchback). Available for Jamshedpur, Ranchi, Dhanbad, Bokaro and all 15+ cities.' },
+            { question: 'Do you provide one way cab in Jharkhand?', answer: 'Yes! Sree Travels provides one-way cab service across Jharkhand. Pay only for one direction — no return fare. Starting at ₹11/km (Hatchback). Available for Jamshedpur (Tata), Ranchi, Dhanbad, Bokaro and all 15+ cities.' },
             { question: 'What types of cabs are available?', answer: 'We offer 7 vehicle types: Swift Dzire (₹12/km), Sedan (₹14/km), Ertiga (₹14/km), Innova (₹15/km), Innova Crysta (₹18/km), Tempo Traveller (₹22/km), and Luxury cabs (₹25/km). All are AC, GPS-tracked, and well-maintained.' },
           ]} />
           <div style={{ textAlign: 'center', marginTop: '1.25rem' }}>
