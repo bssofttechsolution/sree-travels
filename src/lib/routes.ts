@@ -53,7 +53,7 @@ const baseRoutes: RouteData[] = [
     to: "ranchi", toName: "Ranchi",
     distanceKm: 130, durationHrs: "3-4", nh: "NH-33",
     via: ["Gamharia", "Chandil", "Tamar"],
-    fares: { hatchback: 2499, sedan: 3199, suv: 4299, crysta: 5499, tempo: 6999 },
+    fares: { hatchback: 1499, sedan: 1499, suv: 2299, crysta: 5499, tempo: 6999 },
     tolls: 200, pitStops: ["Chandil Dam Rest Stop"],
     bestTime: "Any time — good road",
     roadCondition: "Good 4-lane NH throughout",
