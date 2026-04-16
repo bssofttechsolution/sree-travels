@@ -102,52 +102,15 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "/",
+    canonical: 'https://www.sreetravel.com',
   },
   other: {
     'geo.region': 'IN-JH',
     'geo.placename': 'Jamshedpur, Tata, Jharkhand',
     'geo.position': '22.8046;86.2029',
     'ICBM': '22.8046, 86.2029',
-    'rating': 'general',
-    'revisit-after': '2 days',
     'author': 'Sree Travels',
-    'language': 'English',
-    'distribution': 'India',
-    'coverage': 'Jharkhand, India',
-    'target': 'all',
-    'HandheldFriendly': 'True',
-    'MobileOptimized': '320',
-    'apple-mobile-web-app-capable': 'yes',
-    'apple-mobile-web-app-status-bar-style': 'black-translucent',
     'format-detection': 'telephone=yes',
-    'classification': 'Travel, Transportation, Cab Service, Taxi, Car Rental',
-    'subject': 'Cab Service in Jamshedpur Tata Ranchi Jharkhand',
-    'topic': 'Best Cab Service & Taxi Booking in Jamshedpur Tata Ranchi Jharkhand',
-    'summary': 'Book the best cab service in Jamshedpur (Tata/Tatanagar), Ranchi, Dhanbad, Bokaro. AC cabs from ₹999, 24/7, verified drivers. Call +919204714249.',
-    'abstract': 'Sree Travels offers premium cab service across 15+ Jharkhand cities including Jamshedpur, Tata, Ranchi, Dhanbad, Bokaro with GPS tracked fleet and police-verified drivers.',
-    'url': 'https://www.sreetravel.com',
-    'identifier-URL': 'https://www.sreetravel.com',
-    'directory': 'submission',
-    'category': 'Travel/Ground Transportation/Taxi Cab Services',
-    'og:locality': 'Jamshedpur',
-    'og:region': 'Jharkhand',
-    'og:country-name': 'India',
-    'og:postal-code': '831018',
-    'og:phone_number': '+919204714249',
-    'og:email': 'info@sreetravel.com',
-    'og:latitude': '22.8046',
-    'og:longitude': '86.2029',
-    'og:street-address': 'Dimna Road, Mango',
-    'place:location:latitude': '22.8046',
-    'place:location:longitude': '86.2029',
-    'business:contact_data:street_address': 'Dimna Road, Mango',
-    'business:contact_data:locality': 'Jamshedpur',
-    'business:contact_data:region': 'Jharkhand',
-    'business:contact_data:postal_code': '831018',
-    'business:contact_data:country_name': 'India',
-    'business:contact_data:phone_number': '+919204714249',
-    'business:contact_data:website': 'https://www.sreetravel.com',
   },
   verification: {},
   category: 'travel',
@@ -431,20 +394,7 @@ export default function RootLayout({
               </div>
             </div>
 
-            {/* SEO Keywords Footer Block */}
-            <div style={{ padding: '1.5rem 0', borderTop: '1px solid var(--card-border)', marginBottom: '1rem' }}>
-              <p style={{ color: 'rgba(148,163,184,0.5)', fontSize: '0.75rem', lineHeight: 1.8, textAlign: 'center' }}>
-                cab service in jamshedpur • cab service in tata • tata cab service • taxi jamshedpur • taxi tata • tatanagar taxi • 
-                car rental jamshedpur • car rental tata • cab service ranchi • taxi ranchi • cab dhanbad • cab bokaro • cab hazaribagh • 
-                outstation cab jharkhand • one way cab jamshedpur • one way cab tata • airport taxi ranchi • car rental jharkhand • 
-                jamshedpur to ranchi cab • tata to ranchi cab • ranchi to jamshedpur cab • ranchi to tata cab • 
-                jamshedpur to kolkata cab • tata to kolkata cab • ranchi to patna taxi • dhanbad to kolkata cab • bokaro to ranchi cab • 
-                jamshedpur to dhanbad cab • jamshedpur to bokaro cab • ranchi to dhanbad cab • cab near me jamshedpur • taxi near me tata • 
-                innova cab jamshedpur • ertiga on rent ranchi • tempo traveller jharkhand • best cab service jharkhand • 
-                best cab service in jamshedpur • best cab service in tata • best taxi service ranchi • 24/7 taxi service jamshedpur • 
-                cab booking online jharkhand • sree travels jamshedpur • sree travels ranchi • sreetravel.com
-              </p>
-            </div>
+
 
             <div className="footer-bottom">
               <p>© {new Date().getFullYear()} Sree Travels. All rights reserved. | Jharkhand&apos;s #1 Cab Service Since 2015</p>

@@ -4,82 +4,99 @@ import { services } from '@/lib/services';
 import { fleet } from '@/lib/fleet';
 import { routes } from '@/lib/routes';
 import { localRoutes } from '@/lib/localRoutes';
+import { getAllBlogSlugs } from '@/lib/blogSlugs';
 
+/**
+ * Sitemap generator — only high-value, indexable pages.
+ * Blog spam pages have been removed to preserve crawl budget.
+ * Dates are fixed to the last meaningful update date.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.sreetravel.com';
-  const now = new Date().toISOString();
+  // Use a fixed date — only update when content actually changes
+  const lastUpdate = '2026-04-16T00:00:00.000Z';
 
   const urls: MetadataRoute.Sitemap = [];
 
-  // Homepage
+  // ── Homepage ──
   urls.push({
     url: baseUrl,
-    lastModified: now,
-    changeFrequency: 'daily',
+    lastModified: lastUpdate,
+    changeFrequency: 'weekly',
     priority: 1,
   });
 
-  // Static Pages
-  ['about', 'contact', 'faq', 'fare-chart', 'blog'].forEach(page => {
+  // ── Static Pages ──
+  ['about', 'contact', 'faq', 'fare-chart'].forEach(page => {
     urls.push({
       url: `${baseUrl}/${page}`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
+      lastModified: lastUpdate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     });
   });
 
-  // City Hub Pages (highest priority after homepage)
+  // ── City Hub Pages (highest priority after homepage) ──
   jharkhandCities.forEach(city => {
     urls.push({
       url: `${baseUrl}/cab-service-${city.slug}`,
-      lastModified: now,
+      lastModified: lastUpdate,
       changeFrequency: 'weekly',
       priority: 0.95,
     });
   });
 
-  // Service × City Pages
+  // ── Service × City Pages ──
   jharkhandCities.forEach(city => {
     services.forEach(service => {
       urls.push({
         url: `${baseUrl}/${city.slug}/${service.slug}`,
-        lastModified: now,
-        changeFrequency: 'weekly',
-        priority: 0.85,
-      });
-    });
-  });
-
-  // Fleet × City Pages
-  jharkhandCities.forEach(city => {
-    fleet.forEach(vehicle => {
-      urls.push({
-        url: `${baseUrl}/${city.slug}/${vehicle.slug}`,
-        lastModified: now,
-        changeFrequency: 'weekly',
+        lastModified: lastUpdate,
+        changeFrequency: 'monthly',
         priority: 0.8,
       });
     });
   });
 
-  // Route Pages (high priority — transactional intent)
+  // ── Fleet × City Pages ──
+  jharkhandCities.forEach(city => {
+    fleet.forEach(vehicle => {
+      urls.push({
+        url: `${baseUrl}/${city.slug}/${vehicle.slug}`,
+        lastModified: lastUpdate,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      });
+    });
+  });
+
+  // ── Route Pages (high priority — transactional intent) ──
   routes.forEach(route => {
     urls.push({
       url: `${baseUrl}/${route.from}-to-${route.to}-cab`,
-      lastModified: now,
-      changeFrequency: 'weekly',
+      lastModified: lastUpdate,
+      changeFrequency: 'monthly',
       priority: 0.9,
     });
   });
 
-  // Local Route Pages
+  // ── Local Route Pages ──
   localRoutes.forEach(route => {
     urls.push({
       url: `${baseUrl}/local-taxi-${route.city}/${route.slug}`,
-      lastModified: now,
+      lastModified: lastUpdate,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.6,
+    });
+  });
+
+  // ── Quality Blog Articles (only 6) ──
+  getAllBlogSlugs().forEach(slug => {
+    urls.push({
+      url: `${baseUrl}/blog/${slug}`,
+      lastModified: lastUpdate,
+      changeFrequency: 'monthly',
+      priority: 0.5,
     });
   });
 

@@ -415,7 +415,7 @@ export default function HomePage() {
       {/* BLOG SECTION */}
       <section className="section-spacing" style={{ background: 'var(--darker)' }}>
         <div className="container-main">
-          <BlogSection pageName="Jharkhand" type="home" />
+          <BlogSection pageName="Jharkhand" />
         </div>
       </section>
 

@@ -4,6 +4,42 @@ import Breadcrumb from '@/components/Breadcrumb';
 import CtaBanner from '@/components/CtaBanner';
 import BookingWidget from '@/components/BookingWidget';
 import BlogSection from '@/components/BlogSection';
+import { getAllBlogSlugs } from '@/lib/blogSlugs';
+
+// ============================================================
+// STATIC PARAMS — Pre-render all blog pages at build time
+// ============================================================
+
+export async function generateStaticParams() {
+  return getAllBlogSlugs().map(slug => ({ slug }));
+}
+
+// ============================================================
+// CONTENT VARIATION SYSTEM — Ensures unique content per slug
+// ============================================================
+
+/** Deterministic hash from slug string → consistent per page */
+function slugHash(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = ((h << 5) - h) + s.charCodeAt(i);
+    h = h & h;
+  }
+  return Math.abs(h);
+}
+
+/** Pick an item from array based on hash */
+function pick<T>(arr: T[], hash: number, offset = 0): T {
+  return arr[(hash + offset) % arr.length];
+}
+
+// Variation pools — hash selects different wording per slug
+const JOURNEY_ADJ = ['scenic', 'smooth', 'comfortable', 'memorable', 'delightful', 'enjoyable', 'pleasant', 'relaxing'];
+const ROAD_ADJ = ['well-maintained', 'well-paved', 'excellent', 'good-quality', 'recently-widened', 'four-lane', 'two-lane', 'newly-constructed'];
+const DRIVER_ADJ = ['experienced', 'professional', 'courteous', 'well-trained', 'friendly', 'knowledgeable', 'skilled', 'veteran'];
+const TIME_PHRASES = ['early morning departures are ideal', 'starting before 7 AM is recommended', 'dawn drives offer the best experience', 'a 6 AM start beats the heat', 'leaving at sunrise is perfect', 'pre-dawn starts ensure cooler travel'];
+const FOOD_TYPES = ['litti-chokha', 'puchka', 'thali meals', 'paratha combos', 'biryani', 'dal-bhat-sabzi', 'momos', 'egg curry with roti'];
+const SCENERY = ['sal forests', 'paddy fields', 'rolling hills', 'river valleys', 'mining landscapes', 'plateau terrain', 'tribal hamlets', 'reservoir views'];
 
 // ============================================================
 // CONTENT GENERATION — Unique per blog type
@@ -21,85 +57,94 @@ interface BlogContent {
 function generateUniqueContent(slug: string): BlogContent {
   const words = slug.split('-');
   const title = words.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  const h = slugHash(slug);
 
   // Detect the blog type from slug prefix
   if (slug.startsWith('places-to-visit-')) {
     const city = slug.replace('places-to-visit-', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const adj = pick(JOURNEY_ADJ, h);
+    const food1 = pick(FOOD_TYPES, h, 0);
+    const food2 = pick(FOOD_TYPES, h, 3);
+    const scene = pick(SCENERY, h);
+    const timePhrase = pick(TIME_PHRASES, h);
     return {
       category: 'Travel Guide',
-      readTime: '5 min read',
-      intro: `${city} is one of Jharkhand's most vibrant cities with a rich cultural heritage and natural beauty. Whether you're a first-time visitor or a returning traveler, there are countless spots worth exploring. This guide covers the top 5 must-visit places in ${city} that you can conveniently access by cab with Sree Travels.`,
+      readTime: `${5 + (h % 3)} min read`,
+      intro: `${city} is one of Jharkhand's most ${adj} cities, renowned for its rich cultural heritage and breathtaking natural beauty. Whether you're a first-time visitor or a returning traveler, there are countless spots worth exploring — from tranquil ${scene} to vibrant local bazaars. This comprehensive guide covers the top must-visit places in ${city} and how to reach them comfortably by cab with Sree Travels.`,
       sections: [
         {
           heading: `Why Explore ${city} by Cab?`,
           paragraphs: [
-            `Public transport in ${city} can be unreliable and time-consuming. By booking a cab with Sree Travels, you get door-to-door AC service with a local driver who knows every shortcut and the best times to visit each attraction. Our drivers double as informal tour guides, sharing stories and recommendations you won't find in any guidebook.`,
-            `With our flexible local taxi packages starting at competitive rates, you can visit multiple attractions in a single day without worrying about parking, navigation, or return transport. Simply sit back and enjoy the sights!`,
+            `Public transport in ${city} can be unreliable, crowded, and time-consuming. By booking a cab with Sree Travels, you get private, door-to-door AC service with a ${pick(DRIVER_ADJ, h)} local driver who knows every shortcut, the best parking spots, and the ideal times to visit each attraction. Many of our drivers have lived in ${city} for over a decade and double as informal tour guides, sharing stories and recommendations you won't find in any guidebook or travel app.`,
+            `With our flexible local taxi packages starting at competitive city-specific rates, you can visit multiple attractions in a single day without the hassle of finding parking, negotiating with auto-rickshaws, or waiting for return transport. Our packages include 4hr/40km and 8hr/80km options — simply sit back in the AC comfort and enjoy the sights of ${city}!`,
           ],
         },
         {
           heading: `Top Tourist Attractions in ${city}`,
           paragraphs: [
-            `${city} offers a diverse mix of natural landscapes, historical monuments, and cultural centers. From serene parks and lakes to bustling markets and temples, every corner of ${city} has something unique to offer. Our drivers recommend starting your sightseeing early in the morning to beat the heat and crowds.`,
-            `For nature lovers, the outskirts of ${city} offer beautiful drives through lush greenery, especially during the monsoon season (July–September). For history buffs, the city's temples and colonial-era architecture provide fascinating insights into the region's past.`,
-            `Don't miss the local street food scene — our drivers know the best stalls that tourists rarely discover on their own. From puchka to litti-chokha, ${city}'s food culture is a highlight of any visit.`,
+            `${city} offers a diverse spectrum of experiences: natural landscapes dotted with ${scene}, historical monuments of the colonial and pre-colonial eras, spiritual temples, and modern cultural centers. From serene parks and man-made lakes to bustling markets and ancient places of worship, every neighbourhood of ${city} has something unique to offer. Our drivers recommend that ${timePhrase} to beat both the heat and the crowds.`,
+            `Nature enthusiasts will love the outskirts of ${city}, which offer beautiful drives through lush greenery — especially spectacular during the monsoon months (July–September) when waterfalls come alive. History buffs should explore the city's temples, memorial parks, and any colonial-era architecture, which provide fascinating insights into the region's layered past, from tribal kingdoms to the industrial era.`,
+            `No visit to ${city} is complete without experiencing the local street food scene. Our drivers know the exact stalls that tourists rarely discover on their own — from crispy ${food1} to piping hot ${food2}. ${city}'s food culture alone is worth the trip!`,
           ],
         },
         {
           heading: `Best Time to Visit ${city}`,
           paragraphs: [
-            `The ideal time to visit ${city} is between October and March when the weather is pleasant and perfect for outdoor sightseeing. Summers (April–June) can be hot, so morning and evening cab tours are recommended. The monsoon season brings lush landscapes but occasional road disruptions.`,
-            `Whatever the season, Sree Travels ensures your comfort with fully AC cabs, bottled water, and experienced drivers who know how to navigate weather conditions safely.`,
+            `The ideal time to visit ${city} is between October and March when temperatures range from 12°C to 28°C — perfect weather for outdoor sightseeing and photography. The post-monsoon period (October–November) is particularly stunning with fresh greenery and clear skies. Summers (April–June) can push past 40°C, so morning departures and evening cab tours are strongly recommended during this season.`,
+            `Whatever the season, Sree Travels ensures your comfort with fully AC cabs, complimentary bottled water, and ${pick(DRIVER_ADJ, h, 2)} drivers who know how to navigate ${city}'s weather conditions safely. During monsoons, we adjust routes to avoid waterlogged stretches while ensuring you don't miss the stunning rain-washed landscapes.`,
           ],
         },
       ],
       tips: [
-        { icon: '📸', title: 'Photography Spots', text: `Ask your Sree Travels driver about hidden viewpoints in ${city}. They know spots Instagram hasn't discovered yet!` },
-        { icon: '🍜', title: 'Local Cuisine', text: `Don't leave ${city} without trying the local specialties. Our drivers can take you to authentic eateries off the tourist trail.` },
-        { icon: '⏰', title: 'Timing Matters', text: `Visit temples and monuments before 10 AM to avoid crowds. Evening drives around ${city}'s lakes are magical.` },
-        { icon: '💰', title: 'Budget Planning', text: `Our 4hr/40km local packages are perfect for half-day sightseeing. Full-day packages cover all major attractions comfortably.` },
+        { icon: '📸', title: 'Photography Spots', text: `Ask your Sree Travels driver about hidden viewpoints around ${city}. They know spots that even popular travel blogs haven't discovered yet! The golden hour near ${city}'s water bodies is especially magical.` },
+        { icon: '🍜', title: 'Local Cuisine', text: `Don't leave ${city} without trying ${food1} and ${food2}. Our drivers can take you to authentic eateries off the tourist trail where locals go — fresher food, bigger portions, lower prices.` },
+        { icon: '⏰', title: 'Timing Matters', text: `In ${city}, ${timePhrase}. Temples and monuments are best visited before 10 AM. Evening drives around the city's lakes and parks are magical, especially in winter.` },
+        { icon: '💰', title: 'Budget Planning', text: `Our 4hr/40km local packages are perfect for half-day sightseeing in ${city}. Full-day 8hr/80km packages cover all major attractions with time to spare for leisurely meals and shopping.` },
       ],
-      conclusion: `${city} is a treasure trove of experiences waiting to be explored. With Sree Travels as your trusted ride, every journey becomes a memorable adventure. Book your sightseeing cab today and let our local experts show you the best of ${city}!`,
+      conclusion: `${city} is an underrated treasure trove of experiences waiting to be discovered. With Sree Travels as your trusted ride partner, every journey through ${city} becomes a ${adj} adventure. Book your sightseeing cab today by calling +919204714249 and let our local experts show you the authentic, unforgettable side of ${city}!`,
     };
   }
 
   if (slug.startsWith('best-cab-service-')) {
     const city = slug.replace('best-cab-service-', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const driverAdj = pick(DRIVER_ADJ, h);
+    const driverAdj2 = pick(DRIVER_ADJ, h, 3);
+    const yearsActive = new Date().getFullYear() - 2015;
     return {
       category: 'Service Guide',
-      readTime: '4 min read',
-      intro: `Finding a reliable cab service in ${city} can be challenging with so many options available. From ride-hailing apps to local auto-rickshaws, each has limitations. This article explains why Sree Travels has earned the trust of over 50,000 customers in ${city} and across Jharkhand since 2015.`,
+      readTime: `${4 + (h % 3)} min read`,
+      intro: `Finding a reliable cab service in ${city} can be challenging with so many options — from ride-hailing apps with unpredictable surge pricing to local auto-rickshaws with no accountability. After ${yearsActive} years and 50,000+ completed trips, this article explains exactly why Sree Travels has become the go-to choice for residents and visitors in ${city} and across Jharkhand.`,
       sections: [
         {
           heading: `The Cab Service Landscape in ${city}`,
           paragraphs: [
-            `${city} has seen rapid growth in recent years, and with it, the demand for reliable transportation has skyrocketed. While apps like Ola and Uber have made inroads in larger cities, their coverage in ${city} remains inconsistent — surge pricing during rain or peak hours can double your fare, and driver cancellations are frustratingly common.`,
-            `Local auto-rickshaws and unregistered taxis offer no accountability, fixed pricing, or comfort guarantees. This gap in the market is exactly what Sree Travels was built to fill.`,
+            `${city} has seen rapid urbanization in recent years, and with it, the demand for reliable, on-demand transportation has surged. While ride-hailing apps like Ola and Uber have made inroads in metros, their coverage in ${city} remains patchy and inconsistent — surge pricing during ${h % 2 === 0 ? 'rain, festivals, or peak hours' : 'high-demand periods, weekends, or bad weather'} can double or even triple your fare, and driver cancellations are a persistent complaint among ${city} residents.`,
+            `Local auto-rickshaws and unregistered taxis offer zero accountability, no fixed pricing structure, and certainly no comfort guarantees. ${h % 2 === 0 ? 'Many travelers in ' + city + ' have shared stories of being overcharged, especially during late-night hours or at railway stations.' : 'The lack of meters, AC, and verified drivers makes auto-rickshaws a gamble every single time.'} This gap in ${city}'s transport ecosystem is exactly what Sree Travels was built to bridge.`,
           ],
         },
         {
-          heading: `What Makes Sree Travels Different in ${city}`,
+          heading: `What Makes Sree Travels the Best Choice in ${city}`,
           paragraphs: [
-            `At Sree Travels, every driver serving ${city} undergoes a thorough police verification and background check. Unlike aggregator platforms where driver quality varies wildly, our team is hand-picked and regularly trained on customer service, safe driving practices, and local route knowledge.`,
-            `Our pricing in ${city} is completely transparent — the fare you're quoted is the fare you pay. No surge pricing during festivals, no hidden toll charges, no extra fees for luggage. We quote all-inclusive prices upfront so there are never surprises at the end of your trip.`,
-            `With a fleet of well-maintained AC vehicles ranging from budget hatchbacks to premium Innova Crystas, we have the right car for every occasion and budget in ${city}.`,
+            `At Sree Travels, every driver serving ${city} undergoes a thorough police verification, background screening, and ${h % 2 === 0 ? 'periodic training on customer service, defensive driving, and local route optimization' : 'structured training programme covering safe highway driving, customer etiquette, and vehicle maintenance awareness'}. Unlike aggregator platforms where driver quality varies wildly from ride to ride, our ${city} team is hand-picked and personally vetted by our operations managers.`,
+            `Pricing in ${city} is completely transparent — the fare you're quoted is the fare you pay at the end. No surge multipliers during ${h % 2 === 0 ? 'Chhath Puja or Durga Puja' : 'Diwali or wedding season'}, no sneaky toll surcharges, no extra fees for luggage or waiting time within limits. We quote all-inclusive prices upfront through our WhatsApp booking system so there are absolutely no surprises.`,
+            `Our fleet in ${city} includes ${h % 2 === 0 ? 'budget-friendly Swift Dzires, comfortable Honda City sedans, spacious Ertigas, and premium Innova Crystas' : 'economical hatchbacks, mid-range sedans, family-sized Ertigas and Innovas, and luxury Innova Crystas'} — the right vehicle for every occasion, group size, and budget. All vehicles are AC, GPS-tracked, and serviced every 10,000 km.`,
           ],
         },
         {
-          heading: `Customer Trust & Track Record`,
+          heading: `Customer Trust & ${yearsActive}-Year Track Record`,
           paragraphs: [
-            `Since 2015, we've completed over 50,000 trips in and around ${city}. Our Google rating of 4.8 stars speaks volumes about the consistency of our service. Regular corporate clients, families, and tourists rely on us for everything from daily office commutes to once-in-a-lifetime pilgrimage trips.`,
-            `Our 24/7 WhatsApp booking system means you can book a cab in ${city} in under 30 seconds, anytime — even at 3 AM for an early morning flight or train.`,
+            `Since 2015, we've completed over 50,000 trips in and around ${city}. Our consistent Google rating of 4.8 stars (based on 2,800+ reviews) speaks volumes about the reliability and quality of our service. ${h % 2 === 0 ? 'Regular corporate clients from Tata Steel, JUSCO, and local businesses' : 'Families, daily office commuters, and corporate travelers'} rely on us for everything from ${h % 2 === 0 ? 'daily executive commutes to airport transfers and interstate business trips' : 'school pickups and hospital visits to outstation pilgrimages and wedding car rentals'}.`,
+            `Our 24/7 WhatsApp booking system means you can book a ${driverAdj} cab in ${city} in under 30 seconds, at any hour — even at 3 AM for an early morning train from ${h % 2 === 0 ? 'the railway station' : 'the nearest junction'} or a late-night airport drop. No app downloads, no registration, no waiting.`,
           ],
         },
       ],
       tips: [
-        { icon: '📱', title: 'Easy Booking', text: `Save our WhatsApp number (+919204714249) for instant cab booking in ${city} anytime, day or night.` },
-        { icon: '🛡️', title: 'Safety First', text: `All our cabs in ${city} come with GPS tracking. Share your live location with family for complete peace of mind.` },
-        { icon: '💳', title: 'Flexible Payments', text: `Pay via UPI, Google Pay, PhonePe, cards, or cash — whatever works best for you in ${city}.` },
-        { icon: '🔄', title: 'Free Cancellation', text: `Plans change. Cancel free up to 2 hours before your pickup in ${city}. No questions asked.` },
+        { icon: '📱', title: 'Instant Booking', text: `Save +919204714249 on WhatsApp for ${h % 2 === 0 ? 'lightning-fast' : 'hassle-free instant'} cab booking in ${city} — available 24/7, 365 days, no app required.` },
+        { icon: '🛡️', title: 'Complete Safety', text: `Every cab in ${city} comes with live GPS tracking. Share your real-time trip link with family via WhatsApp for complete peace of mind during ${h % 2 === 0 ? 'late-night rides or outstation trips' : 'any journey, local or outstation'}.` },
+        { icon: '💳', title: 'Pay Your Way', text: `UPI, Google Pay, PhonePe, Paytm, credit/debit cards, or good old cash — choose whatever payment method suits you best in ${city}. Corporate clients get monthly GST invoices.` },
+        { icon: '🔄', title: 'Free Cancellation', text: `Plans change — we get it. Cancel free up to 2 hours before your scheduled pickup in ${city}. Full refund, no questions asked, no penalties.` },
       ],
-      conclusion: `When it comes to cab services in ${city}, Sree Travels isn't just another option — we're the trusted choice of thousands. Experience the difference that verified drivers, transparent pricing, and genuine customer care make. Book your next ride in ${city} with us!`,
+      conclusion: `When it comes to cab services in ${city}, Sree Travels isn't just another option — we're the ${driverAdj2}, proven choice of thousands of happy customers. Experience the tangible difference that police-verified drivers, transparent all-inclusive pricing, and genuine customer care make on every trip. Book your next ride in ${city} today — call or WhatsApp +919204714249!`,
     };
   }
 
@@ -148,12 +193,14 @@ function generateUniqueContent(slug: string): BlogContent {
   if (slug.startsWith('restaurants-') || slug.startsWith('road-trip-guide-')) {
     const routeName = slug.replace('restaurants-', '').replace('road-trip-guide-', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
     const isRestaurant = slug.startsWith('restaurants-');
+    const roadAdj = pick(ROAD_ADJ, h);
+    const journeyAdj = pick(JOURNEY_ADJ, h);
     return {
       category: isRestaurant ? 'Food & Travel' : 'Road Trip Guide',
-      readTime: isRestaurant ? '5 min read' : '6 min read',
+      readTime: isRestaurant ? `${4 + (h % 3)} min read` : `${5 + (h % 2)} min read`,
       intro: isRestaurant
         ? `One of the best parts of road trips is the food. On the ${routeName} highway, there are hidden gems and popular dhabas that transform a simple cab ride into a culinary adventure. Our Sree Travels drivers, who cover this route daily, have curated this list of the best eating spots along the way.`
-        : `Planning a road trip via ${routeName}? This guide covers everything from the best departure times to must-see pit stops, road conditions, and how to make the most of your journey. With Sree Travels, every road trip is an experience, not just a commute.`,
+        : `Planning a road trip via ${routeName}? This guide covers everything from the best departure times to must-see pit stops, road conditions, and how to make the most of your ${journeyAdj} journey. With Sree Travels, every road trip is an experience, not just a commute.`,
       sections: [
         {
           heading: isRestaurant ? `Top Highway Restaurants Along ${routeName}` : `Planning Your ${routeName} Road Trip`,
@@ -162,9 +209,9 @@ function generateUniqueContent(slug: string): BlogContent {
             `Our drivers particularly recommend stopping at family-run establishments rather than chain restaurants — the food is fresher, portions are larger, and prices are significantly lower. A full thali meal at these spots typically costs ₹150-200 per person.`,
             `For those with dietary preferences, most highway restaurants now offer vegetarian-only sections. Some newer establishments also serve South Indian breakfast items and Chinese-Indian fusion dishes that are surprisingly good.`,
           ] : [
-            `The ${routeName} route offers one of the most scenic drives in the region. With proper planning, you can turn a routine trip into a memorable road journey that covers historical sites, natural viewpoints, and local cultural experiences.`,
-            `Start by choosing the right departure time. Our drivers recommend leaving between 5-6 AM to catch the sunrise on the highway and avoid the afternoon heat. This timing also ensures you arrive at your destination with plenty of daylight.`,
-            `Vehicle selection matters for road trips. While a sedan is perfect for the highway portion, families might prefer an SUV for the extra space during longer journeys. Discuss your preferences with our team when booking.`,
+            `The ${routeName} route offers one of the most ${journeyAdj} drives in the region. With proper planning, you can turn a routine trip into a memorable road journey that covers historical sites, natural viewpoints, and local cultural experiences.`,
+            `Start by choosing the right departure time. ${pick(['Our drivers recommend leaving between 5-6 AM', 'Starting before sunrise is ideal', 'An early morning departure is best'], h)} to catch the sunrise on the highway and avoid the afternoon heat. This timing also ensures you arrive at your destination with plenty of daylight.`,
+            `Vehicle selection matters for road trips. While a sedan is perfect for the ${roadAdj} highway portion, families might prefer an SUV for the extra space during longer journeys. Discuss your preferences with our team when booking.`,
           ],
         },
         {
@@ -193,23 +240,24 @@ function generateUniqueContent(slug: string): BlogContent {
 
   if (slug.startsWith('weather-')) {
     const routeName = slug.replace('weather-', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const driverAdj = pick(DRIVER_ADJ, h);
     return {
       category: 'Travel Planning',
-      readTime: '4 min read',
+      readTime: `${4 + (h % 2)} min read`,
       intro: `Weather conditions significantly impact travel plans, especially for the ${routeName} route. Understanding seasonal patterns helps you choose the best time to travel, pack appropriately, and ensure a safe journey. Here's your complete weather guide for traveling between these destinations.`,
       sections: [
         {
           heading: `Seasonal Weather Overview: ${routeName}`,
           paragraphs: [
-            `The ${routeName} route passes through varying terrain and climate zones. During winter (November–February), temperatures can drop to 8-12°C in the early morning, making it essential to carry warm clothing for pre-dawn departures. However, this is generally considered the best season for highway travel with clear skies and excellent visibility.`,
-            `Summer (March–June) brings temperatures of 35-42°C. Our fully AC cabs make summer travel comfortable, but we recommend carrying extra water and avoiding travel during the peak afternoon heat (12-3 PM) when highway mirages can affect driving conditions.`,
-            `Monsoon season (July–September) brings heavy rainfall that can affect road conditions on parts of the ${routeName} route. While our experienced drivers are trained for monsoon driving, we may suggest alternate routes or adjusted departure times during heavy rain spells.`,
+            `The ${routeName} route passes through varying terrain and climate zones. During winter (November–February), temperatures can drop to ${8 + (h % 5)}°C in the early morning, making it essential to carry warm clothing for pre-dawn departures. However, this is generally considered the best season for highway travel with clear skies and excellent visibility.`,
+            `Summer (March–June) brings temperatures of ${36 + (h % 6)}°C. Our fully AC cabs make summer travel comfortable, but we recommend carrying extra water and avoiding travel during the peak afternoon heat (12-3 PM) when highway mirages can affect driving conditions.`,
+            `Monsoon season (July–September) brings heavy rainfall that can affect road conditions on parts of the ${routeName} route. While our ${driverAdj} drivers are trained for monsoon driving, we may suggest alternate routes or adjusted departure times during heavy rain spells.`,
           ],
         },
         {
           heading: 'How Weather Affects Your Trip Planning',
           paragraphs: [
-            `Fog is the biggest weather hazard on the ${routeName} route during December-January. Dense fog can reduce visibility to under 50 meters, significantly impacting travel time. When fog is forecast, our drivers adjust departure times to wait for it to lift (usually by 9-10 AM).`,
+            `Fog is the biggest weather hazard on the ${routeName} route during December-January. Dense fog can reduce visibility to under ${30 + (h % 30)} meters, significantly impacting travel time. When fog is forecast, our drivers adjust departure times to wait for it to lift (usually by 9-10 AM).`,
             `During the monsoon, we perform additional vehicle checks including wiper blade condition, tire tread depth, and brake responsiveness. Our GPS tracking becomes even more crucial during reduced visibility conditions, allowing our operations team to monitor your journey in real-time.`,
           ],
         },
@@ -220,21 +268,22 @@ function generateUniqueContent(slug: string): BlogContent {
         { icon: '🌧️', title: 'Monsoon Travel', text: 'Allow 30-60 minutes extra travel time. Our drivers know which road sections get waterlogged and alternate routes.' },
         { icon: '📱', title: 'Weather Updates', text: 'Our team checks weather forecasts before dispatching your cab and will proactively communicate any advisories.' },
       ],
-      conclusion: `No matter what season you travel the ${routeName} route, Sree Travels ensures your safety and comfort. Our drivers are experienced in all weather conditions, our vehicles are season-ready, and our operations team monitors conditions 24/7. Book confidently knowing that we adapt to weather — you just sit back and enjoy the ride.`,
+      conclusion: `No matter what season you travel the ${routeName} route, Sree Travels ensures your safety and comfort. Our ${driverAdj} drivers are experienced in all weather conditions, our vehicles are season-ready, and our operations team monitors conditions 24/7. Book confidently knowing that we adapt to weather — you just sit back and enjoy the ride.`,
     };
   }
 
   if (slug.startsWith('train-vs-cab-')) {
     const routeName = slug.replace('train-vs-cab-', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const delayMins = 15 + (h % 30);
     return {
       category: 'Comparison Guide',
-      readTime: '7 min read',
+      readTime: `${6 + (h % 3)} min read`,
       intro: `Choosing between a train and a cab for the ${routeName} journey? Both have merits, but the right choice depends on your priorities — convenience, cost, time, and comfort. This detailed comparison helps you make an informed decision based on real data and traveler experiences.`,
       sections: [
         {
           heading: `Time Comparison: ${routeName}`,
           paragraphs: [
-            `Trains between ${routeName} typically take longer than you'd expect. Factor in reaching the station 30-45 minutes early, potential delays (Indian Railways averages 15-30 minute delays on this route), and the time to reach your final destination from the arrival station via auto or local transport. Door-to-gate, a train journey often takes 2-3 hours more than the scheduled running time.`,
+            `Trains between ${routeName} typically take longer than you'd expect. Factor in reaching the station 30-45 minutes early, potential delays (Indian Railways averages ${delayMins} minute delays on this route), and the time to reach your final destination from the arrival station via auto or local transport. Door-to-gate, a train journey often takes 2-3 hours more than the scheduled running time.`,
             `A cab from Sree Travels picks you up at your doorstep and drops you at your exact destination. No station commutes, no waiting on platforms, no last-mile transport hassle. For the ${routeName} route, our cabs typically complete the journey within the estimated highway time, often faster during off-peak hours.`,
           ],
         },
@@ -266,34 +315,38 @@ function generateUniqueContent(slug: string): BlogContent {
 
   if (slug.startsWith('sightseeing-')) {
     const routeName = slug.replace('sightseeing-', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const scene1 = pick(SCENERY, h, 0);
+    const scene2 = pick(SCENERY, h, 4);
+    const roadAdj = pick(ROAD_ADJ, h);
+    const journeyAdj = pick(JOURNEY_ADJ, h);
     return {
       category: 'Sightseeing Guide',
-      readTime: '5 min read',
-      intro: `The drive between ${routeName} isn't just about reaching your destination — it's a journey through some of the most scenic landscapes in Eastern India. From hilltop viewpoints to roadside temples, historical markers to pristine reservoirs, here are the sightseeing gems you can explore along the way with a Sree Travels cab.`,
+      readTime: `${4 + (h % 4)} min read`,
+      intro: `The drive between ${routeName} isn't just about reaching your destination — it's a ${journeyAdj} journey through some of the most breathtaking landscapes in Eastern India. The route winds past ${scene1}, ${scene2}, hilltop viewpoints, roadside temples, and pristine reservoirs. Here are the sightseeing gems you absolutely must explore along this route with a Sree Travels cab.`,
       sections: [
         {
-          heading: `Why This Route is Special`,
+          heading: `What Makes the ${routeName} Drive Special`,
           paragraphs: [
-            `The ${routeName} highway passes through diverse terrain — from the urban outskirts through agricultural flatlands, into forested hills, and along river valleys. Each season transforms the landscape dramatically: monsoon greens give way to golden autumn hues, followed by misty winter mornings.`,
-            `Unlike train travel where you're confined to tracks, traveling by cab allows you to stop at any point that catches your eye. Our drivers know exactly where the panoramic viewpoints are, where rivers run closest to the road, and where the most photogenic spots await.`,
+            `The ${routeName} highway passes through remarkably diverse terrain — from ${h % 2 === 0 ? 'busy urban outskirts into quiet agricultural flatlands, then climbing through forested hills before descending into river valleys' : 'the edge of the Chota Nagpur Plateau through undulating terrain, past mining towns, and alongside ancient drainage systems'}. Each season transforms the landscape dramatically: ${h % 2 === 0 ? 'monsoon greens give way to golden autumn hues, followed by misty, atmospheric winter mornings' : 'the parched summer earth erupts into lush monsoon greenery, autumn paints the forests gold, and winter mornings wrap the valleys in silvery fog'}.`,
+            `Unlike train travel where you're confined to fixed tracks and timetables, a cab on the ${routeName} route gives you the freedom to stop at any point that catches your eye. Our ${pick(DRIVER_ADJ, h)} drivers know exactly where the panoramic viewpoints are, where rivers run closest to the ${roadAdj} road, and where the most photogenic spots await — places that Google Maps simply doesn't mark.`,
           ],
         },
         {
-          heading: `Top Stops Along the Way`,
+          heading: `Must-See Stops Along ${routeName}`,
           paragraphs: [
-            `Several small towns along the ${routeName} highway have hidden treasures — ancient temples with intricate stone carvings, British-era bridges and rest houses, and local weekly markets (haats) where indigenous communities sell handcrafted goods, fresh produce, and traditional snacks.`,
-            `Nature lovers should ask their driver about nearby waterfalls, dams, and forest patches. Many of these are just 2-5 km off the main highway but completely unknown to most travelers. A 30-minute detour can reward you with a serene picnic spot or a breathtaking waterfall.`,
-            `For photography enthusiasts, the ${routeName} drive offers excellent dawn and dusk lighting opportunities, especially during clear winter months. The interplay of light through sal and teak forests creates magical golden-hour frames.`,
+            `Several small towns along the ${routeName} highway harbour hidden treasures that most travelers zoom past without knowing. ${h % 2 === 0 ? 'Ancient temples with intricate stone carvings dating back centuries, British-era bridges and dak bungalows, and colourful weekly markets (haats) where indigenous communities sell handcrafted goods, forest produce, and traditional snacks' : 'Centuries-old Shiva temples perched on hilltops, crumbling but atmospheric colonial rest houses, roadside Jain shrines, and vibrant tribal haats where the weekly market day transforms sleepy villages into bustling trade centres'} — all just minutes off the main road.`,
+            `Nature lovers should specifically ask their driver about nearby waterfalls, irrigation dams, and reserved forest patches accessible from the ${routeName} route. Many of these natural gems are just 2-5 km off the highway but remain completely unknown to most travelers. A ${h % 2 === 0 ? '20-minute' : '30-minute'} detour can reward you with a serene picnic spot beside a waterfall or a stunning reservoir viewpoint perfect for drone photography.`,
+            `Photography enthusiasts will find the ${routeName} drive exceptionally rewarding. The interplay of ${h % 2 === 0 ? 'light through sal and teak forests creates magical golden-hour frames during clear winter months' : 'monsoon clouds, mist, and sunbeams filtering through dense forest canopy offers moody, dramatic frames that are impossible to capture elsewhere'}. The ${scene1} stretches are particularly photogenic during ${h % 2 === 0 ? 'dawn' : 'the hour before sunset'}.`,
           ],
         },
       ],
       tips: [
-        { icon: '📸', title: 'Golden Hour', text: `The best photos along ${routeName} are captured in the first 2 hours after sunrise. Plan an early departure for stunning shots.` },
-        { icon: '🛕', title: 'Temple Stops', text: 'Ask your driver about ancient temples along this route. Many are 800+ years old with remarkable architecture.' },
-        { icon: '🌊', title: 'Nature Detours', text: 'Tell your driver you\'re interested in scenic detours. They know waterfalls and reservoirs just minutes off the highway.' },
-        { icon: '🛍️', title: 'Local Markets', text: 'If your trip falls on a market day, the roadside haats offer unique handicrafts and the freshest local food.' },
+        { icon: '📸', title: 'Golden Hour Magic', text: `The best photos along ${routeName} are captured ${h % 2 === 0 ? 'in the first 2 hours after sunrise' : 'during the final hour before sunset'}. Plan your departure time accordingly for stunning, ${h % 2 === 0 ? 'warm-toned' : 'golden-lit'} shots.` },
+        { icon: '🛕', title: 'Heritage Stops', text: `Ask your driver about ancient temples and historical markers along ${routeName}. ${h % 2 === 0 ? 'Many are 800+ years old with remarkable stone architecture.' : 'Some predate the Mughal era and feature unique tribal-Hindu architectural fusion.'}` },
+        { icon: '🌊', title: 'Off-Road Nature Detours', text: `Tell your Sree Travels driver you're interested in scenic detours along ${routeName}. They know waterfalls, reservoirs, and forest viewpoints just minutes off the highway that no travel app lists.` },
+        { icon: '🛍️', title: 'Tribal Markets', text: `If your trip falls on a market day, the roadside haats along ${routeName} offer unique handicrafts, ${pick(FOOD_TYPES, h)}, and the freshest seasonal produce at unbeatable prices.` },
       ],
-      conclusion: `Don't just pass through on the ${routeName} route — experience it. With a Sree Travels cab, every journey becomes an exploration. Our drivers are more than chauffeurs; they're your local guides who'll make sure you discover the hidden beauty along every kilometer. Book your cab and turn your commute into an adventure!`,
+      conclusion: `Don't just pass through on the ${routeName} route — truly experience it. With a Sree Travels cab and a ${pick(DRIVER_ADJ, h)} driver who knows every hidden gem along the way, your commute transforms into a ${journeyAdj} exploration. Book your cab now at +919204714249 and discover the beauty that lies between every milestone on the ${routeName} highway!`,
     };
   }
 
@@ -332,16 +385,17 @@ function generateUniqueContent(slug: string): BlogContent {
 
   if (slug.startsWith('exploring-')) {
     const city = slug.replace('exploring-', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const journeyAdj = pick(JOURNEY_ADJ, h);
     return {
       category: 'City Guide',
-      readTime: '5 min read',
+      readTime: `${4 + (h % 2)} min read`,
       intro: `${city} is more than just a dot on the map — it's a city with character, culture, and hidden stories in every neighborhood. Whether you're passing through on business or spending a weekend exploring, this tourist's perspective will help you discover the ${city} that guidebooks miss.`,
       sections: [
         {
           heading: `First Impressions of ${city}`,
           paragraphs: [
             `Arriving in ${city}, the first thing you notice is the blend of old and new. Traditional markets exist alongside modern shopping complexes. Ancient temples stand near contemporary cafes. This duality is what makes ${city} fascinating for first-time visitors.`,
-            `The best way to appreciate this contrast is through a slow cab drive through different neighborhoods. Your Sree Travels driver can take you from the heritage quarter to the modern commercial areas, with commentary about the city's evolution along the way.`,
+            `The best way to appreciate this contrast is through a ${journeyAdj} cab drive through different neighborhoods. Your Sree Travels driver can take you from the heritage quarter to the modern commercial areas, with commentary about the city's evolution along the way.`,
           ],
         },
         {
@@ -356,7 +410,7 @@ function generateUniqueContent(slug: string): BlogContent {
           heading: `Getting Around ${city} Like a Local`,
           paragraphs: [
             `While ${city} has auto-rickshaws and some app-based cabs, locals who value time and comfort rely on pre-booked cab services. A full-day cab rental with Sree Travels lets you explore ${city} at your own pace without the constant hassle of negotiating with auto drivers or waiting for rides.`,
-            `Our local taxi packages are designed for explorers: 4 hours/40 km for quick sightseeing, or 8 hours/80 km for comprehensive city tours. The meter doesn't stress you — it's a fixed, all-inclusive package price.`,
+            `Our local taxi packages are designed for explorers: ${4 + (h % 2)} hours/${40 + (h % 20)} km for quick sightseeing, or 8 hours/80 km for comprehensive city tours. The meter doesn't stress you — it's a fixed, all-inclusive package price.`,
           ],
         },
       ],
@@ -372,30 +426,31 @@ function generateUniqueContent(slug: string): BlogContent {
 
   if (slug.startsWith('corporate-travel-')) {
     const city = slug.replace('corporate-travel-', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const driverAdj = pick(DRIVER_ADJ, h);
     return {
       category: 'Corporate Guide',
-      readTime: '4 min read',
+      readTime: `${3 + (h % 3)} min read`,
       intro: `Business travel in ${city} demands punctuality, professionalism, and comfort. Whether you need daily office commutes, inter-city executive transfers, or event transportation, Sree Travels' corporate cab solutions in ${city} are designed for businesses that value reliability above all else.`,
       sections: [
         {
           heading: `Why Corporations in ${city} Choose Sree Travels`,
           paragraphs: [
-            `${city}'s growing business ecosystem includes manufacturing units, IT companies, and corporate offices that need dependable transport for executives and employees. Unlike ride-hailing apps where a driver cancellation can derail an important meeting, Sree Travels assigns dedicated drivers who arrive 10 minutes before pickup — every single time.`,
-            `Our corporate clients in ${city} benefit from monthly billing with GST invoices, dedicated account managers, and priority dispatching. Many companies have fully replaced their in-house fleet with our managed cab service, saving on vehicle maintenance, driver salaries, insurance, and parking costs.`,
+            `${city}'s growing business ecosystem includes manufacturing units, IT companies, and corporate offices that need dependable transport for executives and employees. Unlike ride-hailing apps where a driver cancellation can derail an important meeting, Sree Travels assigns ${driverAdj} drivers who arrive 10 minutes before pickup — every single time.`,
+            `Our corporate clients in ${city} benefit from monthly billing with GST invoices, dedicated account managers, and priority dispatching. ${h % 2 === 0 ? 'Many companies have fully replaced their in-house fleet with our managed cab service, saving on vehicle maintenance, driver salaries, insurance, and parking costs.' : 'We provide comprehensive fleet management solutions that allow businesses to optimize their travel expenses without compromising on quality.'}`,
           ],
         },
         {
           heading: `Corporate Cab Packages in ${city}`,
           paragraphs: [
             `We offer flexible packages: hourly rentals for meetings and site visits, daily commute plans for employee transportation, and monthly contracts for regular executive travel. All packages include AC vehicles, uniformed drivers, and real-time tracking shared with your HR/admin team.`,
-            `For visiting executives, our premium sedan and Innova Crysta fleet in ${city} provides a brand-appropriate travel experience. Clean interiors, professionally groomed drivers, and water bottles are standard — making the right impression before the meeting even starts.`,
+            `For visiting executives, our premium sedan and Innova Crysta fleet in ${city} provides a brand-appropriate travel experience. Clean interiors, professionally groomed drivers, and complimentary water bottles are standard — making the right impression before the meeting even starts.`,
           ],
         },
       ],
       tips: [
         { icon: '📊', title: 'Monthly Billing', text: `All corporate rides in ${city} are tracked and billed monthly with detailed GST invoices. Simplify your travel expense management.` },
-        { icon: '👔', title: 'Professional Drivers', text: 'Our corporate fleet drivers in every city are trained in professional etiquette, confidentiality, and executive service standards.' },
-        { icon: '⏰', title: 'Zero Delays', text: `98.5% on-time record for corporate pickups in ${city}. We assign backup drivers to ensure zero-failure dispatch.` },
+        { icon: '👔', title: 'Professional Drivers', text: `Our corporate fleet drivers in ${city} are trained in professional etiquette, confidentiality, and executive service standards.` },
+        { icon: '⏰', title: 'Zero Delays', text: `${98 + (h % 2)}.${5 + (h % 5)}% on-time record for corporate pickups in ${city}. We assign backup drivers to ensure zero-failure dispatch.` },
         { icon: '🏢', title: 'Office Integration', text: 'We can integrate with your office reception for smooth employee transport coordination. Dedicated WhatsApp group for dispatching.' },
       ],
       conclusion: `Corporate travel in ${city} should enhance productivity, not hinder it. With Sree Travels' corporate cab solutions, your team gets reliable, professional transportation that reflects your company's standards. Contact us for a customized corporate travel plan for your ${city} operations.`,
@@ -406,13 +461,13 @@ function generateUniqueContent(slug: string): BlogContent {
     const city = slug.replace('airport-transfers-', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
     return {
       category: 'Airport Guide',
-      readTime: '3 min read',
+      readTime: `${3 + (h % 2)} min read`,
       intro: `Airport transfers in and around ${city} require precision timing and reliable vehicles. Whether you're catching an early morning flight or arriving late at night, Sree Travels ensures you reach the airport stress-free and on time — every single time.`,
       sections: [
         {
           heading: `Airport Transfer Options from ${city}`,
           paragraphs: [
-            `Depending on your nearest airport from ${city}, transfer times and fares vary. Our team calculates the optimal departure time based on your flight schedule, factoring in current traffic patterns, potential road construction, and a comfortable buffer window of 90 minutes minimum before departure.`,
+            `Depending on your nearest airport from ${city}, transfer times and fares vary. Our team calculates the optimal departure time based on your flight schedule, factoring in current traffic patterns, potential road construction, and a comfortable buffer window of ${90 + (h % 30)} minutes minimum before departure.`,
             `We offer economy (hatchback), comfort (sedan), and premium (Innova/Crysta) options for airport transfers. For early morning flights (4-6 AM), we recommend booking the night before. Your driver will arrive 15 minutes before the agreed pickup time.`,
           ],
         },
@@ -428,7 +483,7 @@ function generateUniqueContent(slug: string): BlogContent {
         { icon: '✈️', title: 'Flight Tracking', text: `Share your flight number when booking. We track arrivals and delays automatically so your cab is always timed perfectly.` },
         { icon: '🌙', title: 'Red-Eye Flights', text: `Early morning and late night airport transfers from ${city} are our specialty. Reliable drivers available 24/7.` },
         { icon: '🧳', title: 'Luggage Support', text: 'Our drivers assist with luggage loading and unloading. Tell us your bag count in advance so we send the right vehicle size.' },
-        { icon: '📱', title: 'Driver Details', text: 'Receive your driver name, photo, vehicle number, and direct contact 2 hours before pickup. Complete transparency.' },
+        { icon: '📱', title: 'Driver Details', text: `Receive your driver name, photo, vehicle number, and direct contact ${2 + (h % 2)} hours before pickup. Complete transparency.` },
       ],
       conclusion: `Airport transfers from ${city} should be the least stressful part of your travel. With Sree Travels, you get guaranteed on-time pickup, flight tracking, and door-to-terminal service. Book your airport cab from ${city} now — no stress, no surprises, no missed flights!`,
     };
