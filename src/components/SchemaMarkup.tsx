@@ -21,15 +21,15 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Dimna Road, Mango",
-        "addressLocality": "Jamshedpur",
+        "addressLocality": data.cityName || "Jamshedpur",
         "addressRegion": "Jharkhand",
-        "postalCode": "831018",
+        "postalCode": data.postalCode || "831018",
         "addressCountry": "IN",
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 22.8046,
-        "longitude": 86.2029,
+        "latitude": data.latitude || 22.8046,
+        "longitude": data.longitude || 86.2029,
       },
       "areaServed": data.areaServed || "Jharkhand, India",
       "priceRange": data.priceRange || "₹999 - ₹25,000",
@@ -118,13 +118,14 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       });
     }
 
-    // Route-specific schema
+    // Route-specific schema: TouristTrip + TaxiReservation
     if (type === 'route' && data.from && data.to) {
       schemas.push({
         "@context": "https://schema.org",
-        "@type": "Trip",
-        "name": `${data.from} to ${data.to} Cab Service`,
-        "description": `Book cab from ${data.from} to ${data.to}. Distance: ${data.distance}km. Starting fare: ₹${data.fare}. AC cab, police-verified driver. Call +919204714249.`,
+        "@type": "TouristTrip",
+        "name": `${data.from} to ${data.to} Cab Service 2026`,
+        "description": `Book cab from ${data.from} to ${data.to}. Distance: ${data.distance}km. Starting fare: ₹${data.fare}. AC cab, police-verified driver. Toll + fuel included. Call +919204714249.`,
+        "touristType": "Traveler",
         "provider": {
           "@type": "LocalBusiness",
           "name": "Sree Travels",
@@ -134,9 +135,35 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         "offers": {
           "@type": "AggregateOffer",
           "lowPrice": String(data.fare),
+          "highPrice": String(Number(data.fare) * 4),
           "priceCurrency": "INR",
           "offerCount": "5",
+          "availability": "https://schema.org/InStock",
         },
+      });
+
+      // TaxiReservation schema for rich booking snippet
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "TaxiReservation",
+        "reservationStatus": "https://schema.org/ReservationConfirmed",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Sree Travels",
+          "telephone": "+919204714249",
+        },
+        "pickupLocation": {
+          "@type": "Place",
+          "name": String(data.from),
+          "address": `${data.from}, Jharkhand, India`,
+        },
+        "dropoffLocation": {
+          "@type": "Place",
+          "name": String(data.to),
+          "address": `${data.to}, India`,
+        },
+        "totalPrice": String(data.fare),
+        "priceCurrency": "INR",
       });
     }
 

@@ -133,26 +133,51 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     case 'city-hub': {
       const city = getCityBySlug(matched.citySlug)!;
       const isJSR = city.slug === 'jamshedpur';
+      const isRanchi = city.slug === 'ranchi';
       const titleName = isJSR ? 'Jamshedpur (Tata)' : city.name;
       const seoName = isJSR ? 'Jamshedpur, Tatanagar' : city.name;
+      const customTitle = city.seoTitle || `Best Cab Service in ${titleName} 2026 | Car Rental & Taxi ☎ +919204714249`;
       return {
-        title: `Cab Service in ${titleName} | Car Rental & Taxi Booking ☎ +919204714249`,
-        description: `Book the best cab service in ${seoName}, Jharkhand ✅ One Way ✅ Round Trip ✅ Outstation ✅ Local Taxi ✅ Airport Transfer. AC cabs from ₹${city.localFare.hatchback_4hr}. GPS tracked, verified drivers. 24/7 service. Call +919204714249. Trusted since 2015.`,
+        title: customTitle,
+        description: city.seoDescription,
         keywords: [
           `cab service ${city.name.toLowerCase()}`, `taxi ${city.name.toLowerCase()}`, `taxi service ${city.name.toLowerCase()}`,
           `cab booking ${city.name.toLowerCase()}`, `car rental ${city.name.toLowerCase()}`, `best cab ${city.name.toLowerCase()}`,
           `outstation cab ${city.name.toLowerCase()}`, `airport taxi ${city.name.toLowerCase()}`, `local taxi ${city.name.toLowerCase()}`,
-          ...(isJSR ? ['cab service in tata', 'tatanagar taxi', 'car rental tata', 'tata cab service', 'tatanagar cab booking', 'tata taxi booking online'] : []),
+          ...(isJSR ? ['cab service in tata', 'tatanagar taxi', 'car rental tata', 'tata cab service', 'tatanagar cab booking', 'tata taxi booking online', 'jamshedpur to ranchi cab 2026', 'tata to ranchi cab fare'] : []),
+          ...(isRanchi ? ['ranchi airport cab', 'birsa munda airport taxi', 'ranchi to jamshedpur cab 2026', 'ranchi to tata cab fare', 'hatia station cab'] : []),
           `24/7 cab ${city.name.toLowerCase()}`, `cab near me ${city.name.toLowerCase()}`, `taxi near me ${city.name.toLowerCase()}`,
           `one way cab ${city.name.toLowerCase()}`, `round trip cab ${city.name.toLowerCase()}`,
           `cheapest cab ${city.name.toLowerCase()}`, `sree travels ${city.name.toLowerCase()}`,
+          `best cab service ${city.name.toLowerCase()} 2026`, `cab booking online ${city.name.toLowerCase()}`,
+          ...(city.hindiKeywords || []),
+          ...(city.nearMeKeywords || []),
+          ...(city.localKeywords || []),
         ],
         alternates: { canonical: `https://www.sreetravel.com/cab-service-${city.slug}` },
         openGraph: {
-          title: `Cab Service in ${titleName} | Sree Travels`,
-          description: `Book AC cab in ${seoName}. One way, round trip, outstation, airport & local. ₹${city.localFare.hatchback_4hr} onwards. ☎ +919204714249`,
+          title: `Best Cab Service in ${titleName} 2026 | Sree Travels`,
+          description: `Book AC cab in ${seoName}. One way, round trip, outstation, airport & local. ₹${city.localFare.hatchback_4hr} onwards. Verified drivers, GPS tracked. ☎ +919204714249`,
           url: `https://www.sreetravel.com/cab-service-${city.slug}`,
-          images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `Cab Service in ${titleName}` }],
+          images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `Best Cab Service in ${titleName} — Sree Travels Jharkhand` }],
+        },
+        twitter: {
+          card: 'summary_large_image',
+          title: `Best Cab Service in ${titleName} 2026 | Sree Travels`,
+          description: `₹${city.localFare.hatchback_4hr} onwards. 24/7 AC cab, verified drivers. ☎ +919204714249`,
+          images: ['/background/IMG-20250403-WA0019.jpg'],
+        },
+        other: {
+          'geo.region': 'IN-JH',
+          'geo.placename': `${city.name}, ${city.district}, Jharkhand`,
+          'geo.position': `${city.latitude};${city.longitude}`,
+          'ICBM': `${city.latitude}, ${city.longitude}`,
+          'dateModified': new Date().toISOString().split('T')[0],
+          'revisit-after': '7 days',
+          'language': 'English, Hindi',
+          'coverage': 'Jharkhand, India',
+          'distribution': 'global',
+          'rating': 'general',
         },
       };
     }
@@ -209,35 +234,62 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       const route = getRoute(matched.from, matched.to)!;
       const isFromJSR = matched.from === 'jamshedpur';
       const isToJSR = matched.to === 'jamshedpur';
+      const fromCity = getCityBySlug(matched.from);
       
       const fromName = isFromJSR ? 'Jamshedpur/Tata' : route.fromName;
       const toName = isToJSR ? 'Jamshedpur/Tata' : route.toName;
       const seoFromName = isFromJSR ? 'Jamshedpur (Tata)' : route.fromName;
       const seoToName = isToJSR ? 'Jamshedpur (Tata)' : route.toName;
 
+      // Hindi route keywords
+      const hindiRouteKw: string[] = [];
+      if (isFromJSR) hindiRouteKw.push(`जमशेदपुर से ${route.toName} कैब`, `टाटा से ${route.toName} टैक्सी`);
+      if (isToJSR) hindiRouteKw.push(`${route.fromName} से जमशेदपुर कैब`, `${route.fromName} से टाटा टैक्सी`);
+      if (matched.from === 'ranchi') hindiRouteKw.push(`रांची से ${route.toName} कैब`);
+      if (matched.to === 'ranchi') hindiRouteKw.push(`${route.fromName} से रांची कैब`);
+
       return {
-        title: `${seoFromName} to ${seoToName} Cab | ₹${route.fares.hatchback.toLocaleString()} | ☎ +919204714249`,
-        description: `Book ${fromName} to ${toName} cab ✅ One Way ₹${route.fares.hatchback.toLocaleString()} ✅ AC cab ✅ ${route.distanceKm}km ✅ ${route.durationHrs}hrs ✅ Sedan ₹${route.fares.sedan.toLocaleString()} ✅ SUV ₹${route.fares.suv.toLocaleString()}. Toll included. Call +919204714249.`,
+        title: `${seoFromName} to ${seoToName} Cab Fare 2026 | ₹${route.fares.hatchback.toLocaleString()} | ☎ +919204714249`,
+        description: `Book ${fromName} to ${toName} cab in 2026 ✅ One Way ₹${route.fares.hatchback.toLocaleString()} ✅ AC cab ✅ ${route.distanceKm}km ✅ ${route.durationHrs}hrs ✅ Sedan ₹${route.fares.sedan.toLocaleString()} ✅ SUV ₹${route.fares.suv.toLocaleString()}. Toll + fuel + driver included. No hidden charges. 24/7 booking. Call +919204714249. Sree Travels.`,
         keywords: [
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} cab`,
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} taxi`,
-          ...(isFromJSR ? [`tata to ${route.toName.toLowerCase()} cab`, `tatanagar to ${route.toName.toLowerCase()} cab`, `car rental tata to ${route.toName.toLowerCase()}`] : []),
-          ...(isToJSR ? [`${route.fromName.toLowerCase()} to tata cab`, `${route.fromName.toLowerCase()} to tatanagar taxi`] : []),
+          `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} cab fare 2026`,
+          `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} cab booking`,
+          ...(isFromJSR ? [`tata to ${route.toName.toLowerCase()} cab`, `tatanagar to ${route.toName.toLowerCase()} cab`, `car rental tata to ${route.toName.toLowerCase()}`, `tata to ${route.toName.toLowerCase()} taxi fare 2026`] : []),
+          ...(isToJSR ? [`${route.fromName.toLowerCase()} to tata cab`, `${route.fromName.toLowerCase()} to tatanagar taxi`, `${route.fromName.toLowerCase()} to tata cab fare 2026`] : []),
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} taxi fare`,
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} cab fare`,
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} distance`,
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} one way cab`,
           `cab from ${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()}`,
           `taxi from ${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()}`,
+          `cheapest cab ${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()}`,
           `outstation cab ${route.fromName.toLowerCase()}`,
           `${route.fromName.toLowerCase()} ${route.toName.toLowerCase()} cab booking`,
+          `how much ${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} cab`,
+          `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} by car`,
+          ...hindiRouteKw,
         ],
         alternates: { canonical: `https://www.sreetravel.com/${route.from}-to-${route.to}-cab` },
         openGraph: {
-          title: `${fromName} to ${toName} Cab \u2014 \u20b9${route.fares.hatchback.toLocaleString()} Onwards`,
-          description: `${route.distanceKm}km \u2022 ${route.durationHrs}hrs. AC cab with verified driver. Book now \u260e +919204714249`,
+          title: `${fromName} to ${toName} Cab 2026 \u2014 \u20b9${route.fares.hatchback.toLocaleString()} Onwards`,
+          description: `${route.distanceKm}km \u2022 ${route.durationHrs}hrs. AC cab, toll included, verified driver. Book now \u260e +919204714249`,
           url: `https://www.sreetravel.com/${route.from}-to-${route.to}-cab`,
-          images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `${seoFromName} to ${seoToName} Cab` }],
+          images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: `${seoFromName} to ${seoToName} Cab Service — Sree Travels` }],
+        },
+        twitter: {
+          card: 'summary_large_image',
+          title: `${seoFromName} to ${seoToName} Cab \u2014 \u20b9${route.fares.hatchback.toLocaleString()}`,
+          description: `${route.distanceKm}km, ${route.durationHrs}hrs. Book \u260e +919204714249`,
+        },
+        other: {
+          'geo.region': 'IN-JH',
+          'geo.placename': fromCity ? `${fromCity.name}, Jharkhand` : 'Jharkhand',
+          'geo.position': fromCity ? `${fromCity.latitude};${fromCity.longitude}` : '22.8046;86.2029',
+          'ICBM': fromCity ? `${fromCity.latitude}, ${fromCity.longitude}` : '22.8046, 86.2029',
+          'dateModified': new Date().toISOString().split('T')[0],
+          'revisit-after': '7 days',
         },
       };
     }
@@ -300,18 +352,36 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
   const cityFleet = getFleetForCity(city.tier);
   const cityRoutes = getRoutesByFrom(city.slug).slice(0, 6);
   const cityLocalRoutes = getLocalRoutesByCity(city.slug);
+  const isRanchi = city.slug === 'ranchi';
 
   const faqs = [
     { question: `What is the cab fare in ${city.name}?`, answer: `Local taxi in ${city.name} starts at ₹${city.localFare.hatchback_4hr} for 4hr/40km (Hatchback). Sedan ₹${city.localFare.sedan_4hr}, SUV ₹${city.localFare.suv_4hr}. Call +919204714249 for outstation quotes.` },
-    { question: `How to book a cab in ${city.name}?`, answer: `Book via WhatsApp at +91 92047 14249 or call us. Share pickup, destination, date, cab type. Instant confirmation with driver details.` },
-    { question: `Do you provide cab service at night in ${city.name}?`, answer: `Yes, 24/7 cab service in ${city.name} including late-night and early morning. All drivers are police-verified.` },
-    { question: `Which cabs are available in ${city.name}?`, answer: `Swift Dzire, Honda City, Toyota Innova, Innova Crysta, Ertiga, and Tempo Traveller — all AC, GPS-tracked.` },
-    { question: `Do you serve all areas of ${city.name}?`, answer: `Yes, all localities including ${city.localities.slice(0, 5).join(', ')}, and more.` },
+    { question: `How to book a cab in ${city.name}?`, answer: `Book via WhatsApp at +91 92047 14249 or call us. Share pickup, destination, date, cab type. Instant confirmation with driver details. No app download needed.` },
+    { question: `Do you provide cab service at night in ${city.name}?`, answer: `Yes, 24/7 cab service in ${city.name} including late-night and early morning. All drivers are police-verified with 5+ years experience.` },
+    { question: `Which cabs are available in ${city.name}?`, answer: `Swift Dzire, Honda City, Toyota Innova, Innova Crysta, Ertiga, and Tempo Traveller — all AC, GPS-tracked, sanitized.` },
+    { question: `Do you serve all areas of ${city.name}?`, answer: `Yes, all localities including ${city.localities.slice(0, 8).join(', ')}, and ${city.localities.length - 8}+ more areas.` },
+    { question: `Is Sree Travels cheaper than Ola/Uber in ${city.name}?`, answer: `Yes! We offer fixed pricing with no surge — unlike Ola/Uber which can charge 2-3x during peak hours. Our fares start at ₹${city.localFare.hatchback_4hr} and include all charges.` },
+    { question: `${city.name} से कैब कैसे बुक करें? (How to book cab in Hindi)`, answer: `WhatsApp पर +91 92047 14249 पर मैसेज करें या कॉल करें। पिकअप लोकेशन, डेस्टिनेशन, डेट बताएं। तुरंत बुकिंग कन्फर्म। कोई एप्प डाउनलोड नहीं चाहिए।` },
+    { question: `What payment modes are accepted?`, answer: `Cash, UPI (Google Pay, PhonePe, Paytm), Credit Card, Debit Card, Bank Transfer. For corporate clients — monthly invoices with GST billing.` },
+    { question: `Are your drivers verified in ${city.name}?`, answer: `100% yes. All drivers are police-verified, Aadhaar-registered, with valid driving license. Background checks done every 6 months. Average 7+ years driving experience.` },
+    { question: `Can I book a cab for outstation from ${city.name}?`, answer: `Yes! We offer one-way and round-trip outstation cabs from ${city.name} to all major cities. Popular routes: ${isJSR ? 'Jamshedpur to Ranchi (₹1,499), Kolkata (₹3,999), Dhanbad (₹1,999)' : isRanchi ? 'Ranchi to Jamshedpur/Tata (₹2,499), Patna (₹5,299), Kolkata (₹5,999)' : `${city.name} to Ranchi, Kolkata, Patna`}. Toll + fuel included.` },
+    { question: `Do you provide airport cab service from ${city.name}?`, answer: `Yes! ${isJSR ? 'Jamshedpur to Ranchi Airport (Birsa Munda Airport) cab from ₹1,499. Also Kolkata Airport cab available.' : isRanchi ? 'Birsa Munda Airport to Ranchi city from ₹499. Airport pickup/drop 24/7 with flight tracking.' : `Airport transfer available from ${city.name}. Nearest airport: ${city.nearestAirport.name} (${city.nearestAirport.distance}km).`}` },
+    { question: `Is there free cancellation?`, answer: `Yes! Free cancellation up to 2 hours before the trip. Full refund processed within 24 hours. No questions asked.` },
+    { question: `What is the best cab service in ${city.name} in 2026?`, answer: `Sree Travels is rated #1 cab service in ${city.name} with 4.8/5 rating from 2,800+ customers. Fixed pricing, verified drivers, GPS tracking, 24/7 availability. Call +919204714249.` },
+    { question: `Do you provide corporate cab service in ${city.name}?`, answer: `Yes! Monthly corporate packages from ₹15,999. GST billing, dedicated driver, centralized billing portal, employee shuttle service. Contact +919204714249 for corporate rates.` },
+    ...(isJSR ? [
+      { question: `Tatanagar station se cab kaise milegi?`, answer: `Tatanagar Junction (TATA) par hamare drivers 24/7 Gate 1 aur Gate 2 par stationed hain. Call karein +919204714249 — 5 minute mein cab mil jayegi. Bistupur, Mango, Sakchi, Adityapur — sabhi jagah service available.` },
+      { question: `What is Jamshedpur to Ranchi cab fare in 2026?`, answer: `Jamshedpur/Tata to Ranchi cab fare in 2026: Hatchback ₹1,499, Sedan ₹1,499, SUV ₹2,299, Innova Crysta ₹5,499. Distance: 130 km, Time: 3-4 hours via NH-33. Toll included. Book: +919204714249.` },
+    ] : []),
+    ...(isRanchi ? [
+      { question: `Ranchi Airport se city cab ka kiraya kitna hai?`, answer: `Birsa Munda Airport se Ranchi city cab ka kiraya: Hatchback ₹499, Sedan ₹599. Airport pickup 24/7 available. Flight tracking included — delay hone par koi extra charge nahi. Call +919204714249.` },
+      { question: `What is Ranchi to Jamshedpur/Tata cab fare in 2026?`, answer: `Ranchi to Jamshedpur (Tata) cab fare in 2026: Hatchback ₹2,499, Sedan ₹3,199, SUV ₹4,299. Distance: 130 km, Time: 3-4 hours via NH-33. All inclusive. Book: +919204714249.` },
+    ] : []),
   ];
 
   return (
     <div className="page-content">
-      <SchemaMarkup type="city" data={{ areaServed: `${city.name}, Jharkhand`, faqs, reviews: city.reviews, breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Jharkhand', url: '/' }, { name: `Cab Service ${city.name}`, url: `/cab-service-${city.slug}` }] }} />
+      <SchemaMarkup type="city" data={{ areaServed: `${city.name}, Jharkhand`, cityName: city.name, postalCode: city.pincode, latitude: city.latitude, longitude: city.longitude, faqs, reviews: city.reviews, reviewCount: String(city.reviews.length), breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Jharkhand', url: '/' }, { name: `Cab Service ${city.name}`, url: `/cab-service-${city.slug}` }] }} />
 
       <section className="hero-section">
         <HeroSlider />
@@ -323,10 +393,10 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
           ]} />
           <div style={{ marginBottom: '2rem' }}>
             <div style={{ display: 'inline-block', padding: '0.35rem 0.85rem', background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.3)', borderRadius: '8px', fontSize: '0.8rem', color: '#f59e0b', fontWeight: 600, marginBottom: '1rem' }}>
-              🏆 #1 Rated Cab Service in {displayCityName}
+              🏆 #1 Rated Cab Service in {displayCityName} — 2026
             </div>
             <h1 style={{ marginBottom: '1rem' }}>
-              <span className="gold-text">Cab Service in {isJSR ? 'Jamshedpur/Tata (Tatanagar)' : city.name}</span><br />
+              <span className="gold-text">{city.seoH1 || `Cab Service in ${isJSR ? 'Jamshedpur/Tata (Tatanagar)' : city.name}`}</span><br />
               <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.2rem)', color: '#94a3b8', fontWeight: 600 }}>
                 Book 24/7 | +91 92047 14249 | AC Cabs from ₹{city.localFare.hatchback_4hr}
               </span>
@@ -337,13 +407,19 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
       </section>
 
       <div className="container-main">
-        {/* About */}
+        {/* Long-form Content Block — Critical for SEO ranking */}
         <section className="section-spacing">
           <div className="content-block">
-            <h2>About Our Cab Service in {isJSR ? 'Jamshedpur (Tata/Tatanagar)' : city.name}</h2>
-            <p>{city.seoDescription}</p>
-            <p>Whether you need a quick local ride from {city.localities[0]} to {city.localities[1]}, an outstation trip, or airport transfer — Sree Travels has you covered with {city.tier === 1 ? '50+' : city.tier === 2 ? '30+' : '15+'} verified cabs, 24/7 availability, GPS-tracked fleet, and sanitized AC cabs.</p>
-            {city.aka.length > 0 && <p>{city.name} ({city.aka.join(', ')}), {city.district} district. Population: {city.population}. Railway: {city.railwayStation}. Nearest Airport: {city.nearestAirport.name} ({city.nearestAirport.code}), {city.nearestAirport.distance}km away.</p>}
+            <h2>Best Cab Service in {isJSR ? 'Jamshedpur (Tata/Tatanagar)' : city.name} — 2026 Guide</h2>
+            {city.longDescription ? (
+              city.longDescription.split('\n\n').map((para, i) => <p key={i} style={{ marginBottom: '0.75rem' }}>{para}</p>)
+            ) : (
+              <>
+                <p>{city.seoDescription}</p>
+                <p>Whether you need a quick local ride from {city.localities[0]} to {city.localities[1]}, an outstation trip, or airport transfer — Sree Travels has you covered with {city.tier === 1 ? '50+' : city.tier === 2 ? '30+' : '15+'} verified cabs, 24/7 availability, GPS-tracked fleet, and sanitized AC cabs.</p>
+              </>
+            )}
+            {city.aka.length > 0 && <p><strong>{city.name}</strong> ({city.aka.join(', ')}), <strong>{city.district}</strong> district. Population: {city.population}. Railway: {city.railwayStation}. Nearest Airport: {city.nearestAirport.name} ({city.nearestAirport.code}), {city.nearestAirport.distance}km away.{city.hindiName ? ` Hindi: ${city.hindiName}` : ''}</p>}
           </div>
         </section>
 
@@ -380,17 +456,13 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
           </div>
         </section>
 
-        {/* Nearby Airports & Stations */}
+        {/* Station & Transport Hub Info — Dynamic */}
         <section className="section-spacing">
           <div className="content-block">
-            <h2>{isJSR ? 'Tatanagar Railway Station & Airport Cab Service' : `${city.railwayStation} & Airport Transfer`}</h2>
+            <h2>{isJSR ? 'Tatanagar Railway Station & Airport Cab Service' : isRanchi ? 'Ranchi Junction, Hatia Station & Airport Cab Service' : `${city.railwayStation} & Airport Transfer`}</h2>
             <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
-              {isJSR ? (
-                <>
-                  <p style={{ marginBottom: '0.75rem' }}><strong>Tatanagar Junction Railway Station</strong> is the main railway station serving Jamshedpur/Tata. Sree Travels provides 24/7 cab service from Tatanagar station to any destination — local areas like Bistupur, Mango, Sakchi, Adityapur, or outstation routes to Ranchi, Kolkata, Dhanbad, and more. Our drivers are stationed near the station round the clock for instant pickup.</p>
-                  <p style={{ marginBottom: '0.75rem' }}><strong>Birsa Munda Airport (Ranchi)</strong> is the nearest airport, {city.nearestAirport.distance}km from Jamshedpur. Book a <strong>Ranchi Airport to Jamshedpur cab</strong> or <strong>Jamshedpur to Ranchi Airport taxi</strong> starting at ₹2,499. Flight tracking included — no extra charge for delays.</p>
-                  <p><strong>Sonari Airport</strong> (IXW) is a smaller airport near Jamshedpur with limited flights. We provide cab service to/from Sonari Airstrip as well.</p>
-                </>
+              {city.stationInfo ? (
+                city.stationInfo.split('\n\n').map((para, i) => <p key={i} style={{ marginBottom: '0.75rem' }}>{para}</p>)
               ) : (
                 <>
                   <p style={{ marginBottom: '0.75rem' }}><strong>{city.railwayStation}</strong> is the main railway station in {city.name}. Book instant pickup/drop cab service available 24/7.</p>
@@ -401,15 +473,46 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
           </div>
         </section>
 
-        {/* Corporate & Industrial */}
-        {isJSR && (
+        {/* How to Reach — MASSIVE search volume keyword */}
+        {city.transportGuide && (
           <section className="section-spacing">
             <div className="content-block">
-              <h2>Corporate Cab Service in Jamshedpur/Tata</h2>
+              <h2>How to Reach {isJSR ? 'Jamshedpur (Tata/Tatanagar)' : city.name} in 2026</h2>
               <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
-                <p style={{ marginBottom: '0.75rem' }}>Jamshedpur (Tata Nagar) is home to major industrial establishments including <strong>Tata Steel</strong>, <strong>Tata Motors</strong>, <strong>Tinplate Company</strong>, <strong>Tata Cummins</strong>, and the <strong>Adityapur Industrial Area</strong> — one of Asia&apos;s largest industrial estates. Sree Travels provides dedicated corporate cab service for executives, employees, and visiting clients.</p>
-                <p style={{ marginBottom: '0.75rem' }}>We serve top educational institutions including <strong>XLRI Jamshedpur</strong> (India&apos;s premier B-school), <strong>NIT Jamshedpur</strong>, <strong>Loyola School</strong>, and <strong>JUSCO</strong>. Monthly corporate packages with GST billing, dedicated driver allotment, and centralized billing are available for all companies in Jamshedpur/Tata.</p>
-                <p>Contact us for corporate tie-up rates: <a href="tel:+919204714249" style={{ color: 'var(--primary)' }}>+91 92047 14249</a></p>
+                {city.transportGuide.split('\n\n').map((para, i) => <p key={i} style={{ marginBottom: '0.75rem' }}>{para}</p>)}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Corporate & Institutional — SEO for corporate searches */}
+        {city.corporateInfo && (
+          <section className="section-spacing">
+            <div className="content-block">
+              <h2>{isJSR ? 'Corporate Cab Service in Jamshedpur/Tata' : isRanchi ? 'Government, Corporate & Institutional Cab Service in Ranchi' : `Corporate Cab Service in ${city.name}`}</h2>
+              <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+                {city.corporateInfo.split('\n\n').map((para, i) => <p key={i} style={{ marginBottom: '0.75rem' }}>{para}</p>)}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Nearby Attractions with Details — SEO & Internal Links */}
+        {city.nearbyAttractions && city.nearbyAttractions.length > 0 && (
+          <section className="section-spacing">
+            <div className="content-block">
+              <h2>Places to Visit Near {city.name} by Cab — 2026 Travel Guide</h2>
+              <p style={{ marginBottom: '1rem' }}>Explore the best tourist destinations in and around {city.name} with Sree Travels. Book a comfortable AC cab for sightseeing, day trips, and weekend getaways.</p>
+              <div className="services-grid" style={{ marginTop: '1rem' }}>
+                {city.nearbyAttractions.map((attraction, i) => (
+                  <div key={i} className="glass-card">
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                      <h3 style={{ fontSize: '1rem', margin: 0 }}>{attraction.type === 'temple' ? '🛕' : attraction.type === 'waterfall' ? '💧' : attraction.type === 'wildlife' ? '🐘' : attraction.type === 'dam' ? '🌊' : attraction.type === 'hill' ? '⛰️' : attraction.type === 'lake' ? '🏞️' : attraction.type === 'museum' ? '🏛️' : '🌿'} {attraction.name}</h3>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 700, whiteSpace: 'nowrap' }}>{attraction.distanceKm} km</span>
+                    </div>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.6 }}>{attraction.description}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -880,19 +983,32 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
   const shortFromName = isFromJSR ? 'Jamshedpur/Tata' : route.fromName;
   const shortToName = isToJSR ? 'Jamshedpur/Tata' : route.toName;
 
+  const fromCity = getCityBySlug(from);
+  const toCity = getCityBySlug(to);
+
   const faqs = [
-    { question: `How much is ${shortFromName} to ${shortToName} cab fare?`, answer: `Starts at ₹${route.fares.hatchback.toLocaleString()} (Hatchback), Sedan ₹${route.fares.sedan.toLocaleString()}, SUV ₹${route.fares.suv.toLocaleString()}, Crysta ₹${route.fares.crysta.toLocaleString()}. All inclusive of toll, fuel, driver.` },
-    { question: `How long does ${shortFromName} to ${shortToName} take?`, answer: `Approximately ${route.durationHrs} hours via ${route.nh}. Distance: ${route.distanceKm} km. Best time: ${route.bestTime}.` },
-    { question: `Which route does the cab take?`, answer: `${shortFromName} → ${route.via.join(' → ')} → ${shortToName}. Road condition: ${route.roadCondition}.` },
-    { question: `Are tolls included?`, answer: `Yes, tolls of ~₹${route.tolls} are included. State taxes extra if applicable.` },
-    { question: `Can I book one way cab?`, answer: `Yes! One way from ₹${route.fares.hatchback.toLocaleString()}. No return fare. Call +919204714249.` },
-    { question: `Best cab for this trip?`, answer: `${route.distanceKm > 300 ? 'Innova/Crysta for long comfort' : 'Swift Dzire or Sedan for affordable comfort'}. Tempo Traveller for groups.` },
-    { question: `Available at night?`, answer: `Yes, 24/7 service. Experienced night-driving drivers available.` },
+    { question: `What is ${shortFromName} to ${shortToName} cab fare in 2026?`, answer: `${shortFromName} to ${shortToName} cab fare in 2026: Hatchback ₹${route.fares.hatchback.toLocaleString()}, Sedan ₹${route.fares.sedan.toLocaleString()}, SUV ₹${route.fares.suv.toLocaleString()}, Innova Crysta ₹${route.fares.crysta.toLocaleString()}, Tempo Traveller ₹${route.fares.tempo.toLocaleString()}. All inclusive — toll, fuel, driver allowance included. No hidden charges.` },
+    { question: `How long does ${shortFromName} to ${shortToName} take by cab?`, answer: `Approximately ${route.durationHrs} hours via ${route.nh}. Distance: ${route.distanceKm} km. Road condition: ${route.roadCondition}. Best time to travel: ${route.bestTime}.` },
+    { question: `Which route does the cab take from ${shortFromName} to ${shortToName}?`, answer: `${shortFromName} → ${route.via.join(' → ')} → ${shortToName}. Highway: ${route.nh}. Road condition: ${route.roadCondition}.` },
+    { question: `Are tolls included in ${shortFromName} to ${shortToName} cab fare?`, answer: `Yes! Toll charges of approximately ₹${route.tolls} are fully included in the quoted price. No extra charges. State taxes apply if crossing state borders.` },
+    { question: `Can I book a one way cab from ${shortFromName} to ${shortToName}?`, answer: `Yes! One way cab from ${shortFromName} to ${shortToName} starting at ₹${route.fares.hatchback.toLocaleString()}. No return fare charged. Book via WhatsApp or call +919204714249.` },
+    { question: `Which is the best cab type for ${shortFromName} to ${shortToName}?`, answer: `${route.distanceKm > 300 ? 'For this long-distance trip, we recommend Innova Crysta for premium comfort or SUV (Innova/Ertiga) for families.' : 'Swift Dzire (Sedan) for budget-friendly comfort, or Innova for family trips.'}. Tempo Traveller for groups of 8-12.` },
+    { question: `Is ${shortFromName} to ${shortToName} cab available at night?`, answer: `Yes, 24/7 service including late night and early morning. All our drivers are experienced on this route and trained for night driving. GPS tracking active throughout.` },
+    { question: `Is it safe to travel from ${shortFromName} to ${shortToName} by cab?`, answer: `Absolutely! All Sree Travels drivers are police-verified with 5+ years experience. GPS tracking is active throughout the journey. You can share live trip location with your family. The ${route.nh} highway is well-maintained and well-lit.` },
+    { question: `How to book ${shortFromName} to ${shortToName} cab online?`, answer: `Call +91 92047 14249 or send WhatsApp message with: pickup location, date/time, and cab type. Instant confirmation with driver details. No app download needed.` },
+    { question: `Is Sree Travels cheaper than Savaari/Ola for ${shortFromName} to ${shortToName}?`, answer: `Yes! Our fares start at ₹${route.fares.hatchback.toLocaleString()} — all inclusive. No surge pricing, no hidden charges. We are typically 15-30% cheaper than aggregator platforms for this route.` },
+    { question: `Can I stop along the way during ${shortFromName} to ${shortToName} trip?`, answer: `Yes! You can stop for food, photos, or sightseeing anywhere along the route. ${route.pitStops.length > 0 ? 'Popular stops: ' + route.pitStops.join(', ') + '.' : ''} No extra charge for reasonable stops.` },
+    ...(isFromJSR || isToJSR ? [
+      { question: `${isFromJSR ? 'जमशेदपुर/टाटा' : route.fromName} से ${isToJSR ? 'जमशेदपुर/टाटा' : route.toName} कैब का किराया कितना है?`, answer: `${isFromJSR ? 'जमशेदपुर (टाटा)' : route.fromName} से ${isToJSR ? 'जमशेदपुर (टाटा)' : route.toName}: हैचबैक ₹${route.fares.hatchback.toLocaleString()}, सेडान ₹${route.fares.sedan.toLocaleString()}, SUV ₹${route.fares.suv.toLocaleString()}। टोल, फ्यूल, ड्राइवर सब शामिल। कॉल करें: +919204714249` },
+    ] : []),
+    ...(from === 'ranchi' || to === 'ranchi' ? [
+      { question: `${from === 'ranchi' ? 'रांची' : route.fromName} से ${to === 'ranchi' ? 'रांची' : route.toName} कैब बुक कैसे करें?`, answer: `WhatsApp करें +91 92047 14249 पर। पिकअप लोकेशन, डेट, और गाड़ी का प्रकार बताएं। तुरंत बुकिंग कन्फर्म। किराया: ₹${route.fares.hatchback.toLocaleString()} से शुरू।` },
+    ] : []),
   ];
 
   return (
     <div className="page-content">
-      <SchemaMarkup type="route" data={{ from: route.fromName, to: route.toName, distance: route.distanceKm, fare: route.fares.hatchback, areaServed: `${route.fromName} to ${route.toName}`, faqs, breadcrumbs: [{ name: 'Home', url: '/' }, { name: `Cab ${route.fromName}`, url: `/cab-service-${route.from}` }, { name: `${route.fromName} to ${route.toName}`, url: `/${route.from}-to-${route.to}-cab` }] }} />
+      <SchemaMarkup type="route" data={{ from: route.fromName, to: route.toName, distance: route.distanceKm, fare: route.fares.hatchback, areaServed: `${route.fromName} to ${route.toName}`, faqs, reviews: fromCity?.reviews, reviewCount: String(fromCity?.reviews?.length || 3), breadcrumbs: [{ name: 'Home', url: '/' }, { name: `Cab ${route.fromName}`, url: `/cab-service-${route.from}` }, { name: `${route.fromName} to ${route.toName}`, url: `/${route.from}-to-${route.to}-cab` }] }} />
 
       <section className="hero-section">
         <HeroSlider />
@@ -903,8 +1019,8 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
             { label: `${shortFromName} to ${shortToName}` },
           ]} />
           <h1 style={{ marginBottom: '1rem' }}>
-            <span className="gold-text">{fromName} to {toName} Cab Service</span><br />
-            <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.2rem)', color: '#94a3b8', fontWeight: 600 }}>+91 92047 14249 | ₹{route.fares.hatchback.toLocaleString()} | {route.distanceKm} km</span>
+            <span className="gold-text">{fromName} to {toName} Cab Service 2026</span><br />
+            <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.2rem)', color: '#94a3b8', fontWeight: 600 }}>₹{route.fares.hatchback.toLocaleString()} Onwards | {route.distanceKm} km | {route.durationHrs} hrs | ☎ +91 92047 14249</span>
           </h1>
           <BookingWidget defaultFrom={route.fromName} defaultTo={route.toName} />
         </div>
@@ -922,7 +1038,7 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
 
         {/* Fare Table */}
         <div className="content-block">
-          <h2>{route.fromName} to {route.toName} Cab Fare 2025</h2>
+          <h2>{route.fromName} to {route.toName} Cab Fare 2026 — Latest Rates</h2>
           <div className="fare-table-container" style={{ marginTop: '1rem' }}>
             <table className="fare-table">
               <thead><tr><th>Cab Type</th><th>Vehicle</th><th>Fare</th><th>Includes</th></tr></thead>
@@ -1064,10 +1180,24 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
           </div>
         )}
 
-        {/* Related */}
+        {/* Cross-links to City Hub Pages — Critical for PageRank */}
+        <div className="content-block">
+          <h2>Cab Service in {route.fromName} & {route.toName}</h2>
+          <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+            <p style={{ marginBottom: '0.75rem' }}>Looking for more cab services? Visit our dedicated city pages for complete information:</p>
+            <div className="internal-links-grid" style={{ marginTop: '0.75rem' }}>
+              <a href={`/cab-service-${route.from}`} className="internal-link">🏙️ Cab Service in {route.fromName} — All Services & Fares</a>
+              <a href={`/cab-service-${route.to}`} className="internal-link">🏙️ Cab Service in {route.toName} — All Services & Fares</a>
+              {fromCity && <a href={`/${route.from}/outstation-cab`} className="internal-link">🚗 Outstation Cab from {route.fromName}</a>}
+              {toCity && <a href={`/${route.to}/outstation-cab`} className="internal-link">🚗 Outstation Cab from {route.toName}</a>}
+            </div>
+          </div>
+        </div>
+
+        {/* Related Routes */}
         {relatedRoutes.length > 0 && (
           <div className="content-block">
-            <h2>Similar Routes</h2>
+            <h2>Other Routes from {route.fromName}</h2>
             <div className="routes-grid" style={{ marginTop: '0.75rem' }}>
               {relatedRoutes.map(r => (
                 <a key={r.to} href={`/${r.from}-to-${r.to}-cab`} className="route-card">

@@ -14,7 +14,7 @@ import { getAllBlogSlugs } from '@/lib/blogSlugs';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.sreetravel.com';
   // Use a fixed date — only update when content actually changes
-  const lastUpdate = '2026-04-16T00:00:00.000Z';
+  const lastUpdate = new Date().toISOString();
 
   const urls: MetadataRoute.Sitemap = [];
 
@@ -37,12 +37,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // ── City Hub Pages (highest priority after homepage) ──
+  const topCities = ['jamshedpur', 'ranchi'];
   jharkhandCities.forEach(city => {
+    const isTopCity = topCities.includes(city.slug);
     urls.push({
       url: `${baseUrl}/cab-service-${city.slug}`,
       lastModified: lastUpdate,
-      changeFrequency: 'weekly',
-      priority: 0.95,
+      changeFrequency: isTopCity ? 'daily' : 'weekly',
+      priority: isTopCity ? 1.0 : 0.95,
     });
   });
 
@@ -71,12 +73,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // ── Route Pages (high priority — transactional intent) ──
+  const topRoutes = [
+    'jamshedpur-to-ranchi', 'ranchi-to-jamshedpur',
+    'jamshedpur-to-kolkata', 'kolkata-to-jamshedpur',
+    'ranchi-to-kolkata', 'ranchi-to-patna',
+    'jamshedpur-to-dhanbad', 'ranchi-to-dhanbad',
+  ];
   routes.forEach(route => {
+    const routeKey = `${route.from}-to-${route.to}`;
+    const isTopRoute = topRoutes.includes(routeKey);
     urls.push({
-      url: `${baseUrl}/${route.from}-to-${route.to}-cab`,
+      url: `${baseUrl}/${routeKey}-cab`,
       lastModified: lastUpdate,
-      changeFrequency: 'monthly',
-      priority: 0.9,
+      changeFrequency: isTopRoute ? 'daily' : 'weekly',
+      priority: isTopRoute ? 0.95 : 0.9,
     });
   });
 
