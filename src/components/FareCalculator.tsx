@@ -47,8 +47,9 @@ export default function FareCalculator() {
 
       <div className="booking-form-modern">
         <div className="form-group-modern">
-          <label>Total Distance (in Km)</label>
+          <label htmlFor="calc-distance">Total Distance (in Km)</label>
           <input
+            id="calc-distance"
             type="number"
             min="1"
             placeholder="e.g. 150"
@@ -58,8 +59,8 @@ export default function FareCalculator() {
         </div>
 
         <div className="form-group-modern">
-          <label>Select Vehicle</label>
-          <select value={vehicleSlug} onChange={(e) => setVehicleSlug(e.target.value)}>
+          <label htmlFor="calc-vehicle">Select Vehicle</label>
+          <select id="calc-vehicle" value={vehicleSlug} onChange={(e) => setVehicleSlug(e.target.value)}>
             {fleet.map(v => (
               <option key={v.slug} value={v.slug}>
                 {v.shortName} (₹{v.perKmRate}/km)
@@ -69,8 +70,8 @@ export default function FareCalculator() {
         </div>
 
         <div className="form-group-modern">
-          <label>Service Type</label>
-          <select value={tripType} onChange={(e) => setTripType(e.target.value)}>
+          <label htmlFor="calc-service">Service Type</label>
+          <select id="calc-service" value={tripType} onChange={(e) => setTripType(e.target.value)}>
             <option value="oneway">One Way Drop</option>
             <option value="round">Round Trip / Outstation</option>
           </select>
@@ -78,8 +79,9 @@ export default function FareCalculator() {
 
         {tripType === 'round' && (
           <div className="form-group-modern">
-            <label>Trip Duration (Days)</label>
+            <label htmlFor="calc-days">Trip Duration (Days)</label>
             <input
+              id="calc-days"
               type="number"
               min="1"
               value={days}
