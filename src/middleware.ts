@@ -1,27 +1,17 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export function middleware(request: NextRequest) {
-  const url = request.nextUrl.clone();
-  const hostname = request.headers.get('host') || '';
+/**
+ * Middleware — simplified.
+ * 
+ * www/https domain redirects are now handled by vercel.json at the edge level.
+ * This avoids "Page with redirect" flags in Google Search Console, because
+ * edge redirects fire BEFORE the Next.js app, making them invisible to GSC.
+ * 
+ * This middleware is kept as a passthrough for any future internal routing logic.
+ */
 
-  // Redirect non-www to www (301 permanent redirect)
-  if (
-    hostname === 'sreetravel.com' ||
-    hostname === 'http://sreetravel.com' ||
-    hostname.startsWith('sreetravel.com:')
-  ) {
-    url.hostname = 'www.sreetravel.com';
-    url.protocol = 'https';
-    url.port = '';
-    return NextResponse.redirect(url, 301);
-  }
-
-  // Redirect HTTP to HTTPS (for non-www already handled above)
-  if (url.protocol === 'http:') {
-    url.protocol = 'https';
-    return NextResponse.redirect(url, 301);
-  }
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function middleware() {
   return NextResponse.next();
 }
 

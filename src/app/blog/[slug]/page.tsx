@@ -14,6 +14,10 @@ export async function generateStaticParams() {
   return getAllBlogSlugs().map(slug => ({ slug }));
 }
 
+// Only allow statically generated blog slugs — return 404 for any others.
+// Prevents "Page with redirect" / thin content issues from removed blog pages.
+export const dynamicParams = false;
+
 // ============================================================
 // CONTENT VARIATION SYSTEM — Ensures unique content per slug
 // ============================================================
