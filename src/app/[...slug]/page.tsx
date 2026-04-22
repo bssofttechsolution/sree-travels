@@ -719,6 +719,26 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
           <div style={{ marginTop: '1rem' }}><FaqSection faqs={faqs} cityName={city.name} /></div>
         </div>
 
+        {/* Google Business Review CTA */}
+        <div className="content-block" style={{ marginTop: '2.5rem' }}>
+          <div style={{ textAlign: 'center', padding: '2rem 1.5rem', background: 'linear-gradient(135deg, rgba(66,133,244,0.08), rgba(234,67,53,0.06), rgba(251,188,4,0.06), rgba(52,168,83,0.06))', borderRadius: '16px', border: '1px solid rgba(66,133,244,0.15)' }}>
+            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>⭐⭐⭐⭐⭐</div>
+            <h3 style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)', marginBottom: '0.5rem' }}>
+              <span className="gold-text">4.8/5</span> on Google — {city.name}&apos;s Most Trusted Cab Service
+            </h3>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.8rem, 2vw, 0.88rem)', marginBottom: '1rem' }}>Love our cab service in {city.name}? Share your experience on Google!</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.75rem' }}>
+              <a href="https://g.page/r/CQtNNAPh6kJlEBM/review" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.65rem 1.5rem', background: 'linear-gradient(135deg, #4285F4, #34A853)', color: '#fff', borderRadius: '10px', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', transition: 'all 0.3s ease', boxShadow: '0 4px 15px rgba(66,133,244,0.3)' }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" /><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" /><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" /><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" /></svg>
+                ⭐ Rate Us on Google
+              </a>
+              <a href="https://g.page/r/CQtNNAPh6kJlEBM" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.65rem 1.5rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(66,133,244,0.3)', color: '#4285F4', borderRadius: '10px', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', transition: 'all 0.3s ease' }}>
+                📍 View on Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+
         <BlogSection pageName={city.name} type="city" />
 
         <div style={{ marginTop: '2.5rem', marginBottom: '2rem' }}>
@@ -1212,6 +1232,43 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
         <div className="content-block">
           <h2>FAQ</h2>
           <div style={{ marginTop: '1rem' }}><FaqSection faqs={faqs} /></div>
+        </div>
+
+        {/* Google Business Review CTA */}
+        <div className="content-block">
+          <div style={{ textAlign: 'center', padding: '2rem 1.5rem', background: 'linear-gradient(135deg, rgba(66,133,244,0.08), rgba(234,67,53,0.06), rgba(251,188,4,0.06), rgba(52,168,83,0.06))', borderRadius: '16px', border: '1px solid rgba(66,133,244,0.15)' }}>
+            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>⭐⭐⭐⭐⭐</div>
+            <h3 style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)', marginBottom: '0.5rem' }}>
+              <span className="gold-text">4.8/5</span> Google Rating — Jharkhand&apos;s Most Trusted Cab Service
+            </h3>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.8rem, 2vw, 0.88rem)', marginBottom: '1rem' }}>Travelled {route.fromName} to {route.toName} with us? Share your experience!</p>
+            <a href="https://g.page/r/CQtNNAPh6kJlEBM/review" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.65rem 1.5rem', background: 'linear-gradient(135deg, #4285F4, #34A853)', color: '#fff', borderRadius: '10px', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', transition: 'all 0.3s ease', boxShadow: '0 4px 15px rgba(66,133,244,0.3)' }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" /><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" /><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" /><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" /></svg>
+              ⭐ Rate Us on Google
+            </a>
+          </div>
+        </div>
+
+        {/* SEO: Why Sree Travels vs Competitors for this route */}
+        <div className="content-block">
+          <h2>Why Book {shortFromName} to {shortToName} Cab with Sree Travels?</h2>
+          <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+            <p style={{ marginBottom: '0.75rem' }}>When searching for <strong>{route.fromName} to {route.toName} cab service</strong>, you&apos;ll find many options — Savaari, MakeMyTrip, GozoCabs, EaseMyTrip, and local operators. Here&apos;s why <strong>Sree Travels</strong> is the top-rated choice for this {route.distanceKm}km route:</p>
+            <div className="fare-table-container" style={{ marginTop: '0.75rem' }}>
+              <table className="fare-table">
+                <thead><tr><th>Feature</th><th style={{ color: 'var(--primary)' }}>Sree Travels ✅</th><th>Savaari/MakeMyTrip</th><th>Local Operators</th></tr></thead>
+                <tbody>
+                  <tr><td>Starting Fare</td><td style={{ color: '#22c55e' }}>₹{route.fares.hatchback.toLocaleString()}</td><td>₹{Math.round(route.fares.hatchback * 1.2).toLocaleString()}+</td><td>Varies (haggling)</td></tr>
+                  <tr><td>Hidden Charges</td><td style={{ color: '#22c55e' }}>✅ Zero — all inclusive</td><td>⚠️ Extra toll/tax</td><td>❌ Frequent</td></tr>
+                  <tr><td>Driver Knowledge</td><td style={{ color: '#22c55e' }}>✅ Daily on this route</td><td>⚠️ Assigned randomly</td><td>⚠️ Variable</td></tr>
+                  <tr><td>Booking Speed</td><td style={{ color: '#22c55e' }}>✅ 30 sec WhatsApp</td><td>⚠️ App/website forms</td><td>❌ Calls only</td></tr>
+                  <tr><td>Cancellation</td><td style={{ color: '#22c55e' }}>✅ Free 2hr before</td><td>⚠️ Charges apply</td><td>❌ No policy</td></tr>
+                  <tr><td>Customer Support</td><td style={{ color: '#22c55e' }}>✅ Direct call 24/7</td><td>⚠️ Call center</td><td>❌ Limited</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style={{ marginTop: '0.75rem' }}>With <strong>4.8★ Google rating</strong> and <strong>2,800+ verified reviews</strong>, Sree Travels is the <a href="https://g.page/r/CQtNNAPh6kJlEBM" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>Google Verified</a> choice for {route.fromName} to {route.toName} cab booking in 2026. Book now via WhatsApp at <a href="https://wa.me/919204714249" style={{ color: 'var(--primary)' }}>+91 92047 14249</a>.</p>
+          </div>
         </div>
 
         <BlogSection pageName={`${route.fromName} to ${route.toName}`} type="route" />

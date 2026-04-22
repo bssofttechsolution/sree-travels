@@ -76,8 +76,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const topRoutes = [
     'jamshedpur-to-ranchi', 'ranchi-to-jamshedpur',
     'jamshedpur-to-kolkata', 'kolkata-to-jamshedpur',
-    'ranchi-to-kolkata', 'ranchi-to-patna',
-    'jamshedpur-to-dhanbad', 'ranchi-to-dhanbad',
+    'ranchi-to-kolkata', 'kolkata-to-ranchi',
+    'ranchi-to-patna', 'patna-to-ranchi',
+    'jamshedpur-to-dhanbad', 'dhanbad-to-jamshedpur',
+    'ranchi-to-dhanbad', 'dhanbad-to-ranchi',
+    'jamshedpur-to-bokaro', 'bokaro-to-jamshedpur',
+    'jamshedpur-to-puri', 'jamshedpur-to-patna',
+    'bokaro-to-ranchi', 'ranchi-to-bokaro',
+    'dhanbad-to-kolkata', 'jamshedpur-to-deoghar',
   ];
   routes.forEach(route => {
     const routeKey = `${route.from}-to-${route.to}`;

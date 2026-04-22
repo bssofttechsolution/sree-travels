@@ -61,8 +61,10 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         ],
       },
       "sameAs": [
-        "https://www.facebook.com/sreetravels",
-        "https://www.instagram.com/sreetravels",
+        "https://www.facebook.com/profile.php?id=61572039087941",
+        "https://www.instagram.com/sreetravel.in/",
+        "https://www.linkedin.com/in/sreetravel/",
+        "https://g.page/r/CQtNNAPh6kJlEBM"
       ],
     });
 
