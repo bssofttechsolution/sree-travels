@@ -7,7 +7,6 @@ import Image from 'next/image';
 const images = [
   '/background/sreebg1.webp',
   '/background/sreebg2.webp',
-  '/background/sreebg3.webp'
 ];
 
 export default function HeroSlider() {
@@ -18,7 +17,7 @@ export default function HeroSlider() {
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 4000);
+    const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
   }, [nextSlide]);
 
@@ -50,7 +49,7 @@ export default function HeroSlider() {
             src={src}
             alt={`Sree Travels - Best Cab Service in Jamshedpur Tata Ranchi - Fleet ${index + 1}`}
             fill
-            quality={70}
+            quality={45}
             priority={index === 0}
             loading={index === 0 ? 'eager' : 'lazy'}
             sizes="100vw"
