@@ -92,27 +92,9 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       });
     }
 
-    // Individual Review schema (triggers star ratings in SERP)
-    if (data.reviews && Array.isArray(data.reviews)) {
-      (data.reviews as { name: string; text: string; rating: number }[]).slice(0, 3).forEach(review => {
-        schemas.push({
-          "@context": "https://schema.org",
-          "@type": "Review",
-          "itemReviewed": {
-            "@type": "LocalBusiness",
-            "name": "Sree Travels",
-            "url": "https://www.sreetravel.com",
-          },
-          "author": { "@type": "Person", "name": review.name },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": String(review.rating),
-            "bestRating": "5",
-          },
-          "reviewBody": review.text,
-        });
-      });
-    }
+    // Individual Review schemas removed — Google requires aggregateRating on the reviewed entity
+    // when Review snippets are present. Self-served aggregateRating causes GSC warnings, so both removed.
+    // Reviews still display on the page as regular HTML content for users to see.
 
     // Route-specific schema: TouristTrip + TaxiReservation
     if (type === 'route' && data.from && data.to) {

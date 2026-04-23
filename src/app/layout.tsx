@@ -177,12 +177,7 @@ export default function RootLayout({
                 opens: "00:00",
                 closes: "23:59",
               },
-              // aggregateRating removed — Google warns about self-served ratings on LocalBusiness
-              review: [
-                { "@type": "Review", author: { "@type": "Person", name: "Rajesh Kumar" }, reviewRating: { "@type": "Rating", ratingValue: "5" }, reviewBody: "Best cab service in Tata! I regularly book Sree Travels for car rental in Jamshedpur. Always punctual from Tatanagar station." },
-                { "@type": "Review", author: { "@type": "Person", name: "Priya Singh" }, reviewRating: { "@type": "Rating", ratingValue: "5" }, reviewBody: "Took an Innova for Tata to Ranchi cab service. Driver was very professional. Highly recommended!" },
-                { "@type": "Review", author: { "@type": "Person", name: "Sanjay Verma" }, reviewRating: { "@type": "Rating", ratingValue: "5" }, reviewBody: "Excellent car rental in Ranchi! I use their Ranchi to Tata cab service weekly. Very punctual and affordable." },
-              ],
+              // review + aggregateRating removed — Google requires aggregateRating with reviews, and self-served ratings cause GSC warnings
               sameAs: [
                 "https://www.facebook.com/profile.php?id=61572039087941",
                 "https://www.instagram.com/sreetravel.in/",
