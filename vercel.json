@@ -2,8 +2,8 @@
   "redirects": [
     {
       "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "sreetravel.com" }],
-      "destination": "https://www.sreetravel.com/:path",
+      "has": [{ "type": "host", "value": "www.sreetravel.com" }],
+      "destination": "https://sreetravel.com/:path",
       "permanent": true
     }
   ]

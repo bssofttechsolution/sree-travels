@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   },
   description:
     "Best cab service in Jamshedpur (Tata) & Ranchi ✅ AC cabs ₹999 onwards ✅ 24/7 ✅ Police-verified drivers ✅ GPS tracked. Outstation, airport & local taxi. ☎ +919204714249",
-  metadataBase: new URL("https://www.sreetravel.com"),
+  metadataBase: new URL("https://sreetravel.com"),
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://www.sreetravel.com",
+    url: "https://sreetravel.com",
     siteName: "Sree Travels",
     title: "Sree Travels | Best Cab Service in Jamshedpur (Tata) & Ranchi, Jharkhand",
     description: "Book reliable AC cab service in Jamshedpur (Tata/Tatanagar), Ranchi, Dhanbad, Bokaro & 15+ Jharkhand cities. Police-verified drivers, fixed pricing, 24/7 availability. Tata to Ranchi cab ₹2,499. 50,000+ happy customers. Call +919204714249.",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.sreetravel.com',
+    canonical: 'https://sreetravel.com',
   },
   other: {
     'geo.region': 'IN-JH',
@@ -101,8 +101,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#f59e0b" />
-        <link rel="alternate" hrefLang="en-IN" href="https://www.sreetravel.com" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.sreetravel.com" />
+        <link rel="alternate" hrefLang="en-IN" href="https://sreetravel.com" />
+        <link rel="alternate" hrefLang="x-default" href="https://sreetravel.com" />
         {/* TaxiService + LocalBusiness Schema */}
         <script
           type="application/ld+json"
@@ -110,14 +110,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": ["LocalBusiness", "TaxiService"],
-              "@id": "https://www.sreetravel.com/#organization",
+              "@id": "https://sreetravel.com/#organization",
               name: "Sree Travels",
               alternateName: ["Sree Cab Service", "Sree Travels Jamshedpur", "Sree Travels Tata", "Sree Travels Ranchi"],
-              url: "https://www.sreetravel.com",
-              logo: "https://www.sreetravel.com/logo.webp",
+              url: "https://sreetravel.com",
+              logo: "https://sreetravel.com/logo.webp",
               image: [
-                "https://www.sreetravel.com/logo.webp",
-                "https://www.sreetravel.com/background/IMG-20250403-WA0019.jpg",
+                "https://sreetravel.com/logo.webp",
+                "https://sreetravel.com/background/IMG-20250403-WA0019.jpg",
               ],
               telephone: "+919204714249",
               email: "info@sreetravel.com",
@@ -207,10 +207,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Sree Travels",
-              url: "https://www.sreetravel.com",
+              url: "https://sreetravel.com",
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://www.sreetravel.com/?q={search_term_string}",
+                target: "https://sreetravel.com/?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             }),
@@ -223,12 +223,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "@id": "https://www.sreetravel.com/#organization",
+              "@id": "https://sreetravel.com/#organization",
               name: "Sree Travels",
-              url: "https://www.sreetravel.com",
+              url: "https://sreetravel.com",
               logo: {
                 "@type": "ImageObject",
-                url: "https://www.sreetravel.com/logo.webp",
+                url: "https://sreetravel.com/logo.webp",
                 width: 200,
                 height: 200,
               },

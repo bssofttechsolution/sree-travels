@@ -14,9 +14,9 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       "name": "Sree Travels",
       "telephone": "+919204714249",
       "email": "info@sreetravel.com",
-      "url": "https://www.sreetravel.com",
-      "logo": "https://www.sreetravel.com/logo.webp",
-      "image": "https://www.sreetravel.com/background/IMG-20250403-WA0019.jpg",
+      "url": "https://sreetravel.com",
+      "logo": "https://sreetravel.com/logo.webp",
+      "image": "https://sreetravel.com/background/IMG-20250403-WA0019.jpg",
       "description": `Sree Travels — Jharkhand's most trusted cab service since 2015. Book reliable AC cabs in ${data.areaServed || 'Jharkhand'} with police-verified drivers, GPS tracking, and transparent pricing. Available 24/7.`,
       "address": {
         "@type": "PostalAddress",
@@ -71,7 +71,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
           "@type": "ListItem",
           "position": index + 1,
           "name": item.name,
-          "item": item.url ? `https://www.sreetravel.com${item.url}` : undefined,
+          "item": item.url ? `https://sreetravel.com${item.url}` : undefined,
         })),
       });
     }
@@ -108,7 +108,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
           "@type": "LocalBusiness",
           "name": "Sree Travels",
           "telephone": "+919204714249",
-          "url": "https://www.sreetravel.com",
+          "url": "https://sreetravel.com",
         },
         "offers": {
           "@type": "AggregateOffer",
@@ -156,7 +156,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
           "@type": "LocalBusiness",
           "name": "Sree Travels",
           "telephone": "+919204714249",
-          "url": "https://www.sreetravel.com",
+          "url": "https://sreetravel.com",
         },
         "areaServed": data.areaServed,
         "serviceType": "Taxi Service",
@@ -186,7 +186,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
           "@type": "LocalBusiness",
           "name": "Sree Travels",
           "telephone": "+919204714249",
-          "url": "https://www.sreetravel.com",
+          "url": "https://sreetravel.com",
         },
         "areaServed": data.areaServed,
         "serviceType": "Vehicle Rental",

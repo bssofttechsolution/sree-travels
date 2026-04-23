@@ -15,7 +15,7 @@ import { getAllBlogSlugs } from '@/lib/blogSlugs';
  * 3. High-value pages prioritized for crawl budget
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.sreetravel.com';
+  const baseUrl = 'https://sreetravel.com';
 
   // Fixed dates — only update these when you ACTUALLY update content
   const HOMEPAGE_DATE = '2026-04-23';

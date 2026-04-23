@@ -46,11 +46,11 @@ export const metadata: Metadata = {
     'cab near tatanagar station', 'cab from tatanagar railway station',
     'ranchi airport to jamshedpur cab', 'birsa munda airport cab to jamshedpur',
   ],
-  alternates: { canonical: 'https://www.sreetravel.com' },
+  alternates: { canonical: 'https://sreetravel.com' },
   openGraph: {
     title: 'Sree Travels | Best Cab Service in Jamshedpur (Tata) & Ranchi, Jharkhand',
     description: 'Book reliable AC cabs in Jamshedpur/Tata & Ranchi — 15+ cities, 100+ cabs, 24/7. Tata to Ranchi ₹2,499. ☎ +919204714249',
-    url: 'https://www.sreetravel.com',
+    url: 'https://sreetravel.com',
     images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: 'Sree Travels Best Cab Service Jamshedpur Tata Ranchi Jharkhand' }],
   },
 };

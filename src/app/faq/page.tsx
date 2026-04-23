@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     'cab fare questions ranchi', 'how to book cab jharkhand', 'cab cancellation policy',
     'cab payment methods jharkhand', 'outstation cab faq', 'airport taxi faq',
   ],
-  alternates: { canonical: 'https://www.sreetravel.com/faq' },
+  alternates: { canonical: 'https://sreetravel.com/faq' },
   openGraph: {
     title: 'FAQ — Sree Travels | All Your Questions Answered',
     description: 'Everything you need to know about booking cabs in Jharkhand with Sree Travels.',
-    url: 'https://www.sreetravel.com/faq',
+    url: 'https://sreetravel.com/faq',
     images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: 'Sree Travels FAQ' }],
   },
 };

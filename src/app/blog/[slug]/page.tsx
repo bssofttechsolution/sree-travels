@@ -549,11 +549,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       `${formattedTitle.toLowerCase()} tips`,
       'sree travels blog', 'jharkhand travel guide', 'cab service tips',
     ],
-    alternates: { canonical: `https://www.sreetravel.com/blog/${params.slug}` },
+    alternates: { canonical: `https://sreetravel.com/blog/${params.slug}` },
     openGraph: {
       title: formattedTitle,
       description: content.intro.substring(0, 155) + '...',
-      url: `https://www.sreetravel.com/blog/${params.slug}`,
+      url: `https://sreetravel.com/blog/${params.slug}`,
       type: 'article',
       images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: formattedTitle }],
     },
@@ -592,11 +592,11 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
             "publisher": {
               "@type": "Organization",
               "name": "Sree Travels",
-              "logo": { "@type": "ImageObject", "url": "https://www.sreetravel.com/logo.webp" },
+              "logo": { "@type": "ImageObject", "url": "https://sreetravel.com/logo.webp" },
             },
             "datePublished": "2026-04-15T00:00:00.000Z",
             "dateModified": "2026-04-20T00:00:00.000Z",
-            "mainEntityOfPage": `https://www.sreetravel.com/blog/${params.slug}`,
+            "mainEntityOfPage": `https://sreetravel.com/blog/${params.slug}`,
             "description": content.intro.substring(0, 155),
           }),
         }}

@@ -1312,7 +1312,8 @@ Timings: The journey takes 3-3.5 hours under normal conditions. Add 30 minutes d
     distanceKm: 45, durationHrs: "1-1.5", nh: "SH", via: ["Phusro Road"],
     fares: { hatchback: 1099, sedan: 1299, suv: 1799, crysta: 2299, tempo: 2999 },
     tolls: 50, pitStops: [], bestTime: "Any time", roadCondition: "State Highway",
-    statesCrossed: ["Jharkhand"], pickupPoints: ["Dhanbad Station", "Bank More"], dropPoints: ["Phusro Town"]
+    statesCrossed: ["Jharkhand"], pickupPoints: ["Dhanbad Station", "Bank More"], dropPoints: ["Phusro Town"],
+    longContent: "Booking a cab from Dhanbad to Phusro is the most convenient way to travel this short distance. Phusro is a significant urban center in the Bokaro district, largely known for its coal mines and industrial importance under Central Coalfields Limited (CCL). The distance is approximately 45 kilometers and the cab journey typically takes between 1 to 1.5 hours via the state highway.\n\nSree Travels offers reliable, 24/7 one-way and round-trip taxi services between Dhanbad and Phusro. Whether you are a business traveler visiting the CCL coalfield areas, or traveling for personal reasons, our fixed-fare cabs provide a safe and comfortable ride. We offer hatchbacks, sedans, and SUVs to suit your budget and luggage requirements, all driven by experienced, police-verified professionals who know the local routes perfectly."
   },
   {
     from: "dhanbad", fromName: "Dhanbad", to: "ghatsila", toName: "Ghatsila",

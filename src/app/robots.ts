@@ -24,7 +24,7 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: [
-      'https://www.sreetravel.com/sitemap.xml',
+      'https://sreetravel.com/sitemap.xml',
     ],
   };
 }

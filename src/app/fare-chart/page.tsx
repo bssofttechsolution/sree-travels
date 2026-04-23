@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     'local taxi fare jamshedpur', 'innova rate per km jharkhand',
     'tempo traveller rate jharkhand', 'cab fare list jharkhand 2025',
   ],
-  alternates: { canonical: 'https://www.sreetravel.com/fare-chart' },
+  alternates: { canonical: 'https://sreetravel.com/fare-chart' },
   openGraph: {
     title: 'Fare Chart 2025 | Sree Travels — All Routes & Rates',
     description: 'Compare cab fares across all Jharkhand routes. Hatchback ₹11/km, Sedan ₹13/km, SUV ₹16/km.',
-    url: 'https://www.sreetravel.com/fare-chart',
+    url: 'https://sreetravel.com/fare-chart',
     images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: 'Sree Travels Fare Chart' }],
   },
 };
