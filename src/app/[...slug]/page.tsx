@@ -350,7 +350,7 @@ function CityHubPage({ citySlug }: { citySlug: string }) {
   const displayCityName = isJSR ? 'Jamshedpur / Tata' : city.name;
   const cityServices = getServicesForCity(city.tier);
   const cityFleet = getFleetForCity(city.tier);
-  const cityRoutes = getRoutesByFrom(city.slug).slice(0, 6);
+  const cityRoutes = getRoutesByFrom(city.slug); // Show ALL routes — no slice limit to prevent orphan pages
   const cityLocalRoutes = getLocalRoutesByCity(city.slug);
   const isRanchi = city.slug === 'ranchi';
 
@@ -1284,6 +1284,39 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
         </div>
 
         <BlogSection pageName={`${route.fromName} to ${route.toName}`} type="route" />
+
+        {/* Related Routes — Internal Link Network for SEO (fixes 1,084 orphan pages) */}
+        {(() => {
+          const relatedFromRoutes = getRoutesByFrom(route.from).filter(r => r.to !== route.to).slice(0, 12);
+          const relatedToRoutes = getRoutesByFrom(route.to).filter(r => r.to !== route.from).slice(0, 6);
+          return (
+            <div className="content-block" style={{ marginTop: '2.5rem' }}>
+              {relatedFromRoutes.length > 0 && (
+                <>
+                  <h2>Other Routes from {route.fromName}</h2>
+                  <div className="internal-links-grid" style={{ marginTop: '0.75rem' }}>
+                    {relatedFromRoutes.map(r => (
+                      <a key={`${r.from}-${r.to}`} href={`/${r.from}-to-${r.to}-cab`} className="internal-link">🚗 {r.fromName} → {r.toName} (₹{r.fares.hatchback.toLocaleString()})</a>
+                    ))}
+                  </div>
+                </>
+              )}
+              {relatedToRoutes.length > 0 && (
+                <div style={{ marginTop: '1.5rem' }}>
+                  <h2>Routes from {route.toName}</h2>
+                  <div className="internal-links-grid" style={{ marginTop: '0.75rem' }}>
+                    {relatedToRoutes.map(r => (
+                      <a key={`${r.from}-${r.to}`} href={`/${r.from}-to-${r.to}-cab`} className="internal-link">🚗 {r.fromName} → {r.toName} (₹{r.fares.hatchback.toLocaleString()})</a>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div style={{ textAlign: 'center', marginTop: '1.25rem' }}>
+                <a href={`/cab-service-${route.from}`} className="btn-outline">View All {route.fromName} Routes →</a>
+              </div>
+            </div>
+          );
+        })()}
 
         <CtaBanner title={`Book ${route.fromName} to ${route.toName} Cab Now!`} subtitle={`₹${route.fares.hatchback.toLocaleString()} onwards | ${route.distanceKm} km`} whatsappMessage={`Hi, I want cab from ${route.fromName} to ${route.toName}`} />
       </div>

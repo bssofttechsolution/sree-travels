@@ -574,8 +574,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
     : (words.length > 0 ? words[words.length - 1].charAt(0).toUpperCase() + words[words.length - 1].slice(1) : '');
 
   const content = generateUniqueContent(params.slug);
-  const articleDate = new Date();
-  articleDate.setDate(articleDate.getDate() - 7);
+  const articleDate = new Date('2026-04-15');
   const formattedDate = articleDate.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
@@ -595,8 +594,8 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
               "name": "Sree Travels",
               "logo": { "@type": "ImageObject", "url": "https://www.sreetravel.com/logo.webp" },
             },
-            "datePublished": articleDate.toISOString(),
-            "dateModified": new Date().toISOString(),
+            "datePublished": "2026-04-15T00:00:00.000Z",
+            "dateModified": "2026-04-20T00:00:00.000Z",
             "mainEntityOfPage": `https://www.sreetravel.com/blog/${params.slug}`,
             "description": content.intro.substring(0, 155),
           }),
