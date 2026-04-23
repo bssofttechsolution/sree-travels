@@ -41,13 +41,7 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         "opens": "00:00",
         "closes": "23:59",
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": data.reviewCount || "2847",
-        "bestRating": "5",
-        "worstRating": "1",
-      },
+      // aggregateRating removed — Google warns about self-served ratings on LocalBusiness/TaxiService
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Cab Services",
@@ -199,31 +193,27 @@ export default function SchemaMarkup({ type, data }: SchemaMarkupProps) {
       });
     }
 
-    // Fleet/Product schema  
+    // Fleet/Vehicle schema — using Service type (not Product — prevents GSC errors)
     if (type === 'fleet' && data.vehicleName) {
       schemas.push({
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "Service",
         "name": `${data.vehicleName} Cab Rental in ${data.areaServed} - Sree Travels`,
         "description": data.vehicleDescription || `Hire ${data.vehicleName} in ${data.areaServed}. ${data.seatingCapacity || 4} seater, AC, GPS tracked. ₹${data.price || 12}/km. Call +919204714249.`,
-        "brand": { "@type": "Brand", "name": "Sree Travels" },
-        "image": data.vehicleImage ? `https://www.sreetravel.com${data.vehicleImage}` : undefined,
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Sree Travels",
+          "telephone": "+919204714249",
+          "url": "https://www.sreetravel.com",
+        },
+        "areaServed": data.areaServed,
+        "serviceType": "Vehicle Rental",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "INR",
           "price": data.price || "12",
           "unitText": "per km",
           "availability": "https://schema.org/InStock",
-          "seller": {
-            "@type": "Organization",
-            "name": "Sree Travels",
-          },
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "reviewCount": "500",
-          "bestRating": "5",
         },
       });
     }

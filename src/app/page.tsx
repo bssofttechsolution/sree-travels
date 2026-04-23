@@ -11,8 +11,8 @@ import { routes } from '@/lib/routes';
 import FareCalculator from '@/components/FareCalculator';
 
 export const metadata: Metadata = {
-  title: 'Sree Travels | Best Cab Service in Jamshedpur (Tata) & Ranchi | Taxi Booking Jharkhand',
-  description: 'Book the best cab service in Jamshedpur (Tata/Tatanagar) & Ranchi, Jharkhand ✅ AC cabs from ₹999 ✅ Tata to Ranchi cab ₹2,499 ✅ Police-verified drivers ✅ GPS tracked ✅ 24/7 service. One way, outstation, airport & local taxi. Call +919204714249.',
+  title: 'Sree Travels | ₹999 | Best Cab Service in Jamshedpur (Tata) & Ranchi 2026',
+  description: 'Best cab in Jamshedpur (Tata) & Ranchi ₹999 onwards. 24/7 AC cabs, verified drivers, GPS tracked. Tata to Ranchi ₹1,499. Call +919204714249.',
   keywords: [
     'sree travels', 'sree travels jamshedpur', 'sree travels tata',
     'cab service in jamshedpur', 'cab service in tata', 'tata cab service', 'tatanagar taxi',
@@ -57,7 +57,8 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const tier1Cities = jharkhandCities.filter(c => c.tier === 1);
-  const topRoutes = routes.filter(r => r.from === 'jamshedpur').slice(0, 6);
+  const topRoutes = routes.filter(r => r.from === 'jamshedpur').slice(0, 10);
+  const ranchiRoutes = routes.filter(r => r.from === 'ranchi').slice(0, 6);
 
   return (
     <div className="page-content">
@@ -206,6 +207,38 @@ export default function HomePage() {
           </div>
           <div style={{ textAlign: 'center', marginTop: '1.25rem' }}>
             <a href="/cab-service-jamshedpur" className="btn-outline">View All Routes →</a>
+          </div>
+        </div>
+      </section>
+
+      {/* POPULAR ROUTES FROM RANCHI */}
+      <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(49,46,129,0.06) 50%, var(--dark) 100%)' }}>
+        <div className="container-main">
+          <h2 style={{ textAlign: 'center', marginBottom: '0.4rem' }}>
+            <span className="gold-text">Popular Routes</span> from Ranchi
+          </h2>
+          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: 'clamp(0.82rem, 2.5vw, 0.95rem)' }}>
+            Outstation cab from Ranchi to Jamshedpur, Kolkata, Patna & all major cities
+          </p>
+          <div className="routes-grid">
+            {ranchiRoutes.map(route => (
+              <a key={`${route.from}-${route.to}`} href={`/${route.from}-to-${route.to}-cab`} className="route-card">
+                <div className="route-info">
+                  <h3>{route.fromName} → {route.toName}</h3>
+                  <div className="route-meta">
+                    <span>📏 {route.distanceKm} km</span>
+                    <span>⏱️ {route.durationHrs} hrs</span>
+                  </div>
+                </div>
+                <div className="route-fare">
+                  <div className="price">₹{route.fares.hatchback.toLocaleString()}</div>
+                  <div className="label">Hatchback onwards</div>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '1.25rem' }}>
+            <a href="/cab-service-ranchi" className="btn-outline">View All Ranchi Routes →</a>
           </div>
         </div>
       </section>
@@ -446,6 +479,25 @@ export default function HomePage() {
             {services.filter(s => s.slug !== 'pilgrimage-cab').slice(0, 6).map(s => (
               <a key={s.slug} href={`/jamshedpur/${s.slug}`} className="internal-link">{s.icon} {s.shortName}</a>
             ))}
+          </div>
+
+          {/* POPULAR SEARCHES — Local SEO boost */}
+          <div style={{ marginTop: '1.5rem' }}>
+            <h3 style={{ textAlign: 'center', marginBottom: '1rem', color: 'var(--text-primary)', fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)' }}>🔍 <span className="gold-text">Popular Searches</span></h3>
+            <div className="internal-links-grid">
+              <a href="/jamshedpur-to-ranchi-cab" className="internal-link">🚗 Jamshedpur to Ranchi Cab ₹1,499</a>
+              <a href="/jamshedpur-to-kolkata-cab" className="internal-link">🚗 Jamshedpur to Kolkata Cab ₹3,999</a>
+              <a href="/ranchi-to-jamshedpur-cab" className="internal-link">🚗 Ranchi to Jamshedpur Cab ₹2,499</a>
+              <a href="/ranchi-to-kolkata-cab" className="internal-link">🚗 Ranchi to Kolkata Cab ₹5,999</a>
+              <a href="/ranchi-to-patna-cab" className="internal-link">🚗 Ranchi to Patna Cab ₹5,299</a>
+              <a href="/jamshedpur-to-dhanbad-cab" className="internal-link">🚗 Jamshedpur to Dhanbad Cab ₹1,999</a>
+              <a href="/jamshedpur-to-puri-cab" className="internal-link">🚗 Jamshedpur to Puri Cab ₹7,999</a>
+              <a href="/bokaro-to-ranchi-cab" className="internal-link">🚗 Bokaro to Ranchi Cab ₹2,199</a>
+              <a href="/dhanbad-to-kolkata-cab" className="internal-link">🚗 Dhanbad to Kolkata Cab</a>
+              <a href="/jamshedpur-to-deoghar-cab" className="internal-link">🚗 Jamshedpur to Deoghar Cab ₹2,899</a>
+              <a href="/jamshedpur-to-bokaro-cab" className="internal-link">🚗 Jamshedpur to Bokaro Cab ₹2,399</a>
+              <a href="/jamshedpur-to-patna-cab" className="internal-link">🚗 Jamshedpur to Patna Cab ₹5,499</a>
+            </div>
           </div>
         </div>
       </section>

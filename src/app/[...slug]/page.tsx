@@ -136,10 +136,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       const isRanchi = city.slug === 'ranchi';
       const titleName = isJSR ? 'Jamshedpur (Tata)' : city.name;
       const seoName = isJSR ? 'Jamshedpur, Tatanagar' : city.name;
-      const customTitle = city.seoTitle || `Best Cab Service in ${titleName} 2026 | Car Rental & Taxi ☎ +919204714249`;
+      const customTitle = city.seoTitle || `Best Cab Service in ${titleName} 2026 | ₹${city.localFare.hatchback_4hr} Onwards | Sree Travels`;
       return {
         title: customTitle,
-        description: city.seoDescription,
+        description: `Book cab in ${isJSR ? 'Jamshedpur (Tata)' : city.name} ✅ AC cabs ₹${city.localFare.hatchback_4hr} onwards ✅ 24/7 ✅ Verified drivers ✅ GPS tracked. Outstation, airport & local taxi. ☎ +919204714249`,
         keywords: [
           `cab service ${city.name.toLowerCase()}`, `taxi ${city.name.toLowerCase()}`, `taxi service ${city.name.toLowerCase()}`,
           `cab booking ${city.name.toLowerCase()}`, `car rental ${city.name.toLowerCase()}`, `best cab ${city.name.toLowerCase()}`,
@@ -172,7 +172,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           'geo.placename': `${city.name}, ${city.district}, Jharkhand`,
           'geo.position': `${city.latitude};${city.longitude}`,
           'ICBM': `${city.latitude}, ${city.longitude}`,
-          'dateModified': new Date().toISOString().split('T')[0],
+          'dateModified': '2026-04-23',
           'revisit-after': '7 days',
           'language': 'English, Hindi',
           'coverage': 'Jharkhand, India',
@@ -187,8 +187,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       const isJSR = city.slug === 'jamshedpur';
       const titleName = isJSR ? 'Jamshedpur/Tata' : city.name;
       return {
-        title: `${service.name} in ${titleName} | ₹${service.startingPrice} Onwards | ☎ +919204714249`,
-        description: `Book ${service.name.toLowerCase()} in ${isJSR ? 'Jamshedpur/Tatanagar' : city.name}, Jharkhand ✅ AC cab ✅ Verified driver ✅ Fixed price ✅ GPS tracked. Starting ₹${service.startingPrice} ${service.priceUnit}. 24/7 availability. Call +919204714249. Sree Travels.`,
+        title: `₹${service.startingPrice} | ${service.name} in ${titleName} 2026 | Sree Travels`,
+        description: `${service.name} in ${isJSR ? 'Jamshedpur/Tata' : city.name} from ₹${service.startingPrice} ${service.priceUnit}. AC cab, verified driver, GPS tracked. 24/7 booking ☎ +919204714249`,
         keywords: [
           `${service.name.toLowerCase()} ${city.name.toLowerCase()}`,
           `${service.name.toLowerCase()} in ${city.name.toLowerCase()}`,
@@ -211,8 +211,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       const city = getCityBySlug(matched.citySlug)!;
       const vehicle = getFleetBySlug(matched.fleetSlug)!;
       return {
-        title: `${vehicle.name} in ${city.name} | ₹${vehicle.perKmRate}/km | ☎ +919204714249`,
-        description: `Hire ${vehicle.shortName} in ${city.name}, Jharkhand ✅ AC ✅ ${vehicle.seatingCapacity}-seater ✅ GPS tracked ✅ Verified driver. ₹${vehicle.perKmRate}/km onwards. Best for ${vehicle.bestFor.slice(0,2).join(' & ')}. Call +919204714249.`,
+        title: `₹${vehicle.perKmRate}/km | ${vehicle.shortName} on Rent in ${city.name} 2026 | Sree Travels`,
+        description: `Hire ${vehicle.shortName} in ${city.name} ₹${vehicle.perKmRate}/km. ${vehicle.seatingCapacity}-seater AC, GPS tracked, verified driver. ☎ +919204714249`,
         keywords: [
           `${vehicle.shortName.toLowerCase()} ${city.name.toLowerCase()}`,
           `${vehicle.shortName.toLowerCase()} on rent ${city.name.toLowerCase()}`,
@@ -249,8 +249,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       if (matched.to === 'ranchi') hindiRouteKw.push(`${route.fromName} से रांची कैब`);
 
       return {
-        title: `${seoFromName} to ${seoToName} Cab Fare 2026 | ₹${route.fares.hatchback.toLocaleString()} | ☎ +919204714249`,
-        description: `Book ${fromName} to ${toName} cab in 2026 ✅ One Way ₹${route.fares.hatchback.toLocaleString()} ✅ AC cab ✅ ${route.distanceKm}km ✅ ${route.durationHrs}hrs ✅ Sedan ₹${route.fares.sedan.toLocaleString()} ✅ SUV ₹${route.fares.suv.toLocaleString()}. Toll + fuel + driver included. No hidden charges. 24/7 booking. Call +919204714249. Sree Travels.`,
+        title: `₹${route.fares.hatchback.toLocaleString()} | ${seoFromName} to ${seoToName} Cab 2026 | One Way & Round Trip`,
+        description: `${seoFromName} to ${seoToName} cab ₹${route.fares.hatchback.toLocaleString()} onwards. ${route.distanceKm}km, ${route.durationHrs}hrs. AC cab, toll included, verified driver. 24/7 booking ☎ +919204714249`,
         keywords: [
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} cab`,
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} taxi`,
@@ -1112,6 +1112,18 @@ function OutstationRoutePage({ from, to }: { from: string; to: string }) {
             <li>Book via WhatsApp in 30 seconds — no app required</li>
           </ul>
         </div>
+
+        {/* Unique Long-Form Route Guide (hand-crafted for top routes) */}
+        {route.longContent && (
+          <div className="content-block">
+            <h2>Complete Travel Guide: {fromName} to {toName} by Cab</h2>
+            <div style={{ color: 'var(--text-secondary)', lineHeight: 2, fontSize: 'clamp(0.88rem, 2.5vw, 0.98rem)' }}>
+              {route.longContent.split('\n\n').map((para, i) => (
+                <p key={i} style={{ marginBottom: '1rem' }}>{para}</p>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Travel Guide */}
         <div className="content-block">

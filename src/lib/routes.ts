@@ -31,6 +31,8 @@ export interface RouteData {
   statesCrossed: string[];
   pickupPoints: string[];
   dropPoints: string[];
+  /** Unique hand-crafted route guide (500+ words). Only for top-value routes. */
+  longContent?: string;
 }
 
 const baseRoutes: RouteData[] = [
@@ -46,7 +48,18 @@ const baseRoutes: RouteData[] = [
     roadCondition: "Good NH roads, 4-lane from Kharagpur onwards",
     statesCrossed: ["Jharkhand", "West Bengal"],
     pickupPoints: ["Mango", "Bistupur", "Sakchi", "Jugsalai", "Adityapur", "Telco", "Dimna Road", "Tatanagar Station", "XLRI", "NIT Jamshedpur"],
-    dropPoints: ["Howrah Station", "Sealdah", "Esplanade", "Salt Lake", "Rajarhat", "Airport", "Park Street", "Gariahat", "Jadavpur", "Newtown"]
+    dropPoints: ["Howrah Station", "Sealdah", "Esplanade", "Salt Lake", "Rajarhat", "Airport", "Park Street", "Gariahat", "Jadavpur", "Newtown"],
+    longContent: `The Jamshedpur to Kolkata route is one of the busiest intercity corridors in Eastern India, connecting the steel city of Tata with the cultural capital of West Bengal. This 260 km journey via NH-49 passes through the scenic Chota Nagpur Plateau before descending into the Bengal plains.
+
+Leaving Jamshedpur, the route takes you through Gamharia industrial area and then onto the national highway towards Ghatsila — a small town famous for its copper mines and the beautiful Subarnarekha river views. This stretch offers glimpses of Jharkhand's tribal culture and dense sal forests. After crossing the Jharkhand-West Bengal border near Baharagora, the road quality improves significantly as you enter the 4-lane expressway section.
+
+Kharagpur, home to IIT Kharagpur, is the ideal halfway point for a food break. The Kolaghat service station on the highway offers clean restrooms, multiple restaurant options, and fuel stations. Many of our regular passengers prefer the dhaba near Kolaghat bridge for authentic Bengali fish curry and rice.
+
+From Kharagpur to Kolkata, the road is excellent — a smooth 4-lane highway passing through Uluberia before reaching the Vidyasagar Setu (Second Hooghly Bridge) into Kolkata city. Our drivers know all the entry points into Kolkata and will take the fastest route based on real-time traffic — whether your destination is Howrah Station, Salt Lake IT hub, Rajarhat, or the Kolkata Airport.
+
+Best departure times: Early morning (5-6 AM) departures reach Kolkata by 10-11 AM, perfect for business meetings. Evening departures (4-5 PM) are popular for weekend trips. Our night service (10 PM onwards) is ideal for early morning flights from Kolkata Airport.
+
+Pro tip from our drivers: Carry some snacks for the Jharkhand stretch, as restaurant options are limited between Jamshedpur and Kharagpur. The Bengal side has many more options. During monsoon (July-September), expect slightly longer travel times due to occasional waterlogging near Kolaghat.`
   },
   {
     from: "jamshedpur", fromName: "Jamshedpur",
@@ -59,7 +72,18 @@ const baseRoutes: RouteData[] = [
     roadCondition: "Good 4-lane NH throughout",
     statesCrossed: ["Jharkhand"],
     pickupPoints: ["Mango", "Bistupur", "Sakchi", "Tatanagar Station", "Adityapur", "Dimna Road"],
-    dropPoints: ["Ranchi Station", "Doranda", "Lalpur", "Birsa Munda Airport", "Kanke", "Morabadi"]
+    dropPoints: ["Ranchi Station", "Doranda", "Lalpur", "Birsa Munda Airport", "Kanke", "Morabadi"],
+    longContent: `The Jamshedpur to Ranchi cab route is the most popular intercity journey in Jharkhand — a 130 km ride through the heart of the state via NH-33. This route connects Tata Steel's hometown with the state capital, and our drivers complete this trip 10-15 times every week.
+
+The journey begins from Jamshedpur (also called Tata or Tatanagar) and heads north through Gamharia. The first landmark you'll cross is the Chandil Dam — one of Jharkhand's largest reservoirs. If you're travelling during the monsoon season, the dam overflowing is a spectacular sight. Many passengers ask our drivers to slow down for photos here. The small town of Chandil also has decent food options if you want a quick chai break.
+
+After Chandil, the route enters the forested hills of Tamar. This section of NH-33 winds through beautiful countryside — expect to see sal trees, small tribal villages, and occasionally, elephants crossing the road (yes, it happens!). The road is well-maintained 4-lane throughout, with proper lane markings and barriers.
+
+As you approach Ranchi, the landscape opens up to the Ranchi Plateau. Our drivers know all the entry points into Ranchi and will navigate directly to your destination — whether it's Birsa Munda Airport (for connecting flights), Ranchi Railway Station, RIMS Hospital, Rajendra Chowk, or any hotel in the city.
+
+Important local knowledge: The Jamshedpur-Ranchi route has 2 toll plazas — one near Gamharia and one near Tamar. Both tolls are INCLUDED in our fare (approximately ₹200 total). There's no need to pay anything extra. Our fare of ₹1,499 (hatchback) covers everything — fuel, toll, driver allowance, and pickup/drop from any location in both cities.
+
+Travel tip: If you're heading to Birsa Munda Airport in Ranchi, book our cab 4 hours before your flight time for a comfortable, stress-free journey. For Ranchi Railway Station, 3.5 hours is sufficient.`
   },
   {
     from: "jamshedpur", fromName: "Jamshedpur",
@@ -566,7 +590,18 @@ const baseRoutes: RouteData[] = [
     roadCondition: "Good NH roads",
     statesCrossed: ["Jharkhand", "West Bengal"],
     pickupPoints: ["Ranchi Station", "Doranda", "Lalpur", "Birsa Munda Airport", "Kanke"],
-    dropPoints: ["Howrah Station", "Sealdah", "Salt Lake", "Airport", "Newtown"]
+    dropPoints: ["Howrah Station", "Sealdah", "Salt Lake", "Airport", "Newtown"],
+    longContent: `The Ranchi to Kolkata cab journey covers 390 km and takes approximately 7-8 hours via NH-33 and NH-19. This is one of the most important intercity routes in Eastern India, connecting Jharkhand's capital city with the City of Joy.
+
+The route passes through Jamshedpur (Tata), making it a two-in-one journey through Jharkhand's two largest cities. From Ranchi, the cab descends through the beautiful Chota Nagpur Plateau via Tamar and Chandil. The Chandil Dam area is a scenic highlight — during monsoons, the reservoir is at its most beautiful. After Chandil, you'll pass through Jamshedpur, the industrial city built by Tata Steel.
+
+Once past Jamshedpur, the route continues on NH-49 through Ghatsila (known for copper mines and the Subarnarekha river) before entering West Bengal at Baharagora. The Bengal stretch via Kharagpur and Kolaghat is excellent — smooth 4-lane highway all the way to Kolkata.
+
+Food recommendations from our drivers: Stop at Chandil or Jamshedpur for breakfast if departing early from Ranchi. For lunch, the dhabas near Kolaghat are famous for Bengali-style fish curry. There are also clean restaurant chains at Kharagpur.
+
+Best departure strategy: Leave Ranchi by 5 AM to reach Kolkata by 12-1 PM. This avoids Kolkata city traffic. For evening arrivals, depart by 10 AM. Night journeys (departure 9-10 PM) are also popular — you'll reach Kolkata early morning, perfect for catching a flight or train.
+
+All 5 toll plazas on this route are included in our fare. No surprises, no extra charges. Our experienced drivers do this route regularly and know exactly where to stop and which shortcuts to take during Kolkata traffic.`
   },
   {
     from: "ranchi", fromName: "Ranchi",
@@ -579,7 +614,16 @@ const baseRoutes: RouteData[] = [
     roadCondition: "Good 4-lane NH",
     statesCrossed: ["Jharkhand"],
     pickupPoints: ["Ranchi Station", "Doranda", "Lalpur", "Airport"],
-    dropPoints: ["Mango", "Bistupur", "Sakchi", "Tatanagar Station"]
+    dropPoints: ["Mango", "Bistupur", "Sakchi", "Tatanagar Station"],
+    longContent: `Ranchi to Jamshedpur (Tata) is a 130 km journey on NH-33 — one of Jharkhand's best maintained highways. This route connects the state capital with its industrial hub, and is among our most frequently serviced routes.
+
+Starting from Ranchi, the road quickly transitions from city traffic to the open highway. The first stretch passes through Namkum and then into the Tamar forest region. This area is known for its dense sal forests and is part of the tribal belt of Jharkhand. During winters (November-February), the morning mist in this region creates a magical atmosphere.
+
+The highlight of the journey is the descent from the Ranchi Plateau towards Chandil. The winding road through the hills offers panoramic views of the valley below. Chandil Dam, one of Jharkhand's most popular weekend getaway spots, is visible from the highway. After Chandil, the road flattens out as you approach the Jamshedpur-Gamharia industrial corridor.
+
+Our drivers pick up from any location in Ranchi — whether it's Birsa Munda Airport, Ranchi Railway Station, any hotel, hospital (RIMS, Medica), or residential area. Similarly, we drop you at any location in Jamshedpur — Tatanagar Station, Bistupur market, XLRI campus, NIT, Tata Main Hospital, or your doorstep.
+
+Timings: The journey takes 3-3.5 hours under normal conditions. Add 30 minutes during festival seasons or if starting during Ranchi's peak traffic hours (9-10 AM). Our recommended departure: 6-7 AM for the most comfortable ride.`
   },
   {
     from: "ranchi", fromName: "Ranchi",
