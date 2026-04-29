@@ -257,17 +257,38 @@ export const jharkhandCities: CityData[] = [
       "Maithon Dam", "Panchet Dam", "Topchanchi Lake",
       "Shakti Mandir", "Indian School of Mines", "Bhatinda Falls"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Maithon Dam", distanceKm: 48, description: "Massive dam on Barakar river with boating facility and deer park. Popular weekend getaway from Dhanbad. Beautiful sunset views.", type: "dam" },
+      { name: "Panchet Dam", distanceKm: 55, description: "Scenic reservoir in DVC system surrounded by hills and forest. Great for picnic, photography, and nature walks.", type: "dam" },
+      { name: "Topchanchi Lake", distanceKm: 32, description: "Tranquil lake surrounded by hills and dense forest. Popular for nature lovers, bird watching, and peaceful getaways from Dhanbad.", type: "lake" },
+      { name: "IIT ISM Dhanbad Campus", distanceKm: 3, description: "India’s premier mining and engineering institute (formerly ISM). Beautiful sprawling green campus open for visitors.", type: "other" },
+      { name: "Bhatinda Falls", distanceKm: 35, description: "Scenic waterfall near Topchanchi. Best visited during monsoon (July–September). A refreshing day trip from Dhanbad.", type: "waterfall" }
+    ],
+    seoTitle: "Cab Service Dhanbad 2026 | ₹899 | Coal Capital Taxi",
+    seoH1: "Cab Service in Dhanbad — Coal Capital of India",
     seoDescription: "Dhanbad, the Coal Capital of India, is a major industrial city in Jharkhand known for its coal mines and IIT (ISM). Located on the Grand Trunk Road, Dhanbad has excellent rail connectivity through Dhanbad Junction. Sree Travels offers reliable cab services across Dhanbad for local commutes, outstation journeys to Kolkata, Ranchi, and beyond. Our fleet of AC cabs with verified drivers ensures you travel safely from Jharia to Bank More, Sindri to Govindpur — anywhere in Dhanbad.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Dhanbad, famously known as the Coal Capital of India, is the third-largest city in Jharkhand with a population of 1.2 million. Located along the Grand Trunk Road (GT Road), Dhanbad is the nerve center of India’s coal mining industry, home to the world-famous Jharia coalfields — Asia’s largest coking coal reserve.\n\nSree Travels provides the most reliable cab service in Dhanbad, covering every locality from Bank More and Hirapur to the industrial belts of Jharia, Sindri, and Wasseypur. Whether you need a local taxi for errands, an outstation cab to Kolkata (270 km), Ranchi (160 km), or Jamshedpur (80 km), or a corporate car for IIT ISM and BCCL officials — our verified fleet is available 24/7.\n\nDhanbad is home to IIT (ISM) Dhanbad — India’s oldest and most prestigious mining engineering institute, attracting students and faculty from across the globe. The city also houses Bharat Coking Coal Limited (BCCL), Eastern Coalfields Ltd (ECL), and Central Mine Planning & Design Institute (CMPDI) headquarters. Corporate travel between Dhanbad, Bokaro, and Ranchi is a daily affair for thousands of employees.\n\nPopular tourist destinations near Dhanbad include Maithon Dam (48 km), Panchet Dam (55 km), Topchanchi Lake (32 km), and Parasnath Hill (75 km). All are easily accessible by booking a cab with Sree Travels.\n\nBook your Dhanbad cab now — WhatsApp +91 92047 14249. Fixed pricing, no surge, verified drivers.",
+    transportGuide: "🚂 BY TRAIN: Dhanbad Junction is one of the busiest railway junctions in eastern India, connecting to Kolkata (4 hrs by Rajdhani), Delhi (12 hrs), Mumbai (20 hrs), Ranchi (3 hrs), and Jamshedpur (1.5 hrs). Sree Travels provides 24/7 cab pickup from Dhanbad Junction main exit.\n\n✈️ BY AIR: Nearest airport is Birsa Munda Airport, Ranchi (IXR) — 160 km away (~3.5 hrs). Book Dhanbad to Ranchi Airport cab from ₹2,899 with Sree Travels.\n\n🚗 BY CAB: Dhanbad is well-connected via NH-19 (GT Road). From Jamshedpur: 80 km (2 hrs, ₹1,999). From Bokaro: 50 km (1.5 hrs, ₹1,499). From Ranchi: 160 km (3.5 hrs, ₹2,899). From Kolkata: 270 km (5 hrs, ₹4,499). All routes served by Sree Travels.",
+    corporateInfo: "Dhanbad’s economy revolves around coal mining and heavy engineering. Sree Travels provides corporate cab services to:\n\n⛏️ MINING COMPANIES: BCCL (Bharat Coking Coal Ltd), ECL (Eastern Coalfields), CMPDI, CMPDIL\n🏛️ INSTITUTIONS: IIT (ISM) Dhanbad, BIT Sindri, Rajendra Institute, DAV Schools\n🏢 CORPORATE: IISCO, Damodar Valley Corporation (DVC), numerous coal washeries and coke plants\n\nMonthly corporate packages from ₹14,999 | GST billing | Employee shuttle service. Contact: +919204714249",
+    stationInfo: "📍 DHANBAD JUNCTION: One of the busiest junctions in Eastern India. Cab pickup available 24/7 from main exit, auto stand, and Platform 1 exit. Services to Bank More (2 km), Hirapur (3 km), IIT ISM (4 km), Jharia (10 km).\n\n📍 GOMOH JUNCTION: 25 km from Dhanbad city. Cab available for pickup. Historic station where Netaji Subhas Chandra Bose escaped British surveillance.",
+    hindiKeywords: [
+      "धनबाद कैब सर्विस", "धनबाद टैक्सी", "धनबाद से कोलकाता कैब", "धनबाद से रांची कैब",
+      "धनबाद से जमशेदपुर टैक्सी", "धनबाद कार रेंटल", "धनबाद में कैब बुकिंग",
+      "झरिया कैब सर्विस", "बैंक मोर टैक्सी"
+    ],
+    nearMeKeywords: [
+      "cab near me dhanbad", "taxi near me dhanbad", "cab service near dhanbad junction",
+      "car rental near me dhanbad", "taxi near bank more dhanbad", "cab near iit ism dhanbad",
+      "cheapest cab near me dhanbad", "24 hour cab near me dhanbad"
+    ],
+    localKeywords: [
+      "dhanbad to kolkata cab fare 2026", "dhanbad to ranchi cab", "dhanbad to jamshedpur taxi",
+      "dhanbad cab booking online", "dhanbad outstation cab", "dhanbad airport cab",
+      "dhanbad to bokaro cab", "dhanbad to patna cab", "dhanbad to deoghar cab",
+      "dhanbad local taxi rate", "jharia cab service", "sindri cab booking",
+      "iit ism dhanbad cab", "bccl dhanbad taxi", "best cab service dhanbad 2026",
+      "dhanbad corporate cab", "dhanbad wedding car", "dhanbad station cab"
+    ],
     reviews: [
       { name: "Ravi Prasad", text: "I regularly travel from Dhanbad to Bokaro for work. Sree Travels is my go-to cab service. Always reliable!", rating: 5 },
       { name: "Pooja Devi", text: "Booked Swift Dzire for Dhanbad to Kolkata trip. Very comfortable and affordable. Driver was very experienced.", rating: 5 },
@@ -305,17 +326,35 @@ export const jharkhandCities: CityData[] = [
       "Bokaro Steel Plant", "City Park", "Garga Dam", "Jawaharlal Nehru Biological Park",
       "Parasnath Hill (nearby)", "Tenughat Dam"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Jawaharlal Nehru Biological Park", distanceKm: 5, description: "Well-maintained zoo and park with various animals, birds, and a toy train. Popular family outing in Bokaro.", type: "park" },
+      { name: "Garga Dam", distanceKm: 12, description: "Scenic dam and reservoir surrounded by greenery. Popular sunset point and picnic spot for Bokaro residents.", type: "dam" },
+      { name: "Parasnath Hill", distanceKm: 80, description: "Highest peak of Jharkhand (1,365m) and sacred Jain pilgrimage site. Book Bokaro to Parasnath cab for day trip.", type: "temple" },
+      { name: "Tenughat Dam", distanceKm: 45, description: "Large dam on Damodar river with scenic surroundings. Popular for boating and picnic.", type: "dam" },
+      { name: "City Park Bokaro", distanceKm: 2, description: "Beautiful urban park in the steel city with musical fountain, children’s play area, and walking tracks.", type: "park" }
+    ],
+    seoTitle: "Cab Service Bokaro Steel City 2026 | ₹899 | Sree Travels",
+    seoH1: "Cab Service in Bokaro Steel City — Book Online 2026",
     seoDescription: "Bokaro Steel City, home to Bokaro Steel Plant (SAIL), is a well-planned industrial city in Jharkhand. Known for its organized sectors and greenery, Bokaro is a major hub for industrial and corporate travel. Sree Travels provides professional cab services across Bokaro for local commutes, outstation trips, and corporate bookings. Our fleet serves all sectors, Chas, City Centre, and beyond.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Bokaro Steel City, the fourth-largest city in Jharkhand, is a beautifully planned industrial township built around the Bokaro Steel Plant (BSL), one of India’s largest steel manufacturing units under SAIL. Known for its wide roads, organized sectors, and lush greenery, Bokaro is a model city of Jharkhand.\n\nSree Travels provides premium cab service in Bokaro Steel City, serving all sectors (1-12), Chas market area, City Centre, Naya More, and the industrial zones. Whether you need a local taxi for sector-to-sector travel, an outstation cab to Ranchi (100 km), Jamshedpur (120 km), or Dhanbad (50 km), we are available 24/7 with AC vehicles and verified drivers.\n\nBokaro is a major steel and industrial hub with Bokaro Steel Plant (SAIL-BSL), Bokaro General Hospital, Bokaro Power Supply Company, and numerous ancillary industries. The city attracts thousands of corporate travelers, contractors, and steel industry professionals daily. Sree Travels offers dedicated corporate cab packages with monthly billing and GST invoices.\n\nNearby attractions include Jawaharlal Nehru Biological Park, Garga Dam, City Park, and the sacred Parasnath Hill (80 km). For weekend getaways, Ranchi waterfalls and Patratu Valley are accessible by cab.\n\nBook your Bokaro cab — WhatsApp +91 92047 14249. No hidden charges, verified drivers, GPS tracking.",
+    transportGuide: "🚂 BY TRAIN: Bokaro Steel City Station connects to Kolkata, Delhi, Ranchi, Dhanbad, and Jamshedpur. Chas Road station also serves the area. Sree Travels provides 24/7 cab pickup from both stations.\n\n✈️ BY AIR: Nearest airport is Birsa Munda Airport, Ranchi (IXR) — 100 km away (~2.5 hrs). Book Bokaro to Ranchi Airport cab from ₹2,199.\n\n🚗 BY CAB: From Ranchi: 100 km (2.5 hrs, ₹2,199). From Jamshedpur: 120 km (3 hrs, ₹2,399). From Dhanbad: 50 km (1.5 hrs, ₹1,499). All routes by Sree Travels with AC cabs.",
+    corporateInfo: "Bokaro’s economy is anchored by the steel industry. Sree Travels provides corporate cab services to:\n\n🏭 STEEL COMPANIES: Bokaro Steel Plant (SAIL-BSL), Bokaro Power Supply Co. (BPSCL), numerous ancillary steel units\n🏛️ INSTITUTIONS: Bokaro General Hospital (BGH), DPS Bokaro, DAV Public School Sector-6\n🏢 INDUSTRIAL: Chas Industrial Area, Heavy Machine Building Plant\n\nMonthly corporate packages from ₹14,999 | GST billing | Sector-wise employee shuttle. Contact: +919204714249",
+    stationInfo: "📍 BOKARO STEEL CITY STATION: Main station serving the steel city. Cab pickup available 24/7 from main exit. Services to City Centre (3 km), Sector 4 (2 km), Chas (5 km), BSL Gate (1 km).\n\n📍 CHAS ROAD STATION: Secondary station serving Chas market area. Cab available for pickup to all Bokaro sectors.",
+    hindiKeywords: [
+      "बोकारो कैब सर्विस", "बोकारो टैक्सी", "बोकारो से रांची कैब", "बोकारो से जमशेदपुर टैक्सी",
+      "बोकारो कार रेंटल", "बोकारो में कैब बुकिंग", "बोकारो से धनबाद कैब"
+    ],
+    nearMeKeywords: [
+      "cab near me bokaro", "taxi near me bokaro", "cab service near bokaro station",
+      "car rental near me bokaro", "cheapest cab near me bokaro", "24 hour cab bokaro"
+    ],
+    localKeywords: [
+      "bokaro to ranchi cab fare 2026", "bokaro to jamshedpur cab", "bokaro to dhanbad taxi",
+      "bokaro cab booking online", "bokaro outstation cab", "bokaro airport cab ranchi",
+      "bokaro to kolkata cab", "bokaro to patna cab", "bokaro local taxi rate",
+      "chas bokaro cab service", "bokaro steel city taxi", "best cab service bokaro 2026",
+      "bokaro corporate cab", "sail bokaro cab service", "bokaro sector 4 taxi"
+    ],
     reviews: [
       { name: "Suresh Mahato", text: "I use Sree Travels for my office travel in Bokaro. Always clean and comfortable cabs. Highly recommend!", rating: 5 },
       { name: "Anita Roy", text: "Booked Ertiga for family trip from Bokaro to Ranchi. Very smooth ride and professional driver.", rating: 5 },
@@ -353,17 +392,36 @@ export const jharkhandCities: CityData[] = [
       "Baidyanath Temple", "Nandan Pahar", "Trikut Pahar",
       "Satsang Ashram", "Tapovan Hills", "Naulakha Mandir"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Baidyanath Dham Temple", distanceKm: 0, description: "One of the 12 Jyotirlingas, this ancient Shiva temple is the most sacred Hindu shrine in Jharkhand. Millions visit during Sravani Mela (July-August).", type: "temple" },
+      { name: "Nandan Pahar", distanceKm: 3, description: "Hill with an amusement park, ropeway, and scenic views. Popular family outing in Deoghar.", type: "hill" },
+      { name: "Trikut Pahar", distanceKm: 7, description: "Three-peaked hill with ropeway offering panoramic views. Cable car ride is a must-do in Deoghar.", type: "hill" },
+      { name: "Satsang Ashram", distanceKm: 1, description: "Spiritual retreat founded by Sri Sri Thakur Anukulchandra. Peaceful campus with temple, gardens, and community facilities.", type: "temple" },
+      { name: "Tapovan Hills", distanceKm: 10, description: "Scenic hills believed to be the meditation site of ancient sages. Panoramic views of Deoghar town.", type: "nature" }
+    ],
+    seoTitle: "Cab Service Deoghar 2026 | Baidyanath Dham Taxi ₹799",
+    seoH1: "Cab Service in Deoghar — Baidyanath Dham Temple City",
     seoDescription: "Deoghar, home to the sacred Baidyanath Dham temple (one of the 12 Jyotirlingas), is the most important pilgrimage city in Jharkhand. Millions of devotees visit during Sravani Mela every year. Sree Travels provides dedicated pilgrimage cab services in Deoghar, including temple darshan tours, airport transfers from the new Deoghar Airport, and outstation trips. Book reliable cabs for hassle-free travel to and from Baidyanath Dham.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Deoghar, meaning ‘Abode of the Gods’, is Jharkhand’s most sacred city and home to the legendary Baidyanath Dham Temple — one of the 12 Jyotirlingas of Lord Shiva. Every year, millions of pilgrims from across India visit Deoghar, especially during the Sravani Mela in July-August when the city transforms into a massive religious festival.\n\nSree Travels provides specialized pilgrimage cab service in Deoghar, with drivers who know every temple route, parking area, and darshan timing. Whether you’re arriving at the new Deoghar Airport (DBR), Jasidih Junction railway station, or driving from Jamshedpur (280 km), Ranchi (330 km), or Kolkata (370 km) — we ensure a comfortable and hassle-free journey.\n\nBeyond Baidyanath Dham, Deoghar offers Nandan Pahar (amusement park with ropeway), Trikut Pahar (cable car with stunning views), the serene Satsang Ashram, Tapovan Hills, and Naulakha Mandir. Our local taxi packages are perfect for covering all these spots in a single day.\n\nThe new Deoghar Airport (DBR), opened in 2022, connects the city to Delhi, Mumbai, and Kolkata via regular flights. Sree Travels provides 24/7 airport transfer service.\n\nBook your Deoghar pilgrimage cab — WhatsApp +91 92047 14249.",
+    transportGuide: "✈️ BY AIR: Deoghar Airport (DBR) is a newly inaugurated airport 15 km from the city center. Flights to Delhi, Mumbai, Kolkata. Sree Travels provides airport cab from ₹499.\n\n🚂 BY TRAIN: Jasidih Junction (JSM) is the nearest major railway station, 7 km from Deoghar city. Connected to Kolkata, Delhi, Patna, and Ranchi. Cab pickup available 24/7.\n\n🚗 BY CAB: From Jamshedpur: 280 km (5 hrs). From Ranchi: 330 km (6 hrs). From Kolkata: 370 km (7 hrs). From Dhanbad: 180 km (4 hrs). All routes served by Sree Travels.",
+    corporateInfo: "Deoghar’s economy is driven by religious tourism and the growing hospitality industry. Sree Travels provides:\n\n🛕 PILGRIMAGE: Baidyanath Dham darshan tours, Sravani Mela special cabs, multi-temple tour packages\n✈️ AIRPORT: Deoghar Airport (DBR) transfer — 24/7\n🏛️ INSTITUTIONS: Satsang Ashram, AIIMS Deoghar (upcoming), Sido Kanhu University\n\nSpecial pilgrimage packages during Sravani Mela. Contact: +919204714249",
+    stationInfo: "📍 JASIDIH JUNCTION (JSM): Main railway station for Deoghar, 7 km from city center and Baidyanath Dham. Cab pickup available 24/7. Direct service to temple area (₹199), Nandan Pahar, airport.\n\n📍 DEOGHAR AIRPORT (DBR): New airport 15 km from city. Cab available from arrivals. City drop from ₹499.",
+    hindiKeywords: [
+      "देवघर कैब सर्विस", "बैद्यनाथ धाम टैक्सी", "देवघर से कोलकाता कैब",
+      "जसीडीह स्टेशन टैक्सी", "देवघर एयरपोर्ट कैब", "देवघर में कैब बुकिंग",
+      "श्रावणी मेला देवघर कैब", "देवघर दर्शन टैक्सी"
+    ],
+    nearMeKeywords: [
+      "cab near me deoghar", "taxi near me deoghar", "cab near baidyanath dham",
+      "taxi near jasidih station", "cab near deoghar airport", "cheapest cab deoghar"
+    ],
+    localKeywords: [
+      "deoghar cab booking", "baidyanath dham taxi", "deoghar airport cab",
+      "jasidih junction cab", "deoghar to jamshedpur cab", "deoghar to kolkata cab",
+      "deoghar to ranchi cab", "deoghar to dhanbad taxi", "deoghar local taxi",
+      "sravani mela cab deoghar", "trikut pahar cab", "nandan pahar taxi",
+      "best cab service deoghar 2026", "deoghar pilgrimage cab", "deoghar darshan taxi"
+    ],
     reviews: [
       { name: "Ramesh Pandey", text: "Booked cab for Baidyanath Dham visit. Driver knew all the temple routes. Very helpful service!", rating: 5 },
       { name: "Sunita Devi", text: "Excellent service during Sravani Mela. Got cab on time despite heavy rush. Thank you Sree Travels!", rating: 5 },
@@ -401,17 +459,34 @@ export const jharkhandCities: CityData[] = [
       "Hazaribagh Lake", "Canary Hill", "Hazaribagh National Park",
       "Konar Dam", "Rajrappa Temple", "Isko Rock Art"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
-    seoDescription: "Hazaribagh, meaning 'City of Thousand Gardens', is a scenic hill town in Jharkhand known for its pleasant climate's Hazaribagh National Park. Located on NH 33, it serves as a gateway to many natural attractions. Sree Travels provides reliable cab services across Hazaribagh for local travel, outstation journeys, and tourism packages to destinations like Netarhat and Rajrappa.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    nearbyAttractions: [
+      { name: "Hazaribagh Lake", distanceKm: 1, description: "Beautiful lake in the heart of the city, surrounded by trees. Popular for morning walks and boating.", type: "lake" },
+      { name: "Canary Hill", distanceKm: 3, description: "Scenic hilltop viewpoint overlooking the town. Excellent for sunrise and sunset photography.", type: "hill" },
+      { name: "Hazaribagh National Park", distanceKm: 20, description: "Protected forest area with diverse wildlife including sambhar deer, wild boar, and leopards. Nature trails available.", type: "wildlife" },
+      { name: "Rajrappa Temple", distanceKm: 80, description: "Sacred Chhinnamasta temple at the confluence of Damodar and Bhairavi rivers. Major pilgrimage destination.", type: "temple" },
+      { name: "Konar Dam", distanceKm: 50, description: "Large DVC dam with scenic reservoir. Popular picnic spot and weekend getaway from Hazaribagh.", type: "dam" }
+    ],
+    seoTitle: "Cab Service Hazaribagh 2026 | ₹799 | Sree Travels",
+    seoH1: "Cab Service in Hazaribagh — City of Thousand Gardens",
+    seoDescription: "Hazaribagh, meaning 'City of Thousand Gardens', is a scenic hill town in Jharkhand known for its pleasant climate and Hazaribagh National Park. Located on NH 33, it serves as a gateway to many natural attractions. Sree Travels provides reliable cab services across Hazaribagh for local travel, outstation journeys, and tourism packages to destinations like Netarhat and Rajrappa.",
+    longDescription: "Hazaribagh, meaning ‘City of a Thousand Gardens’, is one of the most scenic towns in Jharkhand. Located on the Chota Nagpur Plateau at an elevation of 616 meters, Hazaribagh enjoys pleasant weather and serves as a gateway to some of Jharkhand’s most beautiful natural attractions including Rajrappa Temple, Konar Dam, and Hazaribagh National Park.\n\nSree Travels provides reliable cab service in Hazaribagh, connecting residents and tourists to all major destinations. Book a local taxi for sightseeing at Canary Hill and Hazaribagh Lake, or an outstation cab to Ranchi (100 km, ₹2,199), Bokaro (90 km), or Dhanbad (120 km).\n\nHazaribagh is an important educational and administrative center with Vinoba Bhave University, St. Columba’s College, and the District Collectorate. The town also serves as a rest stop for travelers between Ranchi and Patna on NH-33.\n\nBook your Hazaribagh cab — WhatsApp +91 92047 14249.",
+    transportGuide: "🚂 BY TRAIN: Hazaribagh Road Station is the nearest railhead, 67 km from town. Connected to Kolkata and Delhi via Grand Chord route. Cab pickup available.\n\n🚗 BY CAB: From Ranchi: 100 km (2.5 hrs, ₹2,199). From Bokaro: 90 km (2 hrs). From Dhanbad: 120 km (3 hrs). All routes by Sree Travels.",
+    corporateInfo: "Hazaribagh serves as an educational and administrative hub. Sree Travels provides cab services to:\n\n🏛️ INSTITUTIONS: Vinoba Bhave University, St. Columba’s College, DAV Hazaribagh\n🏢 GOVERNMENT: District Collectorate, Civil Court, Sadar Hospital\n\nContact: +919204714249",
+    stationInfo: "📍 HAZARIBAGH ROAD STATION: Nearest railhead 67 km from town on the Grand Chord route. Cab available for pickup to Hazaribagh town.\n\n📍 HAZARIBAGH BUS STAND: Main bus stand in town center. Cab available for local and outstation trips.",
+    hindiKeywords: [
+      "हज़ारीबाग कैब सर्विस", "हज़ारीबाग टैक्सी", "हज़ारीबाग से रांची कैब",
+      "हज़ारीबाग कार रेंटल", "राजरप्पा मंदिर कैब"
+    ],
+    nearMeKeywords: [
+      "cab near me hazaribagh", "taxi near me hazaribagh", "car rental near me hazaribagh",
+      "cheapest cab hazaribagh", "24 hour cab hazaribagh"
+    ],
+    localKeywords: [
+      "hazaribagh to ranchi cab", "hazaribagh to bokaro cab", "hazaribagh to dhanbad taxi",
+      "hazaribagh cab booking", "hazaribagh outstation cab", "hazaribagh local taxi",
+      "rajrappa temple cab hazaribagh", "canary hill taxi", "best cab hazaribagh 2026",
+      "hazaribagh to patna cab", "konar dam cab", "hazaribagh sightseeing cab"
+    ],
     reviews: [
       { name: "Vivek Sinha", text: "Booked cab for Hazaribagh to Ranchi trip. Driver was punctual, car was clean. Great service!", rating: 5 },
       { name: "Kavita Kumari", text: "Used Sree Travels for Hazaribagh local sightseeing. Covered all major attractions comfortably.", rating: 5 },
@@ -449,17 +524,33 @@ export const jharkhandCities: CityData[] = [
       "Parasnath Hill", "Madhuban Jain Temple", "Usri Falls",
       "Khandoli Dam", "Harihar Dham"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Parasnath Hill", distanceKm: 25, description: "Highest peak of Jharkhand (1,365m) and one of the holiest Jain pilgrimage sites. Shikharji temple atop the hill.", type: "temple" },
+      { name: "Madhuban Jain Temple", distanceKm: 22, description: "Base camp for Parasnath pilgrimage. Beautiful Jain temples and dharamshalas for pilgrims.", type: "temple" },
+      { name: "Usri Falls", distanceKm: 15, description: "Scenic waterfall on Usri river. Best visited during monsoon season (July-September).", type: "waterfall" },
+      { name: "Khandoli Dam", distanceKm: 12, description: "Scenic dam surrounded by hills. Adventure sports like kayaking and rock climbing available.", type: "dam" }
+    ],
+    seoTitle: "Cab Service Giridih 2026 | Parasnath Hill Taxi | Sree Travels",
+    seoH1: "Cab Service in Giridih — Gateway to Parasnath Hill",
     seoDescription: "Giridih, located at the foot of the famous Parasnath Hill (highest peak of Jharkhand), is an important city for both pilgrimage and commerce. The Jain pilgrimage to Parasnath Hill at Madhuban attracts devotees from across India. Sree Travels provides cab services across Giridih for local travel, Parasnath pilgrimages, and outstation trips to Dhanbad, Bokaro, Ranchi, and beyond.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Giridih, meaning ‘Land of Hills’, is a picturesque town in Jharkhand located at the foot of the mighty Parasnath Hill — the highest peak of Jharkhand at 1,365 meters. The town is of immense religious significance for the Jain community, as Parasnath Hill (Shikharji) is considered the holiest pilgrimage site where 20 of the 24 Tirthankaras attained Moksha.\n\nSree Travels provides dedicated cab service in Giridih, especially for Parasnath Hill and Madhuban Jain Temple pilgrimages. Our drivers are experienced with the mountain routes and know all the parking areas, rest stops, and darshan timings. Local taxi service covers Gandhi Chowk, Station Road, and Court Area.\n\nFor outstation travel, book Giridih to Dhanbad (60 km), Bokaro (70 km), Ranchi (170 km), or Kolkata (330 km) cabs with transparent pricing.\n\nBook now — WhatsApp +91 92047 14249.",
+    transportGuide: "🚂 BY TRAIN: Giridih Station connects to Dhanbad and Madhupur Junction. Cab pickup available from station.\n\n🚗 BY CAB: From Dhanbad: 60 km (1.5 hrs). From Bokaro: 70 km (2 hrs). From Ranchi: 170 km (4 hrs). All routes by Sree Travels.",
+    corporateInfo: "Giridih’s economy is driven by mica mining, religious tourism, and agriculture. Sree Travels provides:\n\n🛕 PILGRIMAGE: Parasnath Hill, Madhuban, Shikharji pilgrimage cabs\n⛏️ MINING: Mica mines and associated industries\n🏛️ INSTITUTIONS: Giridih College, various DAV schools\n\nContact: +919204714249",
+    stationInfo: "📍 GIRIDIH STATION: Town railway station with connections to Dhanbad and Madhupur. Cab pickup available 24/7 from main exit.",
+    hindiKeywords: [
+      "गिरिडीह कैब सर्विस", "पारसनाथ हिल टैक्सी", "मधुबन जैन मंदिर कैब",
+      "गिरिडीह से धनबाद कैब", "शिखरजी तीर्थ टैक्सी"
+    ],
+    nearMeKeywords: [
+      "cab near me giridih", "taxi near me giridih", "cab near parasnath hill",
+      "taxi near madhuban", "cheapest cab giridih"
+    ],
+    localKeywords: [
+      "giridih to dhanbad cab", "giridih to bokaro cab", "giridih to ranchi taxi",
+      "parasnath hill cab", "madhuban jain temple taxi", "shikharji cab booking",
+      "giridih cab booking", "giridih local taxi", "best cab giridih 2026",
+      "giridih to kolkata cab", "giridih outstation cab", "usri falls cab giridih"
+    ],
     reviews: [
       { name: "Rakesh Jain", text: "Booked cab for Parasnath Hill pilgrimage from Giridih. Driver was experienced with hill routes. Excellent!", rating: 5 },
       { name: "Suman Kumari", text: "Great cab service for Giridih locals. Clean cars and reasonable pricing.", rating: 5 },
@@ -497,17 +588,32 @@ export const jharkhandCities: CityData[] = [
       "Masanjore Dam", "Sido Kanhu University", "Maluti Temples",
       "Baskinath Temple"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Masanjore Dam", distanceKm: 25, description: "Large dam on Mayurakshi river built by Canadian engineers. Scenic reservoir popular for boating and picnics.", type: "dam" },
+      { name: "Maluti Temples", distanceKm: 55, description: "Cluster of 72 ancient terracotta temples from the 17th-18th century. Known as the ‘Mini Khajuraho of Jharkhand’.", type: "temple" },
+      { name: "Baskinath Temple", distanceKm: 45, description: "Ancient Shiva temple with historical significance. Popular pilgrimage site in Santhal Pargana region.", type: "temple" }
+    ],
+    seoTitle: "Cab Service Dumka 2026 | Santhal Pargana Taxi | Sree Travels",
+    seoH1: "Cab Service in Dumka — Santhal Pargana Headquarters",
     seoDescription: "Dumka, the headquarters of Santhal Pargana division, is an important administrative city in eastern Jharkhand. It serves as a gateway to the Santhal tribal culture and heritage. Sree Travels provides cab services across Dumka for local travel, connections to Deoghar, Jamshedpur, and outstation journeys to Kolkata and Patna.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Dumka, the administrative headquarters of the Santhal Pargana division, is an important city in eastern Jharkhand. Known for its rich Santhal tribal culture and heritage, Dumka is a gateway to some of the most culturally significant sites in the region including the ancient Maluti Temples and the scenic Masanjore Dam.\n\nSree Travels provides reliable cab service in Dumka, connecting the city to Deoghar (65 km), Jamshedpur (300 km), Kolkata (350 km), and other major destinations. Whether you need a local taxi or outstation cab, we are available 24/7 with verified drivers.\n\nDumka is home to Sido Kanhu Murmu University, one of the largest universities in Jharkhand, and serves as the divisional headquarters for Santhal Pargana.\n\nBook now — WhatsApp +91 92047 14249.",
+    transportGuide: "🚂 BY TRAIN: Dumka Station connects to Jasidih Junction and Bhagalpur. Limited train service. Cab is the preferred mode of travel.\n\n✈️ BY AIR: Nearest airport is Deoghar Airport (DBR) — 60 km away. Sree Travels provides cab to/from Deoghar Airport.\n\n🚗 BY CAB: From Deoghar: 65 km (1.5 hrs). From Jamshedpur: 300 km (6 hrs). From Kolkata: 350 km (7 hrs). All routes by Sree Travels.",
+    corporateInfo: "Dumka serves as the administrative center of Santhal Pargana division. Sree Travels provides:\n\n🏛️ INSTITUTIONS: Sido Kanhu Murmu University, Dumka College, Dumka Medical College\n🏢 GOVERNMENT: Divisional Commissioner Office, District Collectorate\n\nContact: +919204714249",
+    stationInfo: "📍 DUMKA STATION: Town railway station with limited services. Cab available for local and outstation trips from station exit.",
+    hindiKeywords: [
+      "दुमका कैब सर्विस", "दुमका टैक्सी", "दुमका से देवघर कैब",
+      "दुमका से कोलकाता कैब", "संथाल परगना टैक्सी"
+    ],
+    nearMeKeywords: [
+      "cab near me dumka", "taxi near me dumka", "cheapest cab dumka",
+      "car rental dumka", "24 hour cab dumka"
+    ],
+    localKeywords: [
+      "dumka to deoghar cab", "dumka to jamshedpur cab", "dumka to kolkata taxi",
+      "dumka cab booking", "dumka local taxi", "dumka outstation cab",
+      "masanjore dam cab dumka", "maluti temple taxi", "best cab dumka 2026",
+      "dumka to ranchi cab", "dumka to patna cab"
+    ],
     reviews: [
       { name: "Santosh Murmu", text: "Best cab service available in Dumka. Clean cars and professional drivers.", rating: 5 },
       { name: "Rita Baskey", text: "Booked cab from Dumka to Deoghar for Baidyanath Dham visit. Very smooth ride.", rating: 5 },
@@ -545,17 +651,32 @@ export const jharkhandCities: CityData[] = [
       "Lupungutu Falls", "Hirni Falls", "Saranda Forest",
       "Kiriburu Hills", "Meghahatuburu"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Saranda Forest", distanceKm: 30, description: "Asia’s largest sal forest, home to elephants, leopards, and diverse wildlife. Stunning natural beauty.", type: "wildlife" },
+      { name: "Lupungutu Falls", distanceKm: 20, description: "Beautiful waterfall in the forested area near Chaibasa. Best visited during monsoon.", type: "waterfall" },
+      { name: "Kiriburu Hills", distanceKm: 60, description: "Scenic hill station in the iron ore belt. Cool climate and panoramic views of the Saranda forest.", type: "hill" }
+    ],
+    seoTitle: "Cab Service Chaibasa 2026 | West Singhbhum Taxi",
+    seoH1: "Cab Service in Chaibasa — West Singhbhum Headquarters",
     seoDescription: "Chaibasa, headquarters of West Singhbhum district, is a scenic town surrounded by hills and forests of the Saranda Forest Range. Known for its tribal culture and natural beauty, Chaibasa serves as a gateway to the mineral-rich region of southern Jharkhand. Sree Travels provides cab services for Chaibasa residents connecting to Jamshedpur, Ranchi, Rourkela, and beyond.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Chaibasa, the headquarters of West Singhbhum district, is a scenic town surrounded by the magnificent Saranda Forest — Asia’s largest sal forest. Located 65 km south of Jamshedpur, Chaibasa is a gateway to the mineral-rich belt of southern Jharkhand, home to iron ore mines of Kiriburu, Meghahatuburu, and Noamundi.\n\nSree Travels provides reliable cab service in Chaibasa, connecting residents to Jamshedpur (65 km, ₹1,499), Ranchi (170 km), Rourkela (90 km), and Kolkata (320 km). Local taxi service covers all town areas including Thakurbadi, Gudri, and Court Area.\n\nChaibasa is known for its tribal Ho culture, beautiful waterfalls like Lupungutu and Hirni, and the vast Saranda Forest with its rich wildlife.\n\nBook your cab — WhatsApp +91 92047 14249.",
+    transportGuide: "🚂 BY TRAIN: Chaibasa Station connects to Jamshedpur (Tatanagar) and Rourkela. Cab available from station.\n\n🚗 BY CAB: From Jamshedpur: 65 km (1.5 hrs, ₹1,499). From Ranchi: 170 km (4 hrs). From Rourkela: 90 km (2 hrs). All routes by Sree Travels.",
+    corporateInfo: "Chaibasa serves as the district headquarters and gateway to mining operations. Sree Travels provides:\n\n⛏️ MINING: SAIL Kiriburu, Meghahatuburu iron ore mines, Noamundi (Tata Steel)\n🏛️ INSTITUTIONS: Chaibasa Engineering College, Kolhan University\n🏢 GOVERNMENT: District Collectorate, Civil Court\n\nContact: +919204714249",
+    stationInfo: "📍 CHAIBASA STATION: Town railway station on the Tatanagar-Rourkela line. Cab available for pickup to all areas.",
+    hindiKeywords: [
+      "चाईबासा कैब सर्विस", "चाईबासा टैक्सी", "चाईबासा से जमशेदपुर कैब",
+      "चाईबासा कार रेंटल"
+    ],
+    nearMeKeywords: [
+      "cab near me chaibasa", "taxi near me chaibasa", "cheapest cab chaibasa",
+      "car rental chaibasa"
+    ],
+    localKeywords: [
+      "chaibasa to jamshedpur cab", "chaibasa to ranchi cab", "chaibasa to rourkela taxi",
+      "chaibasa cab booking", "chaibasa local taxi", "chaibasa outstation cab",
+      "saranda forest cab", "kiriburu cab", "best cab chaibasa 2026",
+      "chaibasa to kolkata cab"
+    ],
     reviews: [
       { name: "Birsa Hembrom", text: "Good cab service from Chaibasa to Jamshedpur. Always available when I need.", rating: 5 },
       { name: "Lakshmi Mahato", text: "Used Sree Travels for Chaibasa local travel. Affordable and reliable.", rating: 5 },
@@ -593,17 +714,32 @@ export const jharkhandCities: CityData[] = [
       "Kailash Parvat Temple", "Adityapur Industrial Complex",
       "Gamharia Market", "Seraikela Palace"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Adityapur Industrial Area", distanceKm: 0, description: "One of Asia’s largest industrial estates with 1,000+ factories. Major economic hub adjacent to Jamshedpur.", type: "other" },
+      { name: "Jubilee Park", distanceKm: 8, description: "Beautifully landscaped park in Bistupur built by Tata Steel. Features musical fountain, rose garden, and zoo.", type: "park" },
+      { name: "Seraikela Chhau Dance", distanceKm: 12, description: "Seraikela is famous for the ancient Chhau dance tradition — a UNESCO Intangible Cultural Heritage.", type: "other" }
+    ],
+    seoTitle: "Cab Service Adityapur/Gamharia 2026 | ₹799 | Industrial Area",
+    seoH1: "Cab Service in Adityapur/Gamharia — Asia’s Largest Industrial Area",
     seoDescription: "Adityapur (Gamharia), one of Asia's largest industrial areas, is located adjacent to Jamshedpur in Seraikela-Kharsawan district. The area is home to hundreds of industries and factories, making it a major hub for corporate and business travel. Sree Travels provides dedicated cab services for Adityapur's industrial workforce and residents for local commutes and outstation travel.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Adityapur, commonly known as Gamharia, is one of Asia’s largest industrial areas, located adjacent to Jamshedpur in the Seraikela-Kharsawan district. With over 1,000 factories and manufacturing units spread across Phase 1 and Phase 2, Adityapur is the backbone of Jharkhand’s industrial economy.\n\nSree Travels provides dedicated cab service for Adityapur’s vast industrial workforce. Whether you need daily commute from Adityapur to Bistupur, Mango, or Sakchi, or outstation travel to Ranchi (135 km), Kolkata (270 km), or Dhanbad (90 km) — our verified fleet is available 24/7.\n\nThe area also includes Seraikela, famous for the ancient Chhau dance tradition (UNESCO Intangible Heritage), and Kandra town. Sree Travels connects all these locations with reliable, affordable cab service.\n\nBook now — WhatsApp +91 92047 14249.",
+    transportGuide: "🚂 BY TRAIN: Gamharia Station serves the Adityapur area with connections to Jamshedpur and other cities. Cab pickup available.\n\n🚗 BY CAB: From Jamshedpur (Bistupur): 8 km (20 min). From Ranchi: 135 km (3 hrs). From Dhanbad: 90 km (2 hrs). All by Sree Travels.",
+    corporateInfo: "Adityapur is Jharkhand’s industrial powerhouse. Sree Travels provides corporate cab to:\n\n🏭 INDUSTRIES: Adityapur Industrial Area Phase 1 & 2, 1000+ factories\n🏭 COMPANIES: Auto component units, steel processing plants, engineering firms\n🏢 ADMIN: Seraikela-Kharsawan District HQ\n\nMonthly corporate packages from ₹12,999 | Employee shuttle service. Contact: +919204714249",
+    stationInfo: "📍 GAMHARIA STATION: Serves Adityapur Industrial Area. Cab available for all industrial zones and nearby towns.",
+    hindiKeywords: [
+      "आदित्यपुर कैब सर्विस", "गमहरिया टैक्सी", "आदित्यपुर से जमशेदपुर कैब",
+      "आदित्यपुर कार रेंटल"
+    ],
+    nearMeKeywords: [
+      "cab near me adityapur", "taxi near me gamharia", "cheapest cab adityapur",
+      "car rental adityapur", "cab near adityapur industrial area"
+    ],
+    localKeywords: [
+      "adityapur to jamshedpur cab", "gamharia to bistupur cab", "adityapur to ranchi taxi",
+      "adityapur cab booking", "adityapur corporate cab", "gamharia local taxi",
+      "adityapur to dhanbad cab", "seraikela cab service", "best cab adityapur 2026",
+      "kandra cab service", "adityapur industrial area taxi"
+    ],
     reviews: [
       { name: "Rohit Agarwal", text: "I use Sree Travels daily for my Adityapur to Bistupur commute. Very reliable service.", rating: 5 },
       { name: "Meera Devi", text: "Good cab service from Adityapur. Clean cars, always on time.", rating: 5 },
@@ -640,17 +776,32 @@ export const jharkhandCities: CityData[] = [
       "Patratu Valley", "Rajrappa Temple", "Patratu Dam",
       "Chitarpur Fort"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Patratu Valley", distanceKm: 15, description: "One of the most scenic drives in Jharkhand with breathtaking valley views and serpentine roads. Must-visit.", type: "nature" },
+      { name: "Rajrappa Temple", distanceKm: 30, description: "Sacred Chhinnamasta temple at the confluence of Damodar and Bhairavi rivers.", type: "temple" },
+      { name: "Patratu Dam", distanceKm: 18, description: "Scenic reservoir with boating facility. Popular sunset point and weekend getaway.", type: "dam" }
+    ],
+    seoTitle: "Cab Service Ramgarh 2026 | Patratu Valley Taxi | Sree Travels",
+    seoH1: "Cab Service in Ramgarh — Gateway to Patratu Valley",
     seoDescription: "Ramgarh, known for the scenic Patratu Valley and the sacred Rajrappa Temple, is an important town between Ranchi and Bokaro. The Ramgarh Cantonment area has historical military significance. Sree Travels serves Ramgarh residents with cab services to Ranchi, Bokaro, Hazaribagh, and all major Jharkhand destinations.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Ramgarh, officially Ramgarh Cantonment, is a scenic town located between Ranchi and Bokaro on NH-33. Known for the breathtaking Patratu Valley — one of the most beautiful drives in Jharkhand — and the sacred Rajrappa Temple, Ramgarh attracts both tourists and pilgrims.\n\nSree Travels provides reliable cab service in Ramgarh for local sightseeing (Patratu Valley, Rajrappa), outstation trips to Ranchi (60 km, ₹1,499), Bokaro (50 km), and Hazaribagh (55 km).\n\nThe town has historical military significance with the Ramgarh Cantonment area and serves as a major transit point between Ranchi and the coal belt.\n\nBook now — WhatsApp +91 92047 14249.",
+    transportGuide: "🚂 BY TRAIN: Ramgarh Cantonment Station on the Ranchi-Bokaro line. Cab available from station.\n\n🚗 BY CAB: From Ranchi: 60 km (1.5 hrs). From Bokaro: 50 km (1.5 hrs). From Hazaribagh: 55 km (1.5 hrs). All by Sree Travels.",
+    corporateInfo: "Ramgarh serves as a transit hub and tourist destination. Sree Travels provides:\n\n🏞️ TOURISM: Patratu Valley, Rajrappa Temple, Patratu Dam sightseeing cabs\n⛏️ MINING: CCL coal mines in the area\n🏛️ CANTONMENT: Military cantonment area transport\n\nContact: +919204714249",
+    stationInfo: "📍 RAMGARH CANTONMENT STATION: On the Ranchi-Dhanbad-Kolkata line. Cab available from station for all destinations.",
+    hindiKeywords: [
+      "रामगढ़ कैब सर्विस", "पतरातू वैली टैक्सी", "राजरप्पा मंदिर कैब",
+      "रामगढ़ से रांची कैब"
+    ],
+    nearMeKeywords: [
+      "cab near me ramgarh", "taxi near me ramgarh", "cheapest cab ramgarh",
+      "patratu valley cab", "rajrappa temple taxi"
+    ],
+    localKeywords: [
+      "ramgarh to ranchi cab", "ramgarh to bokaro cab", "ramgarh to hazaribagh taxi",
+      "patratu valley cab ramgarh", "rajrappa cab ramgarh", "ramgarh cab booking",
+      "ramgarh local taxi", "best cab ramgarh 2026", "ramgarh outstation cab",
+      "patratu dam taxi"
+    ],
     reviews: [
       { name: "Anil Kumar", text: "Good cab service from Ramgarh to Ranchi. Always available and affordable.", rating: 5 },
       { name: "Savita Devi", text: "Booked cab for Patratu Valley sightseeing. Great experience!", rating: 5 },
@@ -687,17 +838,31 @@ export const jharkhandCities: CityData[] = [
       "Tilaiya Dam", "Koderma Wildlife Sanctuary",
       "Jhumri Tilaiya Market"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Tilaiya Dam", distanceKm: 10, description: "First dam of DVC project, built on Barakar river. Scenic reservoir popular for picnics and boating.", type: "dam" },
+      { name: "Koderma Wildlife Sanctuary", distanceKm: 20, description: "Protected forest area with diverse wildlife. Nature trails and bird watching opportunities.", type: "wildlife" }
+    ],
+    seoTitle: "Cab Service Koderma 2026 | Mica City Taxi | Sree Travels",
+    seoH1: "Cab Service in Koderma — Mica City of India",
     seoDescription: "Koderma, known as the Mica City of India, is located in northern Jharkhand at the junction of major rail and road routes. The nearby town of Jhumri Tilaiya is famous as a cultural reference point. Sree Travels provides cab services from Koderma to major cities like Ranchi, Hazaribagh, Patna, and beyond.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Koderma, known as India’s Mica City, is located in northern Jharkhand at the junction of the Grand Chord railway line and NH-2. The district produces a significant portion of India’s mica output and serves as an important transit point between Ranchi and Patna.\n\nThe nearby town of Jhumri Tilaiya is famous across India as a cultural reference, often mentioned in Bollywood songs. Tilaiya Dam, the first dam of the DVC project, is a scenic attraction.\n\nSree Travels provides cab service from Koderma to Ranchi (150 km), Hazaribagh (60 km), Patna (200 km), and all major destinations.\n\nBook now — WhatsApp +91 92047 14249.",
+    transportGuide: "🚂 BY TRAIN: Koderma Junction is on the Delhi-Kolkata Grand Chord line. Well-connected by Rajdhani, Duronto, and other express trains. Cab pickup 24/7.\n\n🚗 BY CAB: From Hazaribagh: 60 km (1.5 hrs). From Ranchi: 150 km (3.5 hrs). From Patna: 200 km (4.5 hrs). All by Sree Travels.",
+    corporateInfo: "Koderma is a mica mining hub. Sree Travels provides:\n\n⛏️ MINING: Mica mines and processing units\n🏛️ INSTITUTIONS: Koderma College, DAV schools\n🏢 TRANSIT: Major stop between Ranchi and Patna\n\nContact: +919204714249",
+    stationInfo: "📍 KODERMA JUNCTION: Major junction on the Grand Chord line. Connected to Delhi, Kolkata, Ranchi, and Patna by express trains. Cab available 24/7.",
+    hindiKeywords: [
+      "कोडरमा कैब सर्विस", "कोडरमा टैक्सी", "कोडरमा से रांची कैब",
+      "झुमरी तिलैया टैक्सी"
+    ],
+    nearMeKeywords: [
+      "cab near me koderma", "taxi near me koderma", "cheapest cab koderma",
+      "cab near koderma junction"
+    ],
+    localKeywords: [
+      "koderma to ranchi cab", "koderma to hazaribagh cab", "koderma to patna taxi",
+      "koderma cab booking", "koderma local taxi", "koderma outstation cab",
+      "jhumri tilaiya cab", "tilaiya dam taxi", "best cab koderma 2026",
+      "koderma junction cab service"
+    ],
     reviews: [
       { name: "Dinesh Prasad", text: "Good cab service from Koderma. Used for Ranchi trip — very comfortable.", rating: 5 },
       { name: "Rashmi Kumari", text: "Reliable cab booking from Koderma. Sree Travels is our family's preferred service.", rating: 5 },
@@ -734,17 +899,30 @@ export const jharkhandCities: CityData[] = [
       "Gomoh Junction (historic)", "Topchanchi Lake (nearby)",
       "Bermo Industrial Area"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Topchanchi Lake", distanceKm: 20, description: "Scenic lake surrounded by dense forest. Popular for nature walks, bird watching, and picnics.", type: "lake" },
+      { name: "Gomoh Junction", distanceKm: 8, description: "Historic railway junction where Netaji Subhas Chandra Bose escaped British India in disguise.", type: "historical" }
+    ],
+    seoTitle: "Cab Service Phusro/Petarbar 2026 | Coal Belt Taxi",
+    seoH1: "Cab Service in Phusro/Petarbar — Bokaro Coal Belt",
     seoDescription: "Phusro (Petarbar), part of the Bokaro district coalfield region, is an important town on the Dhanbad-Bokaro corridor. Sree Travels provides cab services from Phusro connecting to Dhanbad, Bokaro, Ranchi, and other Jharkhand destinations.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Phusro (also known as Petarbar) is an important coal mining town in Bokaro district, located on the Dhanbad-Bokaro corridor. The town serves as a hub for coal industry workers and residents who need reliable transport to nearby cities.\n\nSree Travels provides cab service from Phusro to Dhanbad (30 km), Bokaro (35 km), Ranchi (140 km), and all major destinations. Whether it’s a daily commute or outstation trip, we have AC cabs available 24/7.\n\nNearby Gomoh Junction is a historically significant railway station where Netaji Subhas Chandra Bose made his famous escape from British India.\n\nBook now — WhatsApp +91 92047 14249.",
+    transportGuide: "🚂 BY TRAIN: Phusro Station and nearby Gomoh Junction on the Grand Chord line. Cab pickup available.\n\n🚗 BY CAB: From Dhanbad: 30 km (45 min). From Bokaro: 35 km (1 hr). From Ranchi: 140 km (3 hrs). All by Sree Travels.",
+    corporateInfo: "Phusro is a coal mining hub. Sree Travels provides:\n\n⛏️ MINING: BCCL and CCL coal mines\n🏭 INDUSTRIAL: Coal washeries and processing plants\n\nContact: +919204714249",
+    stationInfo: "📍 PHUSRO STATION: Local station with connections to Dhanbad and Bokaro. Cab available.\n\n📍 GOMOH JUNCTION: Historic junction 8 km away. Well-connected to Kolkata and Delhi. Cab available 24/7.",
+    hindiKeywords: [
+      "फुसरो कैब सर्विस", "पेटरबार टैक्सी", "फुसरो से धनबाद कैब",
+      "गोमोह जंक्शन टैक्सी"
+    ],
+    nearMeKeywords: [
+      "cab near me phusro", "taxi near me petarbar", "cheapest cab phusro",
+      "cab near gomoh junction"
+    ],
+    localKeywords: [
+      "phusro to dhanbad cab", "phusro to bokaro cab", "phusro to ranchi taxi",
+      "petarbar cab booking", "gomoh junction cab", "phusro local taxi",
+      "best cab phusro 2026", "phusro outstation cab"
+    ],
     reviews: [
       { name: "Govind Das", text: "Good cab service from Phusro. I commute to Dhanbad regularly. Sree Travels is reliable.", rating: 5 },
       { name: "Kiran Devi", text: "Used cab from Phusro to Bokaro. Clean car and fair price.", rating: 5 },
@@ -781,17 +959,33 @@ export const jharkhandCities: CityData[] = [
       "Betla National Park", "Netarhat (Hill Station)", "Lodh Falls",
       "Palamu Fort", "Mahuadanr Wolf Sanctuary"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Betla National Park", distanceKm: 25, description: "Tiger reserve and national park in Palamu. Home to elephants, tigers, bison. Safari drives available.", type: "wildlife" },
+      { name: "Netarhat", distanceKm: 150, description: "The 'Queen of Chotanagpur' — scenic hill station at 3,700 ft. Famous for sunrise/sunset point.", type: "hill" },
+      { name: "Lodh Falls", distanceKm: 60, description: "Highest waterfall in Jharkhand (143m). Stunning cascade surrounded by forest. Best visited during monsoon.", type: "waterfall" },
+      { name: "Palamu Fort", distanceKm: 30, description: "Ancient fort ruins on a hilltop. Historical significance dating back to Chero dynasty. Scenic views.", type: "historical" }
+    ],
+    seoTitle: "Cab Service Daltonganj 2026 | Betla & Netarhat Taxi",
+    seoH1: "Cab Service in Daltonganj — Gateway to Betla & Netarhat",
     seoDescription: "Daltonganj (Medininagar), the headquarters of Palamu district, is the gateway to Betla National Park and the scenic hill station of Netarhat. Located in western Jharkhand, Daltonganj is an important administrative and tourism center. Sree Travels provides cab services from Daltonganj to Ranchi, Netarhat, Betla, and other destinations.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Daltonganj, officially known as Medininagar, is the headquarters of Palamu district in western Jharkhand. It is the primary gateway to two of Jharkhand’s most famous tourist destinations — Betla National Park (tiger reserve with elephants, bison, and tigers) and Netarhat hill station (the ‘Queen of Chotanagpur’ at 3,700 feet).\n\nSree Travels provides cab service in Daltonganj for local travel, Betla safaris, Netarhat trips, and outstation journeys to Ranchi (160 km, ₹3,499), Hazaribagh, and Patna. Our drivers know the forest routes and scenic highways of western Jharkhand.\n\nThe Lodh Falls (143m), the tallest waterfall in Jharkhand, and the ancient Palamu Fort are other popular attractions accessible from Daltonganj.\n\nBook now — WhatsApp +91 92047 14249.",
+    transportGuide: "🚂 BY TRAIN: Daltonganj Station connects to Ranchi, Kolkata, and Delhi via select trains. Cab pickup available.\n\n🚗 BY CAB: From Ranchi: 160 km (4 hrs, ₹3,499). From Hazaribagh: 130 km (3 hrs). From Gaya: 140 km (3.5 hrs). All by Sree Travels.",
+    corporateInfo: "Daltonganj is a tourism and administrative hub. Sree Travels provides:\n\n🏞️ TOURISM: Betla safari, Netarhat trips, Lodh Falls tours, Palamu Fort visits\n🏛️ INSTITUTIONS: Palamu University, Medininagar College\n🏢 GOVERNMENT: Palamu District Collectorate\n\nContact: +919204714249",
+    stationInfo: "📍 DALTONGANJ STATION: Town station with connections to Ranchi and Kolkata. Cab available for Betla, Netarhat, and all destinations.",
+    hindiKeywords: [
+      "डालटनगंज कैब सर्विस", "बेतला नेशनल पार्क टैक्सी", "नेतरहाट कैब",
+      "मेदिनीनगर टैक्सी", "पलामू कैब सर्विस"
+    ],
+    nearMeKeywords: [
+      "cab near me daltonganj", "taxi near me daltonganj", "cheapest cab daltonganj",
+      "betla national park cab", "netarhat taxi"
+    ],
+    localKeywords: [
+      "daltonganj to ranchi cab", "daltonganj to netarhat cab", "betla safari cab",
+      "daltonganj cab booking", "daltonganj local taxi", "lodh falls cab",
+      "palamu fort taxi", "best cab daltonganj 2026", "daltonganj outstation cab",
+      "medininagar cab service", "daltonganj to patna cab"
+    ],
     reviews: [
       { name: "Rishab Kumar", text: "Booked cab from Daltonganj to Netarhat. Amazing scenic route, great cab service!", rating: 5 },
       { name: "Geeta Devi", text: "Used Sree Travels for Daltonganj to Ranchi trip. Very comfortable and on time.", rating: 5 },
@@ -828,17 +1022,27 @@ export const jharkhandCities: CityData[] = [
       "Rajmahal Hills", "Tolapahar", "Ganga River (Sahibganj)",
       "Kanhaiya Sthan Temple"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Rajmahal Hills", distanceKm: 45, description: "Scenic hills near the Ganga river with historical significance from Mughal era.", type: "hill" },
+      { name: "Tolapahar", distanceKm: 10, description: "Scenic hillock near Pakur town with views of surrounding countryside.", type: "hill" }
+    ],
+    seoTitle: "Cab Service Pakur 2026 | Northeast Jharkhand Taxi",
+    seoH1: "Cab Service in Pakur — Northeast Jharkhand",
     seoDescription: "Pakur, located in northeast Jharkhand near the Rajmahal Hills, is an emerging district headquarters. It serves as a gateway to Sahibganj and the Ganga river belt region. Sree Travels provides cab services from Pakur connecting to Dumka, Deoghar, Kolkata, and other major destinations.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Pakur, located in the northeastern corner of Jharkhand near the Rajmahal Hills, is an emerging district headquarters. The town serves as a gateway to the Ganga river belt region and the historic city of Sahibganj.\n\nSree Travels provides cab service from Pakur to Dumka (100 km), Deoghar (120 km), Kolkata (300 km), and other destinations. Our verified drivers ensure safe and comfortable travel on the rural roads of northeast Jharkhand.\n\nBook now — WhatsApp +91 92047 14249.",
+    transportGuide: "🚂 BY TRAIN: Pakur Station on the Sahebganj Loop line. Connections to Kolkata, Bhagalpur, and Dumka. Cab available.\n\n🚗 BY CAB: From Dumka: 100 km (2.5 hrs). From Deoghar: 120 km (3 hrs). From Kolkata: 300 km (6 hrs). All by Sree Travels.",
+    corporateInfo: "Pakur is an administrative center. Sree Travels provides:\n\n🏛️ INSTITUTIONS: Pakur College\n🏢 GOVERNMENT: Pakur District Collectorate\n\nContact: +919204714249",
+    stationInfo: "📍 PAKUR STATION: On the Sahebganj Loop line. Cab available from station.",
+    hindiKeywords: [
+      "पाकुड़ कैब सर्विस", "पाकुड़ टैक्सी", "पाकुड़ से दुमका कैब"
+    ],
+    nearMeKeywords: [
+      "cab near me pakur", "taxi near me pakur", "cheapest cab pakur"
+    ],
+    localKeywords: [
+      "pakur to dumka cab", "pakur to deoghar cab", "pakur to kolkata taxi",
+      "pakur cab booking", "pakur local taxi", "best cab pakur 2026"
+    ],
     reviews: [
       { name: "Ashok Marandi", text: "Good cab service from Pakur. Used for Dumka trip. Very reliable.", rating: 5 },
       { name: "Babita Devi", text: "Booked cab from Pakur to Deoghar for temple visit. Comfortable ride.", rating: 5 },
@@ -877,17 +1081,32 @@ export const jharkhandCities: CityData[] = [
       "Victoria Memorial", "Howrah Bridge", "Indian Museum",
       "Dakshineswar Kali Temple", "Science City", "Eco Park Newtown"
     ],
-    nearbyAttractions: [],
-    seoTitle: "",
-    seoH1: "",
+    nearbyAttractions: [
+      { name: "Victoria Memorial", distanceKm: 10, description: "Iconic white marble monument and museum. Must-visit Kolkata landmark.", type: "museum" },
+      { name: "Howrah Bridge", distanceKm: 5, description: "Iconic cantilever bridge over Hooghly river. Symbol of Kolkata.", type: "other" },
+      { name: "Dakshineswar Kali Temple", distanceKm: 20, description: "Famous Hindu temple on the banks of Hooghly river. Associated with Ramakrishna Paramahamsa.", type: "temple" }
+    ],
+    seoTitle: "Kolkata to Jamshedpur/Ranchi Cab ₹3,999 | Sree Travels",
+    seoH1: "Cab from Kolkata to Jamshedpur, Ranchi & Jharkhand",
     seoDescription: "Kolkata, the City of Joy and capital of West Bengal, is a major gateway for travel to Jharkhand. Located on the banks of the Hooghly River, it is connected to Jamshedpur, Ranchi, Dhanbad, and all Jharkhand cities via excellent highways. Sree Travels provides premium outstation cab services from Kolkata to all major Jharkhand cities and beyond with GPS-tracked fleet, AC cabs, and 24/7 availability. Book Kolkata to Jamshedpur cab, Kolkata to Ranchi cab at best fares.",
-    longDescription: "",
-    transportGuide: "",
-    corporateInfo: "",
-    stationInfo: "",
-    hindiKeywords: [],
-    nearMeKeywords: [],
-    localKeywords: [],
+    longDescription: "Kolkata, the City of Joy and capital of West Bengal, is the primary gateway for road travel to Jharkhand. With over 14.8 million people, Kolkata is the third-largest metropolitan area in India and a major business, cultural, and education hub.\n\nSree Travels provides premium outstation cab service from Kolkata to all major Jharkhand cities. Book Kolkata to Jamshedpur cab (₹3,999, 260 km, 5 hrs), Kolkata to Ranchi cab (₹5,999, 390 km, 7 hrs), Kolkata to Dhanbad (₹4,499, 270 km), and more.\n\nPickup available from Howrah Station, Sealdah Station, Netaji Subhas Chandra Bose Airport (CCU), Salt Lake, Newtown, and all Kolkata localities. Our drivers know the NH-49 and NH-19 routes thoroughly.\n\nBook now — WhatsApp +91 92047 14249.",
+    transportGuide: "✈️ AIRPORT: Netaji Subhas Chandra Bose International Airport (CCU) — cab to Jamshedpur from airport: ₹4,499.\n\n🚂 STATIONS: Howrah Junction and Sealdah Station — pickup available from both.\n\n🚗 BY CAB: From Kolkata to Jamshedpur: 260 km (5 hrs, ₹3,999). To Ranchi: 390 km (7 hrs, ₹5,999). To Dhanbad: 270 km (5 hrs, ₹4,499). All by Sree Travels.",
+    corporateInfo: "Kolkata is a major business hub with frequent travel to Jharkhand. Sree Travels provides:\n\n🏢 CORPORATE: Business travel to Jamshedpur (Tata Steel, Tata Motors)\n✈️ AIRPORT: CCU airport transfer to Jharkhand\n🏛️ INSTITUTIONS: IIM Calcutta, Jadavpur University transfers\n\nContact: +919204714249",
+    stationInfo: "📍 HOWRAH JUNCTION: India’s busiest station. Cab available for all Jharkhand destinations. Pickup from main exit.\n\n📍 SEALDAH STATION: Second major station. Cab available.\n\n📍 CCU AIRPORT: Cab from arrivals to all Jharkhand cities.",
+    hindiKeywords: [
+      "कोलकाता से जमशेदपुर कैब", "कोलकाता से रांची कैब", "कोलकाता टैक्सी",
+      "हावड़ा स्टेशन कैब"
+    ],
+    nearMeKeywords: [
+      "cab near me kolkata", "taxi near me howrah", "kolkata outstation cab",
+      "kolkata to jamshedpur cab near me"
+    ],
+    localKeywords: [
+      "kolkata to jamshedpur cab fare 2026", "kolkata to ranchi cab", "kolkata to dhanbad taxi",
+      "howrah to jamshedpur cab", "kolkata airport to jamshedpur cab",
+      "kolkata to tata cab", "kolkata to bokaro cab", "best kolkata to jharkhand cab 2026",
+      "sealdah to jamshedpur cab", "kolkata to deoghar cab"
+    ],
     reviews: [
       { name: "Subir Das", text: "Booked Sree Travels from Kolkata to Jamshedpur. Excellent service, car was on time at Howrah. Very comfortable journey.", rating: 5 },
       { name: "Meena Kumari", text: "Used their Kolkata to Ranchi cab service. Driver was experienced, AC car, very smooth ride. Will book again.", rating: 5 },

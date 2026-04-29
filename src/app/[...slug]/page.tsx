@@ -136,10 +136,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       const isRanchi = city.slug === 'ranchi';
       const titleName = isJSR ? 'Jamshedpur (Tata)' : city.name;
       const seoName = isJSR ? 'Jamshedpur, Tatanagar' : city.name;
-      const customTitle = city.seoTitle || `Best Cab Service in ${titleName} 2026 | ₹${city.localFare.hatchback_4hr} Onwards | Sree Travels`;
+      const customTitle = city.seoTitle || `Cab Service ${titleName} 2026 | ₹${city.localFare.hatchback_4hr} | Sree Travels`;
       return {
         title: customTitle,
-        description: `Book cab in ${isJSR ? 'Jamshedpur (Tata)' : city.name} ✅ AC cabs ₹${city.localFare.hatchback_4hr} onwards ✅ 24/7 ✅ Verified drivers ✅ GPS tracked. Outstation, airport & local taxi. ☎ +919204714249`,
+        description: `#1 cab in ${isJSR ? 'Jamshedpur (Tata)' : city.name} ✅ AC cabs ₹${city.localFare.hatchback_4hr} onwards ✅ 24/7 ✅ Verified drivers ✅ GPS tracked. Outstation, airport & local taxi. ☎ +919204714249`,
         keywords: [
           `cab service ${city.name.toLowerCase()}`, `taxi ${city.name.toLowerCase()}`, `taxi service ${city.name.toLowerCase()}`,
           `cab booking ${city.name.toLowerCase()}`, `car rental ${city.name.toLowerCase()}`, `best cab ${city.name.toLowerCase()}`,
@@ -187,7 +187,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       const isJSR = city.slug === 'jamshedpur';
       const titleName = isJSR ? 'Jamshedpur/Tata' : city.name;
       return {
-        title: `₹${service.startingPrice} | ${service.name} in ${titleName} 2026 | Sree Travels`,
+        title: `${service.name} ${titleName} ₹${service.startingPrice} | Sree Travels`,
         description: `${service.name} in ${isJSR ? 'Jamshedpur/Tata' : city.name} from ₹${service.startingPrice} ${service.priceUnit}. AC cab, verified driver, GPS tracked. 24/7 booking ☎ +919204714249`,
         keywords: [
           `${service.name.toLowerCase()} ${city.name.toLowerCase()}`,
@@ -211,7 +211,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       const city = getCityBySlug(matched.citySlug)!;
       const vehicle = getFleetBySlug(matched.fleetSlug)!;
       return {
-        title: `₹${vehicle.perKmRate}/km | ${vehicle.shortName} on Rent in ${city.name} 2026 | Sree Travels`,
+        title: `${vehicle.shortName} ${city.name} ₹${vehicle.perKmRate}/km | Hire 2026`,
         description: `Hire ${vehicle.shortName} in ${city.name} ₹${vehicle.perKmRate}/km. ${vehicle.seatingCapacity}-seater AC, GPS tracked, verified driver. ☎ +919204714249`,
         keywords: [
           `${vehicle.shortName.toLowerCase()} ${city.name.toLowerCase()}`,
@@ -249,8 +249,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       if (matched.to === 'ranchi') hindiRouteKw.push(`${route.fromName} से रांची कैब`);
 
       return {
-        title: `₹${route.fares.hatchback.toLocaleString()} | ${seoFromName} to ${seoToName} Cab 2026 | One Way & Round Trip`,
-        description: `${seoFromName} to ${seoToName} cab ₹${route.fares.hatchback.toLocaleString()} onwards. ${route.distanceKm}km, ${route.durationHrs}hrs. AC cab, toll included, verified driver. 24/7 booking ☎ +919204714249`,
+        title: `${seoFromName} to ${seoToName} Cab ₹${route.fares.hatchback.toLocaleString()} | 2026`,
+        description: `${seoFromName}→${seoToName} cab ₹${route.fares.hatchback.toLocaleString()}. ${route.distanceKm}km, ${route.durationHrs}hrs. AC, toll included, verified driver. 24/7 ☎ +919204714249`,
         keywords: [
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} cab`,
           `${route.fromName.toLowerCase()} to ${route.toName.toLowerCase()} taxi`,
@@ -288,7 +288,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           'geo.placename': fromCity ? `${fromCity.name}, Jharkhand` : 'Jharkhand',
           'geo.position': fromCity ? `${fromCity.latitude};${fromCity.longitude}` : '22.8046;86.2029',
           'ICBM': fromCity ? `${fromCity.latitude}, ${fromCity.longitude}` : '22.8046, 86.2029',
-          'dateModified': new Date().toISOString().split('T')[0],
+          'dateModified': '2026-04-29',
           'revisit-after': '7 days',
         },
       };

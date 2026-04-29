@@ -14,18 +14,18 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sree Travels | Best Cab Service in Jamshedpur (Tata) & Ranchi | ₹999 Onwards",
-    template: "%s | Sree Travels — Jharkhand's #1 Cab Service",
+    default: "Cab Service Jamshedpur & Ranchi | ₹999 | Sree Travels",
+    template: "%s | Sree Travels Jamshedpur",
   },
   description:
-    "Best cab service in Jamshedpur (Tata) & Ranchi ✅ AC cabs ₹999 onwards ✅ 24/7 ✅ Police-verified drivers ✅ GPS tracked. Outstation, airport & local taxi. ☎ +919204714249",
+    "#1 cab service in Jamshedpur (Tata) & Ranchi ✅ AC cabs ₹999 onwards ✅ 24/7 ✅ Police-verified drivers ✅ GPS tracked ✅ 50,000+ happy customers. Outstation, airport & local taxi. ☎ +919204714249",
   metadataBase: new URL("https://sreetravel.com"),
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://sreetravel.com",
     siteName: "Sree Travels",
-    title: "Sree Travels | Best Cab Service in Jamshedpur (Tata) & Ranchi, Jharkhand",
+    title: "Sree Travels — #1 Cab Service Jamshedpur (Tata) & Ranchi",
     description: "Book reliable AC cab service in Jamshedpur (Tata/Tatanagar), Ranchi, Dhanbad, Bokaro & 15+ Jharkhand cities. Police-verified drivers, fixed pricing, 24/7 availability. Tata to Ranchi cab ₹2,499. 50,000+ happy customers. Call +919204714249.",
     images: [
       {
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sree Travels — #1 Cab Service in Jamshedpur/Tata & Ranchi | ☎ +919204714249",
-    description: "Book AC cab in Jamshedpur (Tata), Ranchi, Dhanbad, Bokaro. 24/7, verified drivers, ₹11/km. Call +919204714249.",
+    title: "Sree Travels — Cab Service Jamshedpur & Ranchi ₹999",
+    description: "Book AC cab in Jamshedpur (Tata), Ranchi, Dhanbad, Bokaro. 24/7, verified drivers, ₹11/km. 50K+ happy rides. Call +919204714249.",
     images: ["/background/IMG-20250403-WA0019.jpg"],
   },
   robots: {
@@ -61,6 +61,7 @@ export const metadata: Metadata = {
     'geo.placename': 'Jamshedpur, Tata, Jharkhand',
     'geo.position': '22.8046;86.2029',
     'ICBM': '22.8046, 86.2029',
+    'application-name': 'Sree Travels',
     'author': 'Sree Travels',
     'format-detection': 'telephone=yes',
   },
@@ -386,17 +387,17 @@ export default function RootLayout({
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
         </a>
       </body>
-      {/* Google Analytics (gtag.js) — lazyOnload to avoid blocking main thread (saves ~940ms TBT) */}
+      {/* Google Analytics (gtag.js) — afterInteractive for accurate pageview tracking */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-F8MDEJ8F61"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="lazyOnload">
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-F8MDEJ8F61');
+          gtag('config', 'G-F8MDEJ8F61', { send_page_view: true });
         `}
       </Script>
     </html>

@@ -18,11 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://sreetravel.com';
 
   // Fixed dates — only update these when you ACTUALLY update content
-  const HOMEPAGE_DATE = '2026-04-23';
-  const CITY_DATE = '2026-04-20';
-  const ROUTE_DATE = '2026-04-20';
-  const SERVICE_DATE = '2026-04-15';
-  const FLEET_DATE = '2026-04-15';
+  // Last updated: 2026-04-29 — Major SEO overhaul: all city content, meta tags, schema updated
+  const HOMEPAGE_DATE = '2026-04-29';
+  const CITY_DATE = '2026-04-29';
+  const ROUTE_DATE = '2026-04-29';
+  const SERVICE_DATE = '2026-04-29';
+  const FLEET_DATE = '2026-04-29';
   const BLOG_DATE = '2026-04-10';
   const STATIC_DATE = '2026-04-01';
 

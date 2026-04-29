@@ -11,47 +11,64 @@ import { routes } from '@/lib/routes';
 import FareCalculator from '@/components/FareCalculator';
 
 export const metadata: Metadata = {
-  title: 'Sree Travels | ₹999 | Best Cab Service in Jamshedpur (Tata) & Ranchi 2026',
-  description: 'Best cab in Jamshedpur (Tata) & Ranchi ₹999 onwards. 24/7 AC cabs, verified drivers, GPS tracked. Tata to Ranchi ₹1,499. Call +919204714249.',
+  title: 'Cab Service Jamshedpur & Ranchi ₹999 | Sree Travels 2026',
+  description: '#1 cab in Jamshedpur (Tata) & Ranchi ₹999 onwards ✅ 24/7 AC cabs ✅ Verified drivers ✅ GPS tracked ✅ 50K+ rides. Tata→Ranchi ₹1,499. ☎ +919204714249',
   keywords: [
-    'sree travels', 'sree travels jamshedpur', 'sree travels tata',
-    'cab service in jamshedpur', 'cab service in tata', 'tata cab service', 'tatanagar taxi',
-    'best cab service jamshedpur tata', 'best cab service in jamshedpur',
-    'taxi tatanagar', 'car rental tata jamshedpur', 'car rental jamshedpur',
-    'cab ranchi', 'cab service ranchi', 'taxi ranchi',
-    'outstation cab jharkhand', 'outstation cab jamshedpur', 'outstation cab tata',
-    'one way cab jamshedpur', 'one way cab tata',
-    'airport taxi ranchi', 'airport cab ranchi',
-    'car rental jharkhand', 'cab service jharkhand',
+    // Brand
+    'sree travels', 'sree travels jamshedpur', 'sree travels tata', 'sree travels ranchi', 'sreetravel.com',
+    // Primary — high volume
+    'cab service jamshedpur', 'cab service in jamshedpur', 'cab service in tata', 'tata cab service', 'tatanagar taxi',
+    'best cab service jamshedpur', 'best cab service in jamshedpur 2026', 'best taxi service jamshedpur',
+    'taxi jamshedpur', 'taxi service jamshedpur', 'taxi booking jamshedpur',
+    'car rental jamshedpur', 'car rental tata', 'car hire jamshedpur',
+    'cab service ranchi', 'cab ranchi', 'taxi ranchi', 'taxi service ranchi', 'car rental ranchi',
+    'cab service jharkhand', 'taxi jharkhand', 'car rental jharkhand',
+    // Near me (very high mobile intent)
+    'cab near me', 'taxi near me', 'cab near me jamshedpur', 'taxi near me jamshedpur',
+    'cab service near me', 'taxi service near me', 'car rental near me',
+    'cab near tatanagar station', 'cab near me tata', 'taxi near me ranchi',
+    // Route — highest conversion
     'jamshedpur to ranchi cab', 'tata to ranchi cab', 'tatanagar to ranchi cab',
     'ranchi to jamshedpur cab', 'ranchi to tata cab',
-    'jamshedpur to kolkata cab', 'tata to kolkata cab',
-    'kolkata to jamshedpur cab', 'kolkata to tata cab', 'kolkata to jamshedpur taxi',
-    'ranchi to kolkata cab', 'ranchi to kolkata taxi',
-    'jamshedpur to ranchi taxi fare', 'ranchi to jamshedpur taxi fare',
-    'jamshedpur to kolkata taxi fare', 'kolkata to jamshedpur cab fare',
-    'cab booking online jharkhand', 'taxi near me jamshedpur',
-    'book cab online jharkhand', '24/7 cab service tata tatanagar',
-    'cab dhanbad', 'cab bokaro', 'cab hazaribagh',
-    'jamshedpur to dhanbad cab', 'jamshedpur to bokaro cab',
-    'best taxi service in tata', 'cheapest cab in jamshedpur',
-    'tata to dhanbad cab', 'tata to bokaro cab', 'tata to kolkata cab',
-    // Competitor-beating long-tail keywords
-    'savaari alternative jamshedpur', 'makemytrip cab jamshedpur to ranchi',
-    'gozo cab alternative ranchi', 'cheapest cab ranchi to kolkata',
-    'one way taxi jamshedpur to kolkata', 'one way cab ranchi to jamshedpur',
-    'cab service jamshedpur to ranchi fare 2026', 'ranchi to jamshedpur cab fare 2026',
-    'jamshedpur to kolkata distance by cab', 'kolkata to jamshedpur one way cab',
-    'best cab service jharkhand 2026', 'trusted cab service jamshedpur tata 2026',
-    'cab near tatanagar station', 'cab from tatanagar railway station',
-    'ranchi airport to jamshedpur cab', 'birsa munda airport cab to jamshedpur',
+    'jamshedpur to kolkata cab', 'tata to kolkata cab', 'kolkata to jamshedpur cab',
+    'ranchi to kolkata cab', 'ranchi to patna cab',
+    'jamshedpur to dhanbad cab', 'jamshedpur to bokaro cab', 'jamshedpur to puri cab',
+    // Price-intent
+    'jamshedpur to ranchi cab fare', 'jamshedpur to ranchi cab fare 2026',
+    'tata to ranchi taxi fare', 'jamshedpur to kolkata cab fare',
+    'cheapest cab jamshedpur', 'cheapest cab jamshedpur to ranchi',
+    'affordable cab jamshedpur', 'low price cab jamshedpur',
+    // Service type
+    'outstation cab jamshedpur', 'one way cab jamshedpur', 'round trip cab jamshedpur',
+    'airport taxi ranchi', 'airport cab ranchi', 'birsa munda airport taxi',
+    'local taxi jamshedpur', 'hourly cab jamshedpur',
+    'corporate cab jamshedpur', 'wedding car jamshedpur',
+    // Vehicle-specific
+    'innova crysta hire jamshedpur', 'innova on rent jamshedpur', 'ertiga cab jamshedpur',
+    'swift dzire cab jamshedpur', 'tempo traveller jamshedpur',
+    // Hindi
+    'जमशेदपुर कैब सर्विस', 'टाटा कैब सर्विस', 'रांची कैब सर्विस',
+    'जमशेदपुर से रांची कैब', 'टाटा से रांची टैक्सी',
+    // Booking intent
+    'book cab online jamshedpur', 'cab booking jamshedpur', 'taxi booking online jharkhand',
+    'whatsapp cab booking jamshedpur', '24/7 cab service jamshedpur',
+    // Competitor-beating
+    'ola alternative jamshedpur', 'uber alternative jamshedpur',
+    'savaari alternative jamshedpur', 'gozo cab alternative ranchi',
+    'cab from tatanagar railway station', 'ranchi airport to jamshedpur cab',
   ],
   alternates: { canonical: 'https://sreetravel.com' },
   openGraph: {
-    title: 'Sree Travels | Best Cab Service in Jamshedpur (Tata) & Ranchi, Jharkhand',
-    description: 'Book reliable AC cabs in Jamshedpur/Tata & Ranchi — 15+ cities, 100+ cabs, 24/7. Tata to Ranchi ₹2,499. ☎ +919204714249',
+    title: 'Sree Travels — #1 Cab Service Jamshedpur & Ranchi ₹999',
+    description: 'Book reliable AC cabs in Jamshedpur/Tata & Ranchi — 15+ cities, 100+ cabs, 24/7. Tata→Ranchi ₹1,499. 50K+ happy rides. ☎ +919204714249',
     url: 'https://sreetravel.com',
-    images: [{ url: '/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: 'Sree Travels Best Cab Service Jamshedpur Tata Ranchi Jharkhand' }],
+    images: [{ url: 'https://sreetravel.com/background/IMG-20250403-WA0019.jpg', width: 1200, height: 630, alt: 'Sree Travels — Best Cab Service in Jamshedpur Tata and Ranchi Jharkhand' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cab Service Jamshedpur & Ranchi ₹999 | Sree Travels',
+    description: '#1 rated. 50K+ rides. 24/7 AC cabs. ☎ +919204714249',
+    images: ['https://sreetravel.com/background/IMG-20250403-WA0019.jpg'],
   },
 };
 
@@ -302,9 +319,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* HOW TO BOOK */}
+      {/* HOW TO BOOK — with HowTo schema for rich snippets */}
       <section className="section-spacing" style={{ background: 'linear-gradient(180deg, var(--dark) 0%, rgba(6,78,59,0.06) 50%, var(--dark) 100%)' }}>
         <div className="container-main">
+          {/* HowTo Schema — triggers rich snippet in Google */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'HowTo',
+                'name': 'How to Book a Cab in Jamshedpur & Ranchi with Sree Travels',
+                'description': 'Book a reliable AC cab in Jamshedpur (Tata), Ranchi, or anywhere in Jharkhand in just 30 seconds via WhatsApp or phone call.',
+                'totalTime': 'PT1M',
+                'estimatedCost': { '@type': 'MonetaryAmount', 'currency': 'INR', 'value': '999' },
+                'step': [
+                  { '@type': 'HowToStep', 'position': 1, 'name': 'Call or WhatsApp', 'text': 'Contact Sree Travels at +91 92047 14249 via call or WhatsApp. Share your travel plan — pickup location, destination, date/time.' },
+                  { '@type': 'HowToStep', 'position': 2, 'name': 'Get Instant Quote', 'text': 'Share pickup, destination, date and cab type (Hatchback/Sedan/SUV/Innova). Get instant fare quote with zero hidden charges.' },
+                  { '@type': 'HowToStep', 'position': 3, 'name': 'Ride Confirmed', 'text': 'Get confirmed booking with driver name, phone number, vehicle number and GPS tracking link on WhatsApp. Driver arrives 10 min early.' },
+                ],
+              }),
+            }}
+          />
+          {/* ItemList Schema — cities served */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'ItemList',
+                'name': 'Cities Served by Sree Travels',
+                'numberOfItems': jharkhandCities.length,
+                'itemListElement': jharkhandCities.slice(0, 10).map((city, i) => ({
+                  '@type': 'ListItem',
+                  'position': i + 1,
+                  'name': `Cab Service in ${city.name}`,
+                  'url': `https://sreetravel.com/cab-service-${city.slug}`,
+                })),
+              }),
+            }}
+          />
           <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
             <span className="gold-text">Book Your Cab</span> in 3 Easy Steps
           </h2>
