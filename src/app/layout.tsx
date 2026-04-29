@@ -7,9 +7,10 @@ import { Inter } from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-inter',
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -94,13 +95,7 @@ export default function RootLayout({
         {/* Performance: DNS prefetch for deferred third-party scripts */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        <link rel="icon" href="/favicon.ico" sizes="48x48" />
-        <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
-        <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
-        <link rel="icon" href="/android-chrome-192x192.png" sizes="192x192" type="image/png" />
-        <link rel="icon" href="/android-chrome-512x512.png" sizes="512x512" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
-        <link rel="manifest" href="/site.webmanifest" />
+        {/* Preload critical font to prevent render-blocking */}
         <meta name="theme-color" content="#f59e0b" />
         <link rel="alternate" hrefLang="en-IN" href="https://sreetravel.com" />
         <link rel="alternate" hrefLang="x-default" href="https://sreetravel.com" />
@@ -387,12 +382,12 @@ export default function RootLayout({
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
         </a>
       </body>
-      {/* Google Analytics (gtag.js) — afterInteractive for accurate pageview tracking */}
+      {/* Google Analytics (gtag.js) — lazyOnload to avoid blocking render (saves ~170KB from critical path) */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-F8MDEJ8F61"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

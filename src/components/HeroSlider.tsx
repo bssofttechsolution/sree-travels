@@ -49,7 +49,7 @@ export default function HeroSlider() {
             src={src}
             alt={`Sree Travels - Best Cab Service in Jamshedpur Tata Ranchi - Fleet ${index + 1}`}
             fill
-            quality={45}
+            quality={30}
             priority={index === 0}
             loading={index === 0 ? 'eager' : 'lazy'}
             sizes="100vw"
